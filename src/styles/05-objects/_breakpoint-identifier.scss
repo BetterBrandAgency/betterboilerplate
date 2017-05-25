@@ -1,0 +1,30 @@
+//
+// Breakpoint Identifier
+//
+
+@if $use-breakpoint-identifier == true {
+
+    .breakpoint-identifier {
+        position: fixed;
+        bottom: $base-spacing-unit * 3;
+        right: 0;
+        z-index: 5000;
+        background: $color-better-pink;
+        color: white;
+        padding: ($half-spacing-unit / 2) $half-spacing-unit;
+        border-radius: 5px 0 0 5px;
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2);
+
+        &:after {
+            content:attr(data-width) ' x ' attr(data-height);
+        }
+
+    }
+
+} @else {
+
+    .breakpoint-identifier {
+        display: none;
+    }
+
+}

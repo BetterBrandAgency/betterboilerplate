@@ -1,0 +1,19 @@
+//
+// Animation - Background Gradient
+//
+
+@keyframes animation-background-gradient {
+
+	0% {
+		background-position: 0% 7%;
+	}
+
+	50% {
+		background-position: 100% 94%;
+	}
+
+	100% {
+		background-position: 0% 7%;
+	}
+
+}

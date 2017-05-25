@@ -1,0 +1,38 @@
+//
+// Image Basics
+//
+
+    /////
+    //
+    // Fluid images.
+    // Images by default will be fluid
+    //
+    /////
+
+    img {
+        max-width:100%;
+        height: auto;
+    }
+
+
+    /////
+    //
+    // Non-fluid images if you specify `width` and/or `height` attributes.
+    // Any image with a hight or width attribute specified will not be fluid.
+    //
+    /////
+
+    img[width],
+    img[height]{
+        max-width:none;
+    }
+
+    /////
+    //
+    // Images inside a <figure> element will be displayed block
+    //
+    /////
+
+    figure > img{
+        display:block;
+    }

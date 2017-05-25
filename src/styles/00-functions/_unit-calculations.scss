@@ -1,0 +1,19 @@
+//
+// Unit Calculation Functions
+//
+
+@function strip-unit($number) {
+    @if type-of($number) == 'number' and not unitless($number) {
+        @return $number / ($number * 0 + 1);
+    }
+
+    @return $number;
+}
+
+@function px-to-rem($number) {
+    @return $number / $base-font-size * 1rem;
+}
+
+@function rem-to-px($number) {
+    @return strip-unit($number) * $base-font-size;
+}

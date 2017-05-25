@@ -1,0 +1,47 @@
+//
+// Forms
+//
+
+textarea,
+select,
+input {
+    width:100%;
+    border: 1px solid $color-form-border;
+    padding: $base-spacing-unit/2;
+    background-color: white;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    width: auto;
+    margin-right: $half-spacing-unit / 2;
+}
+
+textarea {
+    max-width: 100%;
+    resize: vertical;
+}
+
+label {
+    display: inline-block;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border: 1px solid $color-form-highlight;
+    box-shadow: 0 none;
+    outline: none;
+}
+
+select option:disabled {
+    color: #9E9E9E !important;
+}
+
+fieldset {
+    padding: $base-spacing-unit;
+}
+
+legend {
+    padding: 0 $half-spacing-unit;
+}

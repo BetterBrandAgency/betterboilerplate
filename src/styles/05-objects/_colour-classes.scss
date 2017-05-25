@@ -1,0 +1,36 @@
+//
+// Colour Classes
+//
+
+//
+// <p class="color--alpha">Paragraph using the main site colour</p>
+// <p class="color--bravo">Paragraph using the secondary site colour</p>
+
+// <div class="background--alpha padding">Box using the main site colour as a background</div>
+// <div class="background--bravo padding">Box using the main site colour as a background</div>
+//
+
+@if $use-colour-classes == true {
+
+	$color-list: (
+		alpha $color-alpha,
+		bravo $color-bravo,
+		twitter $color-twitter,
+		error $color-error,
+		warning $color-warning,
+		success $color-success
+	);
+
+	@each $name, $color in $color-list {
+
+		.color--#{$name} {
+			color: $color;
+		}
+
+		.background--#{$name} {
+			background-color: $color;
+		}
+
+	}
+
+}

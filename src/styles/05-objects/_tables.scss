@@ -1,0 +1,22 @@
+//
+// Tables
+//
+
+$table-highlight-bg-colour: #efefef;
+$table-highlight-colour: $color-base-text;
+
+$table-header-bg-colour: $color-alpha;
+$table-header-colour: white;
+
+.table {
+
+	th {
+		background-color: $table-header-bg-colour;
+		color: $table-header-colour;
+	}
+
+	td {
+		padding: $half-spacing-unit;
+	}
+
+}

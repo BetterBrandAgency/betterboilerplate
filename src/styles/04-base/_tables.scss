@@ -1,0 +1,29 @@
+/////
+//
+// Tables
+//
+/////
+
+table {
+	table-layout: fixed;
+	width: 100%;
+	border: 1px solid $color-border;
+	@extend %word-wrap;
+}
+
+td,
+th,
+tr {
+	border: 1px solid $color-border;
+	@extend %word-wrap;
+}
+
+td,
+th {
+	padding: $half-spacing-unit;
+}
+
+th {
+	background-color: lighten($color-border, 20%);
+	text-align: left;
+}

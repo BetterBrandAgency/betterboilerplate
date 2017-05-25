@@ -1,0 +1,11 @@
+//
+// Horizontal Rule (<hr>)
+//
+
+.hr {
+
+	&--alpha {
+		border-bottom: 1px solid $color-alpha;
+	}
+
+}

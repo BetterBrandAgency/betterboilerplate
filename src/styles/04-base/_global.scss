@@ -1,0 +1,41 @@
+//
+// Global
+//
+
+* {
+
+    &,
+    &:before,
+    &:after {
+        box-sizing: border-box;
+    }
+
+}
+
+html {
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+    overflow-y: scroll;
+    min-height: 100%;
+}
+
+body {
+    font-family: $font-family-alpha;
+    text-rendering: optimizeLegibility;
+    background-color: $color-base-background;
+    color: $color-base-text;
+
+    @if $use-font-smoothing == true {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+}
+
+b, strong {
+    font-weight: bold;
+}
+
+u {
+    text-decoration: underline;
+}

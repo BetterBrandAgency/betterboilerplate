@@ -1,0 +1,69 @@
+//
+// Headings
+//
+
+$modular-scale: 1.125;
+
+@include headings(1, 6) {
+	line-height: 1;
+}
+
+// h1,
+// .h1 {
+// 	@include responsive-typography(modular-scale($base-font-size * 2, $modular-scale, 1), modular-scale($base-font-size * 2, $modular-scale, 2), $responsive-start, $responsive-end);
+// }
+
+// h2,
+// .h2 {
+// 	@include responsive-typography(modular-scale($base-font-size, $modular-scale, 2), modular-scale($base-font-size, $modular-scale, 3), $responsive-start, $responsive-end);
+// }
+
+// h3,
+// .h3 {
+// 	@include responsive-typography(modular-scale($base-font-size * 2, $modular-scale, 0), modular-scale($base-font-size * 2, $modular-scale, 1), $responsive-start, $responsive-end);
+// }
+
+// h4,
+// .h4 {
+// 	@include responsive-typography(modular-scale($base-font-size, $modular-scale, 1), modular-scale($base-font-size, $modular-scale, 2), $responsive-start, $responsive-end);
+// }
+
+// h5,
+// .h5 {
+// 	@include font-size(modular-scale($base-font-size, $modular-scale, 1));
+// }
+
+// h6,
+// .h6 {
+// 	@include font-size(modular-scale($base-font-size, $modular-scale, 0));
+// }
+
+h1,
+.h1 {
+	@include responsive-typography(modular-scale($base-font-size, $modular-scale, 3), modular-scale($base-font-size, $modular-scale, 4), $responsive-start, $responsive-end);
+}
+
+h2,
+.h2 {
+	@include responsive-typography(modular-scale($base-font-size, $modular-scale, 2), modular-scale($base-font-size, $modular-scale, 3), $responsive-start, $responsive-end);
+}
+
+h3,
+.h3 {
+	@include responsive-typography(modular-scale($base-font-size, $modular-scale, 1), modular-scale($base-font-size, $modular-scale, 2), $responsive-start, $responsive-end);
+}
+
+h4,
+.h4 {
+	@include font-size(modular-scale($base-font-size, $modular-scale, 1));
+}
+
+h5,
+.h5 {
+	@include font-size(modular-scale($base-font-size, $modular-scale, 0));
+}
+
+h6,
+.h6 {
+	@include font-size(modular-scale($base-font-size, $modular-scale, -1));
+}

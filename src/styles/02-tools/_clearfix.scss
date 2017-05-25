@@ -1,0 +1,23 @@
+/////
+//
+// Mixin - Clearfix
+// (clearfix is usually used on the parent of floated elements)
+//
+// @extend %clearfix;
+//
+/////
+
+%clearfix {
+
+	*zoom: 1;
+
+	&:before, &:after {
+		content: " ";
+		display: table;
+	}
+
+	&:after {
+		clear: both;
+	}
+
+}

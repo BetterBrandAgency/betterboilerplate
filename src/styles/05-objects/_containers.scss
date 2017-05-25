@@ -1,0 +1,35 @@
+//
+// Containers - Theme
+//
+
+// Container Max Width's (Center Main Content)
+
+.content--width {
+    max-width: $content-width;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content--width-small {
+    max-width: $content-width-small;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content--width-smallest {
+    max-width: $content-width-smallest;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content--width-large {
+    max-width: $content-width-large;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content--width-largest {
+    max-width: $content-width-large;
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -1,0 +1,11 @@
+//
+// IE Specific Media Query
+//
+
+@mixin ie {
+
+	@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+		@content;
+	}
+
+}

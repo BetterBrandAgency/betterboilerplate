@@ -1,0 +1,47 @@
+//
+// Video Container - Theme
+//
+
+/*
+	<div class="video-container">
+		<iframe src="https://www.youtube.com/embed/p5-gsoCb-oU" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+	</div>
+*/
+
+@if $use-respsonsive-video == true {
+
+	.video-container {
+	    position: relative;
+	    padding-bottom: 56.25%;
+	    padding-top: 35px;
+	    height: 0;
+	    overflow: hidden;
+
+		// Facebook Specific
+			p {
+				margin: 0;
+				opacity: 0;
+				height: 0;
+				width: 0;
+			}
+
+			span {
+				width: 100% !important;
+				height: auto !important;
+			}
+
+			.fb-video {
+				width: 100%;
+			}
+
+	}
+
+	.video-container iframe {
+	    position: absolute;
+	    top:0;
+	    left: 0;
+	    width: 100% !important;
+	    height: 100%;
+	}
+
+}

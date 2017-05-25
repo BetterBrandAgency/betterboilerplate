@@ -1,0 +1,26 @@
+/////
+//
+// Definition List
+//
+/////
+
+dl {
+	margin: ($base-spacing-unit * 2) 0 0 $base-spacing-unit;
+}
+
+dt {
+    @include font-size(20px, false);
+	color: $color-alpha;
+    margin-bottom: $half-spacing-unit / 2;
+}
+
+dd {
+	margin: 0 0 ($base-spacing-unit * 2);
+
+	&:after {
+		content:"";
+		display: block;
+		clear: left;
+	}
+
+}

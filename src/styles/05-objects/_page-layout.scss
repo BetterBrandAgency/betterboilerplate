@@ -1,0 +1,65 @@
+//
+// Page Layout
+//
+
+$page-breakpoint: $base-spacing-unit * 30;
+
+.page-layout {
+
+	@media screen and (min-width: $page-breakpoint) {
+
+		display: flex;
+
+		&__main-container {
+			@include flex(0, 1, percentage(4.5/7));
+		}
+
+		&__sidebar-container {
+			@include flex(1, 0, percentage(2.5/7));
+		}
+
+		// Padding
+		& > *:nth-child(1) {
+			padding-right: 1.5rem;
+		}
+
+		& > *:nth-child(2) {
+			padding-left: 1.5rem;
+		}
+
+	}
+
+}
+
+.page-layout--three {
+
+	.page-layout {
+
+		@media screen and (min-width: $page-breakpoint) {
+
+			&__main-container {
+				@include flex(0, 1, percentage(4/7));
+			}
+
+			&__sidebar-container {
+				@include flex(1, 0, percentage(1.5/7));
+			}
+
+		}
+
+	}
+
+	@media screen and (min-width: $page-breakpoint) {
+
+		// Padding
+		& > *:nth-child(2) {
+			padding-right: 1.5rem;
+		}
+
+		& > *:nth-child(3) {
+			padding-left: 1.5rem;
+		}
+
+	}
+
+}

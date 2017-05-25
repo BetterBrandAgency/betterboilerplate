@@ -1,0 +1,22 @@
+/////
+//
+// Mixin - Style all headings in one fell swoop
+// should be used sparingly.
+//
+// @include headings(1,6) {}
+//
+/////
+
+@mixin headings($from: 1, $to: 6){
+    %base-heading {
+        @content
+    }
+
+    @if $from >= 1 and $to <= 6{
+        @for $i from $from through $to{
+            h#{$i}{
+                @extend %base-heading;
+            }
+        }
+    }
+}

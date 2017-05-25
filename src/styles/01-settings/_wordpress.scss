@@ -1,0 +1,38 @@
+@if $use-wordpress-styles == true {
+
+    //
+    // Custom Wordpress Login Themes
+    //
+
+        $use-stealth-wp-login-theme:                        false; // Stealth theme is black and dark grey
+
+    //
+    // Normal Theme
+    //
+
+        $wp-login-company-logo: '../images/casper-port-agency.svg';
+        $wp-login-company-logo-width: 266px;
+        $wp-login-company-logo-height: 79px;
+
+        $wp-login-background-color: #1c1c1c;
+        $wp-login-background-image: '../images/better/better-logo.svg';
+        $wp-login-background-position: bottom $base-spacing-unit right $base-spacing-unit;
+        $wp-login-background-size: 75px auto;
+        $wp-login-background-link-color: $color-alpha;
+
+        $wp-login-form-background-color: #292929;
+        $wp-login-form-text-color: $color-alpha;
+        $wp-login-form-border-color: $wp-login-form-background-color;
+        $wp-login-form-button-color: $color-alpha;
+        $wp-login-form-button-text-color: $wp-login-form-background-color;
+        $wp-login-form-absolute-center: true;
+
+        $wp-login-message-background-color: $color-alpha;
+        $wp-login-message-text-color: $wp-login-form-background-color;
+        $wp-login-message-is-fixed: true;
+        $wp-login-message-is-fixed--top: true;
+        $wp-login-message-is-fixed--bottom: false;
+
+        $wp-login-form-height: 44em; // height is for vertical centering
+
+}

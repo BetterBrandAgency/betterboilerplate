@@ -1,0 +1,183 @@
+//
+// Wordpress Login Styles
+//
+
+@if $use-wordpress-styles == true {
+
+    //
+    // Normal Theme
+    //
+
+        $wp-login-company-logo: '../images/better/better-logo.svg' !default;
+        $wp-login-company-logo-width: 250px !default;
+        $wp-login-company-logo-height: 53px !default;
+
+        $wp-login-background-color: #eee !default;
+        $wp-login-background-image: '../images/better/better-logo.svg' !default;
+        $wp-login-background-position: bottom $base-spacing-unit right $base-spacing-unit !default;
+        $wp-login-background-size: 75px auto !default;
+        $wp-login-background-link-color: $color-bravo !default;
+
+        $wp-login-form-background-color: white !default;
+        $wp-login-form-text-color: $color-bravo !default;
+        $wp-login-form-border-color: $color-bravo !default;
+        $wp-login-form-button-color: $color-bravo !default;
+        $wp-login-form-button-text-color: white !default;
+        $wp-login-form-absolute-center: true !default;
+
+        $wp-login-message-background-color: $color-bravo !default;
+        $wp-login-message-text-color: white !default;
+        $wp-login-message-is-fixed: true !default;
+        $wp-login-message-is-fixed--top: true !default;
+        $wp-login-message-is-fixed--bottom: false !default;
+
+        $wp-login-form-height: 44em !default; // height is for vertical centering
+
+
+    .login form {
+        margin-top:0;
+    }
+
+    body.login div#login h1 a {
+        background-image: url($wp-login-company-logo);
+        width: $wp-login-company-logo-width;
+        height: $wp-login-company-logo-height;
+        background-size: auto;
+        margin: 0 auto;
+
+        &:focus,
+        &:active {
+            outline: none;
+            border: 0 none;
+            box-shadow: none;
+        }
+
+    }
+
+    body.login {
+        background-color: $wp-login-background-color;
+
+        @media screen and (min-width: ($base-spacing-unit * 30)) {
+            background-image: url($wp-login-background-image);
+            background-position: $wp-login-background-position;
+            background-size: $wp-login-background-size;
+            background-repeat: no-repeat;
+        }
+
+    }
+
+    @if $wp-login-form-absolute-center == true {
+
+        @media screen and (min-width: ($base-spacing-unit * 30)) {
+
+            body.login div#login {
+                width: 320px;
+                margin: auto;
+                padding: 0;
+                position: absolute;
+                top: 0px;
+                bottom: 0px;
+                left: 0px;
+                right: 0px;
+                height: $wp-login-form-height;
+            }
+
+        }
+
+    }
+
+    body.login div#login h1 {
+        margin-bottom: $base-spacing-unit * 2;
+    }
+
+    .login .message {
+        margin-bottom: $half-spacing-unit;
+    }
+
+    body.login div#login form#loginform,
+    body.login div#login form#lostpasswordform{
+        box-shadow: inherit;
+        -webkit-box-shadow: inherit;
+        background-color: $wp-login-form-background-color;
+        border: 1px solid $wp-login-form-border-color;
+    }
+
+    body.login div#login form#loginform p label {
+        @include font-size($base-font-size, false, false);
+        line-height: 1.8;
+        color: $wp-login-form-text-color;
+        width: 100%;
+    }
+
+    body.login div#login form#loginform input.input {
+        @include font-size(16px,false,false);
+        padding: $half-spacing-unit;
+    }
+
+    body.login div#login p#nav {
+        @include font-size($base-font-size, false, false);
+        text-shadow: none;
+    }
+
+    body.login div#login p#nav {
+        text-align: center;
+    }
+
+    body.login div#login p#nav a {
+        color: $wp-login-background-link-color !important;
+        text-decoration: none;
+    }
+
+    body.login div#login p#backtoblog {
+        text-shadow: none;
+        text-align: center;
+    }
+
+    body.login div#login p#backtoblog a {
+        color: $wp-login-background-link-color !important;
+        text-decoration: none;
+    }
+
+    body.login div#login .button {
+        @include font-size(13px, false, true);
+        text-shadow: none;
+        box-shadow: none;
+        border: 0 none;
+        background-color: $wp-login-form-button-color;
+        color: $wp-login-form-button-text-color;
+        height: auto;
+        line-height: inherit;
+        margin-top: $base-spacing-unit;
+        padding: $half-spacing-unit $base-spacing-unit;
+    }
+
+    .login #login_error, .login .message {
+        @include font-size(16px, false, false);
+
+        @if $wp-login-message-is-fixed == true {
+            position: fixed;
+            width: 100%;
+            left: 0px;
+        }
+
+        @if $wp-login-message-is-fixed--top == true {
+            top: 0px;
+        }
+
+        @if $wp-login-message-is-fixed--bottom == true {
+            bottom: 0px;
+        }
+
+        border: 0px none;
+        background-color: $wp-login-message-background-color;
+        color: $wp-login-message-text-color;
+        text-align: center;
+        box-shadow: none;
+
+        a {
+            color: $wp-login-message-text-color;
+        }
+
+    }
+
+}

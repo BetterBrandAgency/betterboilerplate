@@ -1,0 +1,13 @@
+/////
+//
+// Content Widths
+//
+/////
+
+	$content-width-largest:			modular-scale($base-font-size, $modular-scale, 10);
+	$content-width-large:			modular-scale($base-font-size, $modular-scale, 9);
+	$content-width:					modular-scale($base-font-size, $modular-scale, 8);
+	$content-width-small:			modular-scale($base-font-size, $modular-scale, 7);
+	$content-width-smallest:		modular-scale($base-font-size, $modular-scale, 6);
+
+	// @error $content-width-largest, $content-width-large, $content-width, $content-width-small, $content-width-smallest;

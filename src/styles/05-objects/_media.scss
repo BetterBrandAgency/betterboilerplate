@@ -1,0 +1,39 @@
+//
+// Media Element
+//
+
+@if $use-media-object == true{
+
+    .media {
+        display:block;
+        @extend %clearfix;
+
+        &__img{
+            float:left;
+            margin-right:$half-spacing-unit;
+
+            // Reversed
+            &--rev{
+                float:right;
+                margin-left:$half-spacing-unit;
+            }
+
+        }
+
+        &__img img,
+        &__img--rev img{
+            display:block;
+        }
+
+        &__body{
+            overflow:hidden;
+        }
+
+        &__body,
+        &__body > :last-child{
+            margin-bottom:0;
+        }
+
+    }
+
+}//endif

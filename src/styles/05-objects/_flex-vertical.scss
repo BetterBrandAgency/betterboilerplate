@@ -1,0 +1,24 @@
+//
+// Flex Vertical
+//
+
+.flex-vertical {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	height: 100%;
+
+	@include ie {
+		display: block;
+	}
+
+	&__header {
+		flex: 0 0 auto;
+	}
+
+	&__footer {
+		margin-top: auto;
+		flex: 0 0 auto;
+	}
+
+}

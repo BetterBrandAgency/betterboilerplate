@@ -1,0 +1,142 @@
+
+/*THE SELECT BOX AREA STYLES
+--------------------------------------*/
+.select_style {
+	background-color:#fff;
+	color: #525252;
+	font-weight: 300;
+	-webkit-border-radius: 5px 4px 4px 5px/5px 5px 4px 4px;
+	-moz-border-radius: 5px 4px 4px 5px/5px 5px 4px 4px;
+	border-radius: 5px 4px 4px 5px/5px 5px 4px 4px;
+	-webkit-box-shadow: 0 0 5px rgba(123, 123, 123, 0.2);
+	-moz-box-shadow: 0 0 5px rgba(123,123,123,.2);
+	box-shadow: 0 0 5px rgba(123, 123, 123, 0.2);
+	border: solid 1px #DADADA;
+	font-family: "helvetica neue",arial;
+	position: relative;
+	cursor: pointer;
+	padding:3px 0px;
+}
+
+
+.selectcon {
+	background-image: url(http://projects.authenticstyle.co.uk/niceselect/arrow.png);
+	position: absolute;
+	right: 8px;
+	top: 50%;
+	margin-top: -4px;
+	width: 8px;
+	height: 8px;
+}
+
+/*THE SELECT BOX AREA WHILE ACTIVE STYLES
+----------------------------------------------*/
+.select_style.active,.select_style .highlight {
+	background-color:rgba(237,237,237,1);
+}
+
+
+
+/*THE DROPDOWN BOX STYLE
+--------------------------------------------*/
+.select_style .niceselect .value_wrapper {
+	border-radius:3px;
+	box-shadow:1px 1px 2px #ccc;
+	border: solid 1px #cdcdcd;
+	background:#ffffff;
+}
+
+
+/*SELECTED TEXT STYLE
+------------------------*/
+.select_style .niceselect .top p {
+    font-size:16px;
+    font-weight:300;
+    color:#343434;
+}
+
+/*OPTION STYLES
+---------------------------------*/
+.select_style .niceselect .value_wrapper .values {
+	color: #0D0C0C;
+	font-size: 14px;
+}
+
+.select_style .niceselect .value_wrapper .values:hover {
+	background: #E4E4FF;
+}
+
+.select_style .niceselect .value_wrapper .values.active {
+	background: #E4E4FF;
+}
+
+
+/*OPTGROUP STYLES
+---------------------------*/
+.select_style .niceselect .opt {
+	font-size:14px;
+	font-weight:normal;
+	border-bottom:5px;
+	cursor: default;
+}
+
+.select_style .niceselect .opt span {
+	padding:10px;
+	font-weight:bold;
+	display:block;
+}
+
+
+
+/*DO NOT CHANGE THE BELOW UNLESS YOU KNOW UR CSS STUFF
+==============================================================*/
+
+.select_style {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	display:inline-block;
+	min-width:150px;
+}
+
+.niceselect .value_wrapper {
+	display:none;
+	position:absolute;
+	top:40px;
+	width:100%;
+	z-index:10;
+
+}
+
+.niceselect .value_wrapper .opt .values {
+	padding:10px 10px 10px 20px;
+}
+
+.niceselect .value_wrapper .values {
+	padding:10px;
+	cursor:pointer;
+}
+
+.niceselect .value_wrapper .values label {
+	cursor:pointer;
+}
+
+.niceselect {
+	position:relative;
+}
+
+.niceselect p {
+ 	border: none;
+    margin-top:0px;
+    margin-bottom:0px;
+    padding:7px;
+}
+
+.niceselect input[type='radio'] {
+	visibility:hidden;
+	position:absolute;
+	left:-9999px;
+}

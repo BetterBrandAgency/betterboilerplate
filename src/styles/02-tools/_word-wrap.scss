@@ -1,0 +1,20 @@
+/////
+//
+// Mixin - Wordwrap
+// Used for links and other objects which overlow it's 
+// containing box
+//
+// @extend %word-wrap;
+//
+/////
+
+%word-wrap {
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+	-ms-word-break: break-all;
+	word-break: break-word;
+	-ms-hyphens: auto;
+	-moz-hyphens: auto;
+	-webkit-hyphens: auto;
+	hyphens: auto;
+}

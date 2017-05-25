@@ -1,0 +1,59 @@
+/////
+//
+// Colour Variables
+//
+/////
+
+//
+// Colours (phonetic)
+//
+
+	$color-alpha: 					#2E3E53; 									// Brand Colour
+	$color-bravo:					#7BA7E0;									// Secondary Brand Colour
+
+
+//
+// Colours Common
+//
+
+	$color-better-pink:				#E2007C;									// Better Pink
+
+	$color-warning:					#E3B000;
+	$color-error:					#C60F13;
+	$color-success:					#00930e;
+
+
+//
+// Social Colours
+//
+
+	$color-twitter:					#55acee;
+	$color-facebook:				#3b5998;
+	$color-googleplus:				#dd4b39;
+	$color-instagram:				#c13584;
+	$color-linkedin:				#0077b5;
+	$color-pinterest:				#bd081c;
+	$color-vimeo:					#1ab7ea;
+	$color-soundcloud:				#ff8800;
+	$color-rss:						#f26522;
+
+
+//
+// Reference/element colours (can reference phonetic alphabet colours from above)
+// These can be added to make styling specific elements which may change colour
+// often with ease by assigning a colour from the photnetic colours above to
+// another variable.
+//
+
+	$color-base-text:				#4b4b4b;									// Dark Grey
+
+	$color-border:					#e8e8e5;									// Light Grey
+
+	$color-base-background: 		#fff; 										// Body/html background colour
+
+	$color-form-border: 			#cccccc;
+	$color-form-highlight: 			$color-alpha;
+
+
+
+

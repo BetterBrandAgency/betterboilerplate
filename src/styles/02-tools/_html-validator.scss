@@ -1,0 +1,46 @@
+//
+// HTML Validator
+//
+// Visually identify potential problems
+//
+
+$highlight-color: red;
+
+@if $use-html-validator == true {
+
+	// Highlight uses of inline styles
+		// *[style] {
+		//     border: 5px solid $highlight-color;
+		// }
+
+	// Faulty or Missing Links
+		a:not([href]),
+		a[href="#"],
+		a[href=""] {
+			background-color: $highlight-color;
+		}
+
+	// Missing Alt
+		img:not([alt]) {
+			position: relative;
+			border: 5px solid $highlight-color;
+		}
+
+	// Missing form elements
+		form:not([name]):not([id]),
+		input:not([name]),
+		select:not([name]),
+		textarea:not([name]),
+		input:not([id]),
+		select:not([id]),
+		textarea:not([id]) {
+			border: 5px solid $highlight-color;
+		}
+
+	// Empty button or link
+		button:empty,
+		a:empty {
+			background-color: $highlight-color;
+		}
+
+}

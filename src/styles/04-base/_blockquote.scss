@@ -1,0 +1,17 @@
+/////
+//
+// Blockquote
+//
+/////
+
+blockquote {
+	background: lighten($color-border, 12%);
+	border-left: $half-spacing-unit solid $color-bravo;
+	margin: $base-spacing-unit 0;
+	padding: $base-spacing-unit;
+
+	p {
+		display: inline;
+	}
+
+}
