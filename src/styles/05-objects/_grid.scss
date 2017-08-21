@@ -2,17 +2,65 @@
 // Grids
 //
 
+$base-grid-breakpoint-one: $base-spacing-unit * 20;
+$base-grid-breakpoint-two: $base-spacing-unit * 40;
+
 .grid {
-	display: flex;
-	flex-wrap: wrap;
+	display: inline-block;
 
-	// > * {
-	// 	@include flex(1, 1, percentage(1/2));
+	@supports(display: flex) {
+		display: flex;
+		flex-wrap: wrap;
+	}
 
-	// 	@media screen and (min-width: ($base-spacing-unit * 40)) {
-	// 		@include flex(1, 1, percentage(1/4));
-	// 	}
+	&__item {
+		display: block;
+		@include flex(0,0,100%);
 
-	// }
+		.grid--halfs & {
+
+			@include min-width($base-grid-breakpoint-one) {
+
+				@include flex(0,0,50%);
+
+			}
+
+		}
+
+		.grid--thirds & {
+
+			@include min-width($base-grid-breakpoint-one) {
+
+				@include flex(0,0,50%);
+
+			}
+
+			@include min-width($base-grid-breakpoint-two) {
+
+				@include flex(0,0,33.333%);
+
+			}
+
+		}
+
+		.grid--quarters & {
+
+			@include min-width($base-grid-breakpoint-one) {
+
+				@include flex(0,0,50%);
+
+			}
+
+			@include min-width($base-grid-breakpoint-two) {
+
+				@include flex(0,0,25%);
+
+			}
+
+		}
+
+
+	}
+
 
 }

@@ -1,0 +1,11 @@
+/////
+//
+// Font Spacing Function
+//
+// The font spacing function will take a value from the Abobe suite and convert it to a pixel value
+//
+/////
+
+@function letterspacing($number, $font-size: $base-font-size) {
+	@return ( $number * strip-unit($font-size) / 1000 );
+}

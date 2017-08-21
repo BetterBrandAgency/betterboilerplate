@@ -7,13 +7,17 @@
 	$value: $number;
 
 	@if $exponent > 0 {
+
 		@for $i from 1 through $exponent {
 			$value: $value * $ratio;
 		}
+
 	} @else if $exponent < 0 {
+
 		@for $i from 1 through -$exponent {
 			$value: $value / $ratio;
 		}
+
 	}
 
 	@return $value;

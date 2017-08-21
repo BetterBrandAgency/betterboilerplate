@@ -1,0 +1,17 @@
+/////
+//
+// Mixin - Simple min-width media query
+//
+// @include min-width($base-spacing-unit * 40) {}
+//
+/////
+
+@mixin min-width($min-width) {
+
+	@media screen and (min-width: ($min-width)) {
+
+		@content
+
+	}
+
+}

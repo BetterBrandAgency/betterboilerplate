@@ -20,11 +20,11 @@ $page-breakpoint: $base-spacing-unit * 30;
 
 		// Padding
 		& > *:nth-child(1) {
-			padding-right: 1.5rem;
+			padding-right: $base-spacing-unit;
 		}
 
 		& > *:nth-child(2) {
-			padding-left: 1.5rem;
+			padding-left: $base-spacing-unit;
 		}
 
 	}
@@ -53,11 +53,11 @@ $page-breakpoint: $base-spacing-unit * 30;
 
 		// Padding
 		& > *:nth-child(2) {
-			padding-right: 1.5rem;
+			padding-right: $base-spacing-unit;
 		}
 
 		& > *:nth-child(3) {
-			padding-left: 1.5rem;
+			padding-left: $base-spacing-unit;
 		}
 
 	}

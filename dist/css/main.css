@@ -568,66 +568,6 @@ ul, ol, dd {
 h1, h2, h3, h4, h5, h6 {
   line-height: 1; }
 
-h1,
-.h1 {
-  font-size: 22.78125px;
-  font-size: 1.42383rem; }
-  @media (min-width: 35.596rem) {
-    h1,
-    .h1 {
-      font-size: 24.20508px;
-      font-size: calc(0.28947vw + 22.78125px - 0.00289 * 35.596rem); } }
-  @media (min-width: 97.08rem) {
-    h1,
-    .h1 {
-      font-size: 25.62891px;
-      font-size: 1.60181rem; } }
-
-h2,
-.h2 {
-  font-size: 20.25px;
-  font-size: 1.26563rem; }
-  @media (min-width: 35.596rem) {
-    h2,
-    .h2 {
-      font-size: 21.51563px;
-      font-size: calc(0.25731vw + 20.25px - 0.00257 * 35.596rem); } }
-  @media (min-width: 97.08rem) {
-    h2,
-    .h2 {
-      font-size: 22.78125px;
-      font-size: 1.42383rem; } }
-
-h3,
-.h3 {
-  font-size: 18px;
-  font-size: 1.125rem; }
-  @media (min-width: 35.596rem) {
-    h3,
-    .h3 {
-      font-size: 19.125px;
-      font-size: calc(0.22872vw + 18px - 0.00229 * 35.596rem); } }
-  @media (min-width: 97.08rem) {
-    h3,
-    .h3 {
-      font-size: 20.25px;
-      font-size: 1.26563rem; } }
-
-h4,
-.h4 {
-  font-size: 1.125rem;
-  line-height: 1; }
-
-h5,
-.h5 {
-  font-size: 1rem;
-  line-height: 1.03125; }
-
-h6,
-.h6 {
-  font-size: 0.88889rem;
-  line-height: 1.05469; }
-
 textarea,
 select,
 input {
@@ -823,7 +763,7 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 3rem;
     max-height: 3rem; }
   .svg--twitter {
-    fill: #55acee; }
+    fill: #1da1f2; }
   .svg--facebook {
     fill: #3b5998; }
   .svg--googleplus {
@@ -883,10 +823,67 @@ h1, h2, h3, h4, h5, h6 {
         flex: 0 0 auto; }
 
 .grid {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap; }
+  display: inline-block; }
+  @supports (display: flex) {
+    .grid {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap; } }
+  .grid__item {
+    display: block;
+    display: inline-block;
+    width: 100%; }
+    @supports (display: flex) {
+      .grid__item {
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+        width: auto; } }
+    @media screen and (min-width: 32.36rem) {
+      .grid--halfs .grid__item {
+        display: inline-block;
+        width: 50%; }
+        @supports (display: flex) {
+          .grid--halfs .grid__item {
+            -ms-flex: 0 0 50%;
+                flex: 0 0 50%;
+            width: auto; } } }
+    @media screen and (min-width: 32.36rem) {
+      .grid--thirds .grid__item {
+        display: inline-block;
+        width: 50%; }
+        @supports (display: flex) {
+          .grid--thirds .grid__item {
+            -ms-flex: 0 0 50%;
+                flex: 0 0 50%;
+            width: auto; } } }
+    @media screen and (min-width: 64.72rem) {
+      .grid--thirds .grid__item {
+        display: inline-block;
+        width: 33.333%; }
+        @supports (display: flex) {
+          .grid--thirds .grid__item {
+            -ms-flex: 0 0 33.333%;
+                flex: 0 0 33.333%;
+            width: auto; } } }
+    @media screen and (min-width: 32.36rem) {
+      .grid--quarters .grid__item {
+        display: inline-block;
+        width: 50%; }
+        @supports (display: flex) {
+          .grid--quarters .grid__item {
+            -ms-flex: 0 0 50%;
+                flex: 0 0 50%;
+            width: auto; } } }
+    @media screen and (min-width: 64.72rem) {
+      .grid--quarters .grid__item {
+        display: inline-block;
+        width: 25%; }
+        @supports (display: flex) {
+          .grid--quarters .grid__item {
+            -ms-flex: 0 0 25%;
+                flex: 0 0 25%;
+            width: auto; } } }
 
 @media screen and (min-width: 48.54rem) {
   .page-layout {
@@ -909,9 +906,9 @@ h1, h2, h3, h4, h5, h6 {
               flex: 1 0 35.71429%;
           width: auto; } }
     .page-layout > *:nth-child(1) {
-      padding-right: 1.5rem; }
+      padding-right: 1.618rem; }
     .page-layout > *:nth-child(2) {
-      padding-left: 1.5rem; } }
+      padding-left: 1.618rem; } }
 
 @media screen and (min-width: 48.54rem) {
   .page-layout--three .page-layout__main-container {
@@ -932,9 +929,9 @@ h1, h2, h3, h4, h5, h6 {
         width: auto; } } }
 @media screen and (min-width: 48.54rem) {
   .page-layout--three > *:nth-child(2) {
-    padding-right: 1.5rem; }
+    padding-right: 1.618rem; }
   .page-layout--three > *:nth-child(3) {
-    padding-left: 1.5rem; } }
+    padding-left: 1.618rem; } }
 
 .padding--top {
   padding-top: 1.618rem; }

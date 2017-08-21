@@ -17,3 +17,7 @@
 @function rem-to-px($number) {
     @return strip-unit($number) * $base-font-size;
 }
+
+@function px-to-em($number) {
+	@return #{strip-unit($number) * $base-font-size}em;
+}
