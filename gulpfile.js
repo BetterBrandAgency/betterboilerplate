@@ -44,7 +44,7 @@
 
     // Define Post CSS Plugins
         var post_css_plugins = [
-            autoprefixer('last 2 versions'),
+            autoprefixer({browsers: 'last 2 versions', supports: false}),
             //pixrem // Provide pixel fallbacks for older browsers
         ];
 

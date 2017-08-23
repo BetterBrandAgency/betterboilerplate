@@ -73,6 +73,19 @@ h1 {
     margin: .67em 0;
 }
 
+/**
+ * Reset margins and paddings
+ */
+h1,h2,h3,h4,h5,h6,
+p,blockquote,pre,
+dl,dd,ol,ul,
+form,fieldset,legend,
+table,th,td,caption,
+hr{
+    margin: 0;
+    padding: 0;
+}
+
 /* Grouping content (https://html.spec.whatwg.org/multipage/semantics.html#grouping-content)
    ========================================================================== */
 

@@ -2,65 +2,149 @@
 // Grids
 //
 
-$base-grid-breakpoint-one: $base-spacing-unit * 20;
-$base-grid-breakpoint-two: $base-spacing-unit * 40;
+@if $use-base-grid == true {
 
-.grid {
-	display: inline-block;
+	$base-grid-breakpoint-one: $base-spacing-unit * 20;
+	$base-grid-breakpoint-two: $base-spacing-unit * 40;
 
-	@supports(display: flex) {
-		display: flex;
-		flex-wrap: wrap;
+	.grid {
+		font-size: 0;
+		display: inline-block;
+		margin-left: -($half-spacing-unit);
+		margin-right: -($half-spacing-unit);
+
+		&--full {
+			margin-left: 0;
+			margin-right: 0;
+		}
+
+		@supports(display: flex) {
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		@supports(display: grid) {
+			display: grid;
+			grid-gap: $base-spacing-unit;
+			margin-left: 0;
+			margin-right: 0;
+
+			&.grid--full {
+				grid-gap: 0;
+			}
+
+			&.grid--ends {
+				grid-gap: $base-spacing-unit 0;
+			}
+
+			&.grid--sides {
+				grid-gap: 0 $base-spacing-unit;
+			}
+
+			&.grid--halves {
+
+				@include min-width($base-grid-breakpoint-one) {
+					grid-template-columns: repeat(2, 1fr);
+				}
+
+			}
+
+			&.grid--thirds {
+
+				@include min-width($base-grid-breakpoint-one) {
+					grid-template-columns: repeat(2, 1fr);
+				}
+
+				@include min-width($base-grid-breakpoint-two) {
+					grid-template-columns: repeat(3, 1fr);
+				}
+
+			}
+
+			&.grid--quarters {
+
+				@include min-width($base-grid-breakpoint-one) {
+					grid-template-columns: repeat(2, 1fr);
+				}
+
+				@include min-width($base-grid-breakpoint-two) {
+					grid-template-columns: repeat(4, 1fr);
+				}
+
+			}
+
+		}
+
+		&__item {
+			@include font-size($base-font-size, false, false);
+			display: inline-block;
+			padding-left: $half-spacing-unit;
+			padding-right: $half-spacing-unit;
+			margin-bottom: $base-spacing-unit;
+
+	        .grid--sides & {
+				margin-bottom: 0;
+	        }
+
+			.grid--full & {
+				padding-left: 0;
+				padding-right: 0;
+			}
+
+			@include flex(0, 0, 100%);
+
+			@supports(display: grid) {
+				padding-left: 0;
+				padding-right: 0;
+				margin-bottom: 0 !important;
+				flex: none !important;
+			}
+
+			.grid--halves & {
+
+				@include min-width($base-grid-breakpoint-one) {
+
+					@include flex(0, 0, 50%);
+
+				}
+
+			}
+
+			.grid--thirds & {
+
+				@include min-width($base-grid-breakpoint-one) {
+
+					@include flex(0, 0, 50%);
+
+				}
+
+				@include min-width($base-grid-breakpoint-two) {
+
+					@include flex(0, 0, 33.333%);
+
+				}
+
+			}
+
+			.grid--quarters & {
+
+				@include min-width($base-grid-breakpoint-one) {
+
+					@include flex(0, 0, 50%);
+
+				}
+
+				@include min-width($base-grid-breakpoint-two) {
+
+					@include flex(0, 0, 25%);
+
+				}
+
+			}
+
+
+		}
+
 	}
-
-	&__item {
-		display: block;
-		@include flex(0,0,100%);
-
-		.grid--halfs & {
-
-			@include min-width($base-grid-breakpoint-one) {
-
-				@include flex(0,0,50%);
-
-			}
-
-		}
-
-		.grid--thirds & {
-
-			@include min-width($base-grid-breakpoint-one) {
-
-				@include flex(0,0,50%);
-
-			}
-
-			@include min-width($base-grid-breakpoint-two) {
-
-				@include flex(0,0,33.333%);
-
-			}
-
-		}
-
-		.grid--quarters & {
-
-			@include min-width($base-grid-breakpoint-one) {
-
-				@include flex(0,0,50%);
-
-			}
-
-			@include min-width($base-grid-breakpoint-two) {
-
-				@include flex(0,0,25%);
-
-			}
-
-		}
-
-
-	}
-
 
 }

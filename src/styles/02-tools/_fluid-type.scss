@@ -9,13 +9,13 @@
 // variables at the top of this file.
 //
 // Useage:
-// @include responsive-typography(16px, 24px, 650px, 1200px);
+// @include fluid-type(16px, 24px, 650px, 1200px);
 //
-// @include responsive-typography(16px, 24px, 650px, 1200px, true); // includes dynamic line-height
+// @include fluid-type(16px, 24px, 650px, 1200px, true); // includes dynamic line-height
 //
 /////
 
-@mixin responsive-typography($min-font-size, $max-font-size, $break-start, $break-end, $line-height: false) {
+@mixin fluid-type($min-font-size, $max-font-size, $break-start, $break-end, $line-height: false) {
 
     $break-start-pixels: rem-to-px($break-start); // Convert $break-start to pixels
     $break-end-pixels: rem-to-px($break-end); // Convert $break-end to pixels
@@ -37,8 +37,8 @@
     $b-line: unquote("#{$min-line-height} - #{$m-line} * #{$break-start}");
 
     // Calculate viewport width (convert to vw)
-    $n-font: #{$m-font * 100vw};
-    $n-line: #{$m-line * 100vw};
+    $mx-font: #{$m-font * 100vw};
+    $mx-line: #{$m-line * 100vw};
 
     font-size: #{$min-font-size}; // Provide fallback for bottom end font-size
     font-size: #{$small-rem}; // Output the bottom end font-size
@@ -49,11 +49,11 @@
 
     @media (min-width: #{$break-start}) {
         font-size: #{($min-font-size + $max-font-size) / 2}; // Calculate middle font-size for fallback
-        font-size: calc(#{$n-font} + #{$b-font}); // Generate calc() equation for the responsive font-size
+        font-size: calc(#{$mx-font} + #{$b-font}); // Generate calc() equation for the responsive font-size
 
         @if $line-height == true {
             line-height: #{($min-line-height + $max-line-height) / 2}; // Calculate middle line-height for fallback
-            line-height: calc(#{$n-line} + #{$b-line}); // Generate calc() equation for the respsonive line-height
+            line-height: calc(#{$mx-line} + #{$b-line}); // Generate calc() equation for the respsonive line-height
         }
     }
 

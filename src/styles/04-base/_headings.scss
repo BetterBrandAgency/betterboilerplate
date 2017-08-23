@@ -4,34 +4,35 @@
 
 @include headings(1, 6) {
 	line-height: 1;
+	margin-bottom: $base-spacing-unit;
 }
 
-// h1,
-// .h1 {
-// 	@include responsive-typography(modular-scale($base-font-size, $modular-scale, 3), modular-scale($base-font-size, $modular-scale, 4), $responsive-start, $responsive-end);
-// }
+h1,
+.h1 {
+	@include fluid-type(modular-scale($base-font-size, $modular-scale, 3), modular-scale($base-font-size, $modular-scale, 4), $responsive-start, $responsive-end);
+}
 
-// h2,
-// .h2 {
-// 	@include responsive-typography(modular-scale($base-font-size, $modular-scale, 2), modular-scale($base-font-size, $modular-scale, 3), $responsive-start, $responsive-end);
-// }
+h2,
+.h2 {
+	@include fluid-type(modular-scale($base-font-size, $modular-scale, 2), modular-scale($base-font-size, $modular-scale, 3), $responsive-start, $responsive-end);
+}
 
-// h3,
-// .h3 {
-// 	@include responsive-typography(modular-scale($base-font-size, $modular-scale, 1), modular-scale($base-font-size, $modular-scale, 2), $responsive-start, $responsive-end);
-// }
+h3,
+.h3 {
+	@include fluid-type(modular-scale($base-font-size, $modular-scale, 1), modular-scale($base-font-size, $modular-scale, 2), $responsive-start, $responsive-end);
+}
 
-// h4,
-// .h4 {
-// 	@include font-size(modular-scale($base-font-size, $modular-scale, 1));
-// }
+h4,
+.h4 {
+	@include font-size(modular-scale($base-font-size, $modular-scale, 1));
+}
 
-// h5,
-// .h5 {
-// 	@include font-size(modular-scale($base-font-size, $modular-scale, 0));
-// }
+h5,
+.h5 {
+	@include font-size(modular-scale($base-font-size, $modular-scale, 0));
+}
 
-// h6,
-// .h6 {
-// 	@include font-size(modular-scale($base-font-size, $modular-scale, -1));
-// }
+h6,
+.h6 {
+	@include font-size(modular-scale($base-font-size, $modular-scale, -1));
+}

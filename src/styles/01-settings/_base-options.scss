@@ -11,6 +11,9 @@
 	// Use Font Smoothing
 		$use-font-smoothing: true;
 
+	// Use Base Grid
+		$use-base-grid: true;
+
 	// Generate Colour Classes
 		$use-colour-classes: false;
 
@@ -30,7 +33,7 @@
 		$use-helper-display-styles: false;
 
 	// Include Position Styles
-		$use-helper-position-styles: false;
+		$use-helper-position-styles: true;
 
 	// Include Text Styles
 		$use-helper-text-styles: false;
