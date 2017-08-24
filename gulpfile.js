@@ -29,6 +29,7 @@
             concat         =    require('gulp-concat'),             // Concatenate files
             jshint         =    require('gulp-jshint'),             // Javascript linter
             pixrem         =    require('pixrem')                   // Convert new units to px for older browsers
+            babel          =    require('gulp-babel')               // Include bable to compile ES6
         ;
 
     // Get project name from folder for notifications
@@ -176,7 +177,13 @@
                     notify.emit('end');
                 }}))
 
+                .pipe(babel({
+                    presets: ['env'],
+                    ignore: 'siema.min.js'
+                }))
+
                 .pipe(concat('main.js')) // Concatenate JS files
+
                 .pipe(gulp.dest('dist/js')) // Spit out in 'dist/js'
 
                 .pipe(notify({ // Pipe in success messages
@@ -201,6 +208,11 @@
                 notify.emit('end');
             }}))
 
+            .pipe(babel({
+                presets: ['env'],
+                ignore: 'siema.min.js'
+            }))
+
             .pipe(concat('main.js')) // Concatenate JS files
 
             .pipe(rename({ suffix: '.min' })) // Rename to add '.min'
@@ -217,8 +229,8 @@
         });
 
     // Move and Minify Other Scripts
-        gulp.task('other-scripts', function() {
-            return gulp.src(['src/scripts/other-scripts/*']) // Read from this directory
+        gulp.task('single-scripts', function() {
+            return gulp.src(['src/scripts/single-scripts/*']) // Read from this directory
                 .pipe(uglify()) // Minify JS
                 .pipe(gulp.dest('dist/js')) // Spit out in 'dist/js'
         });
@@ -392,7 +404,7 @@
             gulp.watch('src/styles/**/*', ['styles', 'minify-styles']);
 
             // Watch .scss Files
-            gulp.watch('src/scripts/**/*', ['scripts-linter', 'scripts', 'minify-scripts', 'other-scripts']);
+            gulp.watch('src/scripts/**/*', ['scripts-linter', 'scripts', 'minify-scripts', 'single-scripts']);
 
             // Watch fonts
             gulp.watch('src/fonts/**/*', ['fonts']);
@@ -415,7 +427,7 @@
             gulp.start('scripts-linter');
             gulp.start('scripts');
             gulp.start('minify-scripts');
-            gulp.start('other-scripts');
+            gulp.start('single-scripts');
             gulp.start('fonts');
             gulp.start('favicons');
             gulp.start('images');
@@ -430,7 +442,7 @@
             gulp.start('scripts-linter');
             gulp.start('scripts');
             gulp.start('minify-scripts');
-            gulp.start('other-scripts');
+            gulp.start('single-scripts');
             gulp.start('fonts');
             gulp.start('favicons');
             gulp.start('images');
