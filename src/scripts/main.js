@@ -8,6 +8,16 @@ $(document).ready(function() {
 
 		$(carousels).each(function() {
 
+			var currentSlide = 0;
+
+			function activePagination() {
+
+				currentSlide = this.currentSlide;
+				$(this.selector).parent().find('.carousel__pagination-button').removeClass('is-active');
+				$(this.selector).parent().find('.carousel__pagination-button--' + currentSlide).addClass('is-active');
+
+			}
+
 			// Init Sliders
 				const carousel = new Siema({
 					selector: this,
@@ -17,7 +27,9 @@ $(document).ready(function() {
 					startIndex: 0,
 					draggable: true,
 					threshold: 20,
-					loop: true
+					loop: true,
+					onInit: activePagination,
+  					onChange: activePagination
 				});
 
 			// Next and Previous Navigation
@@ -33,45 +45,33 @@ $(document).ready(function() {
 				});
 
 			// Pagiation
-				const pagiation_count = $(this).children().children().length;
+				Siema.prototype.addPagination = function() {
 
-				for (let i = 0; i < pagiation_count; i++) {
+					const pagination_container = $(this).parent().find('.js-carousel-pagination');
 
-					const pagination_container = $(this).parent().find('.js-carousel-pagiation');
+					for (let i = 0; i < carousel.innerElements.length; i++) {
+						const button = document.createElement('button');
+						button.className = 'carousel__pagination-button carousel__pagination-button--' + i;
+						button.textContent = i + 1;
 
-					const button = document.createElement('button');
+						if(i === 0) {
+							button.className ='carousel__pagination-button carousel__pagination-button--' + i + ' is-active';
+						}
 
-					$(button).html(i + 1);
+						$(button).click(function() {
+							carousel.goTo(i);
+							currentSlide = i;
+							$(this).parent().find('.carousel__pagination-button').removeClass('is-active');
+							$(this).parent().find('.carousel__pagination-button--' + currentSlide).addClass('is-active');
+						});
 
-					$(button).click(function() {
-						carousel.goTo(i);
-					});
+						this.selector.parentElement.lastElementChild.appendChild(button);
 
-					$(pagination_container).append(button);
-
+					}
 				}
 
-				// Add a function that generates pagination to prototype
-
-				// Siema.prototype.addPagination = function() {
-				// 	var _this = this;
-
-				// 	for (let i = 0; i < this.innerElements.length; i++) {
-				// 		const btn = document.createElement('button');
-				// 		btn.textContent = i;
-				// 			console.log(i);
-				// 		btn.addEventListener('click', function () {
-
-
-				// 	      return _this.goTo(i);
-				// 	    });
-
-				// 		this.selector.appendChild(btn);
-				// 	}
-				// }
-
-				// // Trigger pagination creator
-				// carousel.addPagination();
+				// Trigger pagination creator
+				carousel.addPagination();
 
 		});
 

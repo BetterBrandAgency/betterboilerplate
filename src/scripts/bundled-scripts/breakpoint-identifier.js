@@ -2,10 +2,10 @@
 // Breakpoint Identifier
 //
 
-function updateIdenfifier(e) {
-	var window_width = window.innerWidth;
-	var window_height = window.innerHeight;
-	var identifier = document.getElementsByClassName('breakpoint-identifier')[0];
+function updateIdenfifier() {
+	const window_width = window.innerWidth;
+	const window_height = window.innerHeight;
+	const identifier = document.getElementsByClassName('breakpoint-identifier')[0];
 
 	identifier.setAttribute('data-width', window_width);
 	identifier.setAttribute('data-height', window_height);

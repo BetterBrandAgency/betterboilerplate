@@ -38,6 +38,7 @@
                     <div><img src="https://source.unsplash.com/random/1921x1081" alt="" /></div>
                     <div><img src="https://source.unsplash.com/random/1922x1082" alt="" /></div>
                     <div><img src="https://source.unsplash.com/random/1923x1083" alt="" /></div>
+                    <div><img src="https://source.unsplash.com/random/1924x1084" alt="" /></div>
 
                 </div>
 
@@ -55,9 +56,7 @@
                     </button>
                 </div>
 
-                <div class="carousel__pagiation [ js-carouselpagiation ]">
-
-                </div>
+                <div class="carousel__pagination [ js-carousel-pagination ]"></div>
 
             </div>
 
@@ -100,18 +99,6 @@
 
                     </div>
 
-                    <div class="carousel__item" style="background-image: url('https://source.unsplash.com/random/1927x1087')">
-
-                        <div class="carousel__overlay"></div>
-
-                        <div class="carousel__content">
-                            <h1 class="h2">Slide Four</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid est, quod ab ea absolvi et perfici debeat? Qui autem esse poteris, nisi te amor ipse ceperit? Itaque a sapientia praecipitur se ipsam, si usus sit, sapiens ut relinquat. Haec quo modo conveniant, non sane intellego. Mihi enim satis est, ipsis non satis. Duo Reges: constructio interrete. Suo enim quisque studio maxime ducitur. Immo alio genere; Non risu potius quam oratione eiciendum? Equidem e Cn.</p>
-                        </div>
-
-                    </div>
-
-
                 </div>
 
                 <div class="carousel__navigation">
@@ -128,9 +115,7 @@
                     </button>
                 </div>
 
-                <div class="carousel__pagiation [ js-carouselpagiation ]">
-
-                </div>
+                <div class="carousel__pagination [ js-carousel-pagination ]"></div>
 
             </div>
 
@@ -369,7 +354,7 @@
         crossorigin="anonymous">
     </script>
 
-    <script src="dist/js/main.min.js"></script>
+    <script src="dist/js/main.js"></script>
 
 </body>
 </html>

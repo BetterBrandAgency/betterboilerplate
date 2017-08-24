@@ -1064,7 +1064,8 @@ h1, h2, h3, h4, h5, h6 {
 .carousel {
   position: relative; }
   .carousel__container {
-    position: relative; }
+    position: relative;
+    background-color: #e8e8e5; }
   .carousel__item {
     position: relative; }
   .carousel__overlay {
@@ -1083,28 +1084,52 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
     padding: 15.70754rem 6.54481rem;
     color: white; }
-  .carousel__nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: white;
-    width: 2.61792rem;
-    height: 2.61792rem;
-    background-color: white;
-    border-radius: 50%;
-    border: 0 none;
-    padding: 0;
-    cursor: pointer; }
-    .carousel__nav--next {
-      right: 1.30896rem; }
-      .carousel__nav--next svg {
-        transform: rotate(180deg); }
-    .carousel__nav--prev {
-      left: 1.30896rem; }
-    .carousel__nav svg {
-      max-width: 1.96344rem;
-      max-height: 1.96344rem;
-      fill: #E2007C; }
+
+.carousel__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: white;
+  width: 2.61792rem;
+  height: 2.61792rem;
+  background-color: white;
+  border-radius: 50%;
+  border: 0 none;
+  padding: 0;
+  cursor: pointer; }
+  .carousel__nav--next {
+    right: 1.30896rem; }
+    .carousel__nav--next svg {
+      transform: rotate(180deg); }
+  .carousel__nav--prev {
+    left: 1.30896rem; }
+  .carousel__nav svg {
+    max-width: 1.96344rem;
+    max-height: 1.96344rem;
+    fill: #E2007C; }
+
+.carousel__pagination {
+  position: absolute;
+  bottom: 2.61792rem;
+  width: 100%;
+  text-align: center;
+  pointer-events: none; }
+
+.carousel__pagination-button {
+  position: relative;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  margin: 0 0.16362rem;
+  width: 1.30896rem;
+  height: 1.30896rem;
+  text-indent: -9999px;
+  border-radius: 50%;
+  border: 0.1309rem solid white;
+  background-color: white;
+  pointer-events: auto;
+  cursor: pointer; }
+  .carousel__pagination-button.is-active {
+    background-color: #E2007C; }
 
 .nice-select {
   -webkit-tap-highlight-color: transparent;
