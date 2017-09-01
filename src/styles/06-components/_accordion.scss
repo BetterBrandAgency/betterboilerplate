@@ -1,0 +1,53 @@
+//
+// Accordion
+//
+
+@if $use-accordions == true {
+
+	.accordion {
+		margin-bottom: 1.5rem;
+
+		&__title {
+			position: relative;
+			padding: $base-spacing-unit * 0.75;
+			padding-right: $base-spacing-unit * 2;
+			background-color: $color-border;
+			cursor: pointer;
+			transition: all 150ms;
+
+			.svg {
+				position: absolute;
+				right: $base-spacing-unit * 0.75;
+				top: 50%;
+				transform: translateY(-50%) rotate(-90deg);
+				fill: $color-base-text;
+				transition: transform 250ms;
+				max-width: $base-spacing-unit;
+			}
+
+			&.is-active {
+				background-color: $color-alpha;
+				color: white;
+
+				.svg {
+					transform: translateY(-50%) rotate(90deg);
+					fill: white;
+				}
+
+			}
+
+		}
+
+		&__content {
+			border: 1px solid $color-border;
+			padding: $base-spacing-unit * 0.75;
+
+			p:last-of-type {
+				margin-bottom: 0;
+			}
+
+		}
+
+	}
+
+}

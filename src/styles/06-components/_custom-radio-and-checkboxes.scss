@@ -1,0 +1,79 @@
+//
+// Custom Radio Buttons and Checkboxes
+//
+
+/*
+	<input class="radio" id="radio-one" type="radio" name="radio" value="one" />
+	<label class="radio__label" for="radio-one">Radio Button One</label>
+
+	<input class="checkbox" id="checkbox-one" type="checkbox" name="checkbox" value="one" />
+	<label class="checkbox__label" for="checkbox-one">Checkbox One</label>
+*/
+
+@if $use-custom-radio-and-checkboxes == true {
+
+	$input-color: $color-alpha;
+	$input-size: 1.5em;
+	$spacing-unit: 1rem;
+
+	.checkbox,
+	.radio {
+		position: absolute;
+		left: -9999px;
+	}
+
+	.checkbox__label,
+	.radio__label {
+		display: flex;
+		align-items: center;
+		position: relative;
+		padding-left: $input-size * 1.5;
+		cursor: pointer;
+		height: $input-size;
+		margin-bottom: $spacing-unit / 2;
+	}
+
+	.checkbox__label::before,
+	.checkbox__label::after,
+	.radio__label::before,
+	.radio__label::after {
+		content: '';
+		position: absolute;
+	   	top: 0;
+		left: 0;
+	}
+
+	.radio + .radio__label::before,
+	.radio + .radio__label::after {
+		border-radius: 50%;
+	}
+
+	.checkbox__label::before,
+	.radio__label::before {
+		display: block;
+		width: $input-size;
+		height: $input-size;
+		border: 2px solid $input-color;
+	}
+
+	input:focus + .checkbox__label::before,
+	input:focus + .radio__label::before {
+		box-shadow: 0 0 ($spacing-unit / 2) ($spacing-unit / 4) rgba(0,0,0,0.6);
+		border-color: $color-border;
+	}
+
+	.checkbox__label::after,
+	.radio__label::after {
+		display: none;
+		width: calc(#{$input-size} - (#{$spacing-unit / 2}));
+		height: calc(#{$input-size} - (#{$spacing-unit / 2}));
+		margin: $spacing-unit / 4;
+		background-color: $input-color;
+	}
+
+	input:checked + .checkbox__label::after,
+	input:checked + .radio__label::after {
+		display: block;
+	}
+
+}

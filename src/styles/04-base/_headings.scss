@@ -3,8 +3,9 @@
 //
 
 @include headings(1, 6) {
-	line-height: 1;
+	line-height: $modular-scale;
 	margin-bottom: $base-spacing-unit;
+	font-family: $font-family-bravo;
 }
 
 h1,

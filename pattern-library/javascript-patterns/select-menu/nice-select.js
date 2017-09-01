@@ -1,0 +1,2 @@
+// Select Menus
+	$('select').niceSelect();

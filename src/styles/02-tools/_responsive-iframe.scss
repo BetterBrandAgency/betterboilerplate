@@ -2,10 +2,6 @@
 // Responsive iframe
 //
 
-@function ratio($width, $height) {
-	@return percentage( $height / $width);
-}
-
 @mixin responsive_iframe($width, $height) {
     padding-bottom: ratio($width, $height);
     position: relative;

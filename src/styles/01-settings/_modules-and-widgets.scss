@@ -1,0 +1,76 @@
+//
+// Modules and Widgets - Settings
+// Turn different widets on and off using the boolean variables below.
+// Although some of the widgets may contain some default styles it's up to you to rewrite this should you want/require a different style.
+//
+
+    //
+    // Use the Base Grid
+    //
+
+        $use-base-grid: false;
+
+
+    //
+    // Use the Page Layout
+    //
+
+        $use-page-layout: false;
+
+
+    //
+    // Use the basic Carousel Styles (requires script(s) from options-scripts folder)
+    //
+
+        $use-carousel: false;
+
+
+    //
+    // Use Nice Select Menus (requires script(s) from options-scripts folder)
+    //
+
+        $use-nice-select: false;
+
+
+    //
+    // Use Accordions
+    //
+
+        $use-accordions: false;
+
+
+    //
+    // Use Custom Checkbox and Radio Buttons
+    //
+
+        $use-custom-radio-and-checkboxes: true;
+
+
+    //
+    // Use Featherlight Modals (requires script(s) from options-scripts folder)
+    //
+
+        $use-featherlight: false;
+        $use-featherlight-gallery: false;
+
+
+    //
+    // Use Media Element
+    //
+
+        $use-media-object: false;
+
+
+    //
+	// Use Responsive Video
+    //
+
+        $use-respsonsive-video: false;
+
+
+    //
+    // Use Responsive Maps
+    //
+
+        $use-respsonsive-maps: false;
+

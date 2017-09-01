@@ -2,7 +2,7 @@
 // Helper Classes
 //
 
-@if $use-helper-position-styles == true {
+@if $use-helper-visibility-styles == true {
 
     .is-hidden {
         display: none;
@@ -85,6 +85,7 @@
 @if $use-helper-padding-styles == true {
 
     .padding {
+        padding: $base-spacing-unit;
 
         &--top {
             padding-top: $base-spacing-unit;
@@ -113,6 +114,7 @@
     }
 
     .padding-double {
+        padding: $base-spacing-unit * 2;
 
         &--top {
             padding-top: ($base-spacing-unit * 2);
@@ -145,6 +147,7 @@
 @if $use-helper-margin-styles == true {
 
     .margin {
+        margin: $base-spacing-unit;
 
         &--top {
             margin-top: $base-spacing-unit;
@@ -173,6 +176,7 @@
     }
 
     .margin-double {
+        margin: $base-spacing-unit * 2;
 
         &--top {
             margin-top: ($base-spacing-unit * 2);

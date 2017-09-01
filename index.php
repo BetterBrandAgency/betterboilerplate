@@ -9,10 +9,10 @@
         </title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="dns-prefetch" href="//ajax.googleapis.com" />
-        <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
+        <link rel="dns-prefetch" href="//code.jquery.com" />
 
         <link rel="stylesheet" href="dist/css/main.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville|Open+Sans" rel="stylesheet">
 
     </head>
 
@@ -24,328 +24,24 @@
 
     <div class="breakpoint-identifier"></div>
 
-    <div class="content--width-largest padding--sides">
+    <div class="content--width padding--sides">
 
-        <div class="margin-double--ends">
+        <h1 class="h2 margin-double--ends">Better <br>Boilerplate v2</h1>
+        <hr class="margin-double--bottom">
 
-            <h2 class="h3">Image Carousel</h2>
+        <input class="radio" id="radio-one" type="radio" name="radio" value="one" />
+        <label class="radio__label" for="radio-one">Radio Button One</label>
 
-            <div class="carousel__container margin-double--bottom">
+        <input class="radio" id="radio-two" type="radio" name="radio" value="two" />
+        <label class="radio__label" for="radio-two">Radio Button Two</label>
 
-                <div class="carousel [ js-carousel ]">
+        <input class="checkbox" id="checkbox-one" type="checkbox" name="checkbox" value="one" />
+        <label class="checkbox__label" for="checkbox-one">Checkbox One</label>
 
-                    <div><img src="https://source.unsplash.com/random/1920x1080" alt="" /></div>
-                    <div><img src="https://source.unsplash.com/random/1921x1081" alt="" /></div>
-                    <div><img src="https://source.unsplash.com/random/1922x1082" alt="" /></div>
-                    <div><img src="https://source.unsplash.com/random/1923x1083" alt="" /></div>
-                    <div><img src="https://source.unsplash.com/random/1924x1084" alt="" /></div>
-
-                </div>
-
-                <div class="carousel__navigation">
-                    <button class="carousel__nav carousel__nav--prev [ js-carousel__prev ]">
-                        <svg class="svg svg--carousel-arrow">
-                            <use xlink:href="#svg-carousel-arrow"></use>
-                        </svg>
-                    </button>
-
-                    <button class="carousel__nav carousel__nav--next [ js-carousel__next ]">
-                        <svg class="svg svg--carousel-arrow">
-                            <use xlink:href="#svg-carousel-arrow"></use>
-                        </svg>
-                    </button>
-                </div>
-
-                <div class="carousel__pagination [ js-carousel-pagination ]"></div>
-
-            </div>
-
-            <h2 class="h3">Content Carousel</h2>
-
-            <div class="carousel__container">
-
-                <div class="carousel [ js-carousel ]">
-
-                    <div class="carousel__item" style="background-image: url('https://source.unsplash.com/random/1924x1084')">
-
-                        <div class="carousel__overlay"></div>
-
-                        <div class="carousel__content">
-                            <h1 class="h2">Slide One</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid est, quod ab ea absolvi et perfici debeat? Qui autem esse poteris, nisi te amor ipse ceperit? Itaque a sapientia praecipitur se ipsam, si usus sit, sapiens ut relinquat. Haec quo modo conveniant, non sane intellego. Mihi enim satis est, ipsis non satis. Duo Reges: constructio interrete. Suo enim quisque studio maxime ducitur. Immo alio genere; Non risu potius quam oratione eiciendum? Equidem e Cn.</p>
-                        </div>
-
-                    </div>
-
-                    <div class="carousel__item" style="background-image: url('https://source.unsplash.com/random/1925x1085')">
-
-                        <div class="carousel__overlay"></div>
-
-                        <div class="carousel__content">
-                            <h1 class="h2">Slide Two</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid est, quod ab ea absolvi et perfici debeat? Qui autem esse poteris, nisi te amor ipse ceperit? Itaque a sapientia praecipitur se ipsam, si usus sit, sapiens ut relinquat. Haec quo modo conveniant, non sane intellego. Mihi enim satis est, ipsis non satis. Duo Reges: constructio interrete. Suo enim quisque studio maxime ducitur. Immo alio genere; Non risu potius quam oratione eiciendum? Equidem e Cn.</p>
-                        </div>
-
-                    </div>
-
-                    <div class="carousel__item" style="background-image: url('https://source.unsplash.com/random/1926x1086')">
-
-                        <div class="carousel__overlay"></div>
-
-                        <div class="carousel__content">
-                            <h1 class="h2">Slide Three</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid est, quod ab ea absolvi et perfici debeat? Qui autem esse poteris, nisi te amor ipse ceperit? Itaque a sapientia praecipitur se ipsam, si usus sit, sapiens ut relinquat. Haec quo modo conveniant, non sane intellego. Mihi enim satis est, ipsis non satis. Duo Reges: constructio interrete. Suo enim quisque studio maxime ducitur. Immo alio genere; Non risu potius quam oratione eiciendum? Equidem e Cn.</p>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="carousel__navigation">
-                    <button class="carousel__nav carousel__nav--prev [ js-carousel__prev ]">
-                        <svg class="svg svg--carousel-arrow">
-                            <use xlink:href="#svg-carousel-arrow"></use>
-                        </svg>
-                    </button>
-
-                    <button class="carousel__nav carousel__nav--next [ js-carousel__next ]">
-                        <svg class="svg svg--carousel-arrow">
-                            <use xlink:href="#svg-carousel-arrow"></use>
-                        </svg>
-                    </button>
-                </div>
-
-                <div class="carousel__pagination [ js-carousel-pagination ]"></div>
-
-            </div>
-
-            <hr class="margin-double--top">
-
-        </div>
-
-        <div class="display--block margin-double--bottom">
-
-            <h2 class="h3">Select Menus</h2>
-
-            <form class="grid grid--halves">
-
-                <div class="grid__item">
-
-                    <select>
-                        <option>One</option>
-                        <option>Two</option>
-                        <option>Three</option>
-                    </select>
-
-                    <select disabled>
-                        <option>Four</option>
-                        <option>Five</option>
-                        <option>Six</option>
-                    </select>
-
-                </div>
-
-                <div class="grid__item">
-
-                    <select class="full-width">
-                        <option>One</option>
-                        <option>Two</option>
-                        <option>Three</option>
-                    </select>
-
-                </div>
-
-            </form>
-
-            <hr class="margin-double--top">
-
-        </div>
-
-        <div class="margin-double--bottom">
-
-            <h1>Modular Scale</h1>
-            <h2>Modular Scale</h2>
-            <h3>Modular Scale</h3>
-            <h4>Modular Scale</h4>
-            <h5>Modular Scale</h5>
-            <h6>Modular Scale</h6>
-
-            <hr class="margin-double--top">
-
-        </div>
-
-        <div class="grid grid--halves margin-double--bottom">
-
-            <div class="grid__item">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ac tamen hic mallet non dolere. Negare non possum. Stoici scilicet. Negat enim summo bono afferre incrementum diem. Sed ea mala virtuti magnitudine obruebantur. Nummus in Croesi divitiis obscuratur, pars est tamen divitiarum. Aliter enim nosmet ipsos nosse non possumus. Quarum ambarum rerum cum medicinam pollicetur, luxuriae licentiam pollicetur.
-            </div>
-
-            <div class="grid__item">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ac tamen hic mallet non dolere. Negare non possum. Stoici scilicet. Negat enim summo bono afferre incrementum diem. Sed ea mala virtuti magnitudine obruebantur. Nummus in Croesi divitiis obscuratur, pars est tamen divitiarum. Aliter enim nosmet ipsos nosse non possumus. Quarum ambarum rerum cum medicinam pollicetur, luxuriae licentiam pollicetur.
-            </div>
-
-            <div class="grid__item">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ac tamen hic mallet non dolere. Negare non possum. Stoici scilicet. Negat enim summo bono afferre incrementum diem. Sed ea mala virtuti magnitudine obruebantur. Nummus in Croesi divitiis obscuratur, pars est tamen divitiarum. Aliter enim nosmet ipsos nosse non possumus. Quarum ambarum rerum cum medicinam pollicetur, luxuriae licentiam pollicetur.
-            </div>
-
-            <div class="grid__item">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ac tamen hic mallet non dolere. Negare non possum. Stoici scilicet. Negat enim summo bono afferre incrementum diem. Sed ea mala virtuti magnitudine obruebantur. Nummus in Croesi divitiis obscuratur, pars est tamen divitiarum. Aliter enim nosmet ipsos nosse non possumus. Quarum ambarum rerum cum medicinam pollicetur, luxuriae licentiam pollicetur.
-            </div>
-
-
-        </div>
-
-        <div class="page-layout">
-
-            <div class="page-layout__main-container">
-                <p>This sentence has <span class="small-caps">small caps</span> and NORMAL CAPS</p>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Isto modo, ne si avia quidem eius nata non esset. Est enim effectrix multarum et magnarum voluptatum. Non pugnem cum homine, cur tantum habeat in natura boni; Duo Reges: constructio interrete. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cui Tubuli nomen odio non est? Satisne ergo pudori consulat, si quis sine teste libidini pareat? Deinde disputat, quod cuiusque generis animantium statui deceat extremum.</p>
-                <p>Sic enim censent, oportunitatis esse beate vivere. In qua si nihil est praeter rationem, sit in una virtute finis bonorum; Qui-vere falsone, quaerere mittimus-dicitur oculis se privasse; Lorem ipsum dolor sit amet, consectetur adipiscing elit. De quibus cupio scire quid sentias. Si enim ad populum me vocas, eum. Re mihi non aeque satisfacit, et quidem locis pluribus. Duo Reges: constructio interrete. De vacuitate doloris eadem sententia erit. Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum rationi oboediens. Minime vero, inquit ille, consentit. Quo invento omnis ab eo quasi capite de summo bono et malo disputatio ducitur. Quem Tiberina descensio festo illo die tanto gaudio affecit, quanto L.</p>
-            </div>
-
-            <div class="page-layout__sidebar-container">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Isto modo, ne si avia quidem eius nata non esset. Est enim effectrix multarum et magnarum voluptatum. Non pugnem cum homine, cur tantum habeat in natura boni; Duo Reges: constructio interrete. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cui Tubuli nomen odio non est? Satisne ergo pudori consulat, si quis sine teste libidini pareat? Deinde disputat, quod cuiusque generis animantium statui deceat extremum.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cui Tubuli nomen odio non est? Satisne ergo pudori consulat, si quis sine teste libidini pareat? Deinde disputat, quod cuiusque generis animantium statui deceat extremum.</p>
-            </div>
-
-        </div>
-
-        <hr>
-
-        <div style="margin: 5rem 0;">
-
-            <h2 class="h3">Social SVG Icons</h2>
-
-            <div class="margin-double--ends" style="display: flex; flex-wrap: wrap;">
-
-                <svg class="svg svg--social svg--facebook">
-                    <use xlink:href="#svg-facebook"></use>
-                </svg>
-
-                <svg class="svg svg--social svg--twitter">
-                    <use xlink:href="#svg-twitter"></use>
-                </svg>
-
-                <svg class="svg svg--social svg--googleplus">
-                    <use xlink:href="#svg-googleplus"></use>
-                </svg>
-
-                <svg class="svg svg--social svg--instagram">
-                    <use xlink:href="#svg-instagram"></use>
-                </svg>
-
-                <svg class="svg svg--social svg--linkedin">
-                    <use xlink:href="#svg-linkedin"></use>
-                </svg>
-
-                <svg class="svg svg--social svg--pinterest">
-                    <use xlink:href="#svg-pintrest"></use>
-                </svg>
-
-                <svg class="svg svg--social svg--vimeo">
-                    <use xlink:href="#svg-vimeo"></use>
-                </svg>
-
-                <svg class="svg svg--social svg--soundcloud">
-                    <use xlink:href="#svg-soundcloud"></use>
-                </svg>
-
-                <svg class="svg svg--social svg--rss">
-                    <use xlink:href="#svg-rss"></use>
-                </svg>
-
-            </div>
-
-            <div class="margin-double--ends" style="display: flex; flex-wrap: wrap;">
-
-                <svg class="svg svg--social svg--facebook">
-                    <use xlink:href="#svg-facebook-square"></use>
-                </svg>
-
-                <svg class="svg svg--social svg--twitter">
-                    <use xlink:href="#svg-twitter-square"></use>
-                </svg>
-
-                <svg class="svg svg--social svg--googleplus">
-                    <use xlink:href="#svg-googleplus-square"></use>
-                </svg>
-
-                <svg class="svg svg--social svg--instagram">
-                    <use xlink:href="#svg-instagram-square"></use>
-                </svg>
-
-                <svg class="svg svg--social svg--linkedin">
-                    <use xlink:href="#svg-linkedin-square"></use>
-                </svg>
-
-                <svg class="svg svg--social svg--pinterest">
-                    <use xlink:href="#svg-pintrest-square"></use>
-                </svg>
-
-                <svg class="svg svg--social svg--vimeo">
-                    <use xlink:href="#svg-vimeo-square"></use>
-                </svg>
-
-                <svg class="svg svg--social svg--soundcloud">
-                    <use xlink:href="#svg-soundcloud-square"></use>
-                </svg>
-
-                <svg class="svg svg--social svg--rss">
-                    <use xlink:href="#svg-rss-square"></use>
-                </svg>
-
-            </div>
-
-        </div>
-
-        <hr>
-
-        <div class="page-layout page-layout--three">
-
-            <div class="page-layout__sidebar-container">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Isto modo, ne si avia quidem eius nata non esset. Est enim effectrix multarum et magnarum voluptatum. Non pugnem cum homine, cur tantum habeat in natura boni; Duo Reges: constructio interrete. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cui Tubuli nomen odio non est? Satisne ergo pudori consulat, si quis sine teste libidini pareat? Deinde disputat, quod cuiusque generis animantium statui deceat extremum.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cui Tubuli nomen odio non est? Satisne ergo pudori consulat, si quis sine teste libidini pareat? Deinde disputat, quod cuiusque generis animantium statui deceat extremum.</p>
-            </div>
-
-            <div class="page-layout__main-container">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Isto modo, ne si avia quidem eius nata non esset. Est enim effectrix multarum et magnarum voluptatum. Non pugnem cum homine, cur tantum habeat in natura boni; Duo Reges: constructio interrete. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cui Tubuli nomen odio non est? Satisne ergo pudori consulat, si quis sine teste libidini pareat? Deinde disputat, quod cuiusque generis animantium statui deceat extremum.</p>
-                <p>Sic enim censent, oportunitatis esse beate vivere. In qua si nihil est praeter rationem, sit in una virtute finis bonorum; Qui-vere falsone, quaerere mittimus-dicitur oculis se privasse; Lorem ipsum dolor sit amet, consectetur adipiscing elit. De quibus cupio scire quid sentias. Si enim ad populum me vocas, eum. Re mihi non aeque satisfacit, et quidem locis pluribus. Duo Reges: constructio interrete. De vacuitate doloris eadem sententia erit. Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum rationi oboediens. Minime vero, inquit ille, consentit. Quo invento omnis ab eo quasi capite de summo bono et malo disputatio ducitur. Quem Tiberina descensio festo illo die tanto gaudio affecit, quanto L.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Isto modo, ne si avia quidem eius nata non esset. Est enim effectrix multarum et magnarum voluptatum. Non pugnem cum homine, cur tantum habeat in natura boni; Duo Reges: constructio interrete. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cui Tubuli nomen odio non est? Satisne ergo pudori consulat, si quis sine teste libidini pareat? Deinde disputat, quod cuiusque generis animantium statui deceat extremum.</p>
-            </div>
-
-            <div class="page-layout__sidebar-container">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Isto modo, ne si avia quidem eius nata non esset. Est enim effectrix multarum et magnarum voluptatum. Non pugnem cum homine, cur tantum habeat in natura boni; Duo Reges: constructio interrete. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cui Tubuli nomen odio non est? Satisne ergo pudori consulat, si quis sine teste libidini pareat? Deinde disputat, quod cuiusque generis animantium statui deceat extremum.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cui Tubuli nomen odio non est? Satisne ergo pudori consulat, si quis sine teste libidini pareat? Deinde disputat, quod cuiusque generis animantium statui deceat extremum.</p>
-            </div>
-
-        </div>
-
-        <hr>
-
-        <div class="page-layout page-layout--three">
-
-            <div class="page-layout__main-container">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Isto modo, ne si avia quidem eius nata non esset. Est enim effectrix multarum et magnarum voluptatum. Non pugnem cum homine, cur tantum habeat in natura boni; Duo Reges: constructio interrete. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cui Tubuli nomen odio non est? Satisne ergo pudori consulat, si quis sine teste libidini pareat? Deinde disputat, quod cuiusque generis animantium statui deceat extremum.</p>
-                <p>Sic enim censent, oportunitatis esse beate vivere. In qua si nihil est praeter rationem, sit in una virtute finis bonorum; Qui-vere falsone, quaerere mittimus-dicitur oculis se privasse; Lorem ipsum dolor sit amet, consectetur adipiscing elit. De quibus cupio scire quid sentias. Si enim ad populum me vocas, eum. Re mihi non aeque satisfacit, et quidem locis pluribus. Duo Reges: constructio interrete. De vacuitate doloris eadem sententia erit. Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum rationi oboediens. Minime vero, inquit ille, consentit. Quo invento omnis ab eo quasi capite de summo bono et malo disputatio ducitur. Quem Tiberina descensio festo illo die tanto gaudio affecit, quanto L.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Isto modo, ne si avia quidem eius nata non esset. Est enim effectrix multarum et magnarum voluptatum. Non pugnem cum homine, cur tantum habeat in natura boni; Duo Reges: constructio interrete. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cui Tubuli nomen odio non est? Satisne ergo pudori consulat, si quis sine teste libidini pareat? Deinde disputat, quod cuiusque generis animantium statui deceat extremum.</p>
-            </div>
-
-            <div class="page-layout__sidebar-container">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Isto modo, ne si avia quidem eius nata non esset. Est enim effectrix multarum et magnarum voluptatum. Non pugnem cum homine, cur tantum habeat in natura boni; Duo Reges: constructio interrete. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cui Tubuli nomen odio non est? Satisne ergo pudori consulat, si quis sine teste libidini pareat? Deinde disputat, quod cuiusque generis animantium statui deceat extremum.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cui Tubuli nomen odio non est? Satisne ergo pudori consulat, si quis sine teste libidini pareat? Deinde disputat, quod cuiusque generis animantium statui deceat extremum.</p>
-            </div>
-
-            <div class="page-layout__sidebar-container">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Isto modo, ne si avia quidem eius nata non esset. Est enim effectrix multarum et magnarum voluptatum. Non pugnem cum homine, cur tantum habeat in natura boni; Duo Reges: constructio interrete. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cui Tubuli nomen odio non est? Satisne ergo pudori consulat, si quis sine teste libidini pareat? Deinde disputat, quod cuiusque generis animantium statui deceat extremum.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cui Tubuli nomen odio non est? Satisne ergo pudori consulat, si quis sine teste libidini pareat? Deinde disputat, quod cuiusque generis animantium statui deceat extremum.</p>
-            </div>
-
-        </div>
-
-        <hr>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tecum optime, deinde etiam cum mediocri amico. Primum in nostrane potestate est, quid meminerimus? At iste non dolendi status non vocatur voluptas. Quippe: habes enim a rhetoribus; Duo Reges: constructio interrete. Quid ergo hoc loco intellegit honestum? Nam his libris eum malo quam reliquo ornatu villae delectari. Sed ea mala virtuti magnitudine obruebantur. At Zeno eum non beatum modo, sed etiam divitem dicere ausus est. Videamus animi partes, quarum est conspectus illustrior;</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non autem hoc: igitur ne illud quidem. Quorum sine causa fieri nihil putandum est. Non laboro, inquit, de nomine. Duo Reges: constructio interrete. Gloriosa ostentatio in constituendo summo bono. Nosti, credo, illud: Nemo pius est, qui pietatem-;</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. An hoc usque quaque, aliter in vita? Duarum enim vitarum nobis erunt instituta capienda. Duo Reges: constructio interrete. Tum Quintus: Est plane, Piso, ut dicis, inquit. Dempta enim aeternitate nihilo beatior Iuppiter quam Epicurus; Nos cum te, M. Beatus autem esse in maximarum rerum timore nemo potest. Mihi enim satis est, ipsis non satis.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. An est aliquid per se ipsum flagitiosum, etiamsi nulla comitetur infamia? Negat esse eam, inquit, propter se expetendam. Mihi enim erit isdem istis fortasse iam utendum. Non laboro, inquit, de nomine. Nam Pyrrho, Aristo, Erillus iam diu abiecti. Nam si amitti vita beata potest, beata esse non potest. Duo Reges: constructio interrete. Progredientibus autem aetatibus sensim tardeve potius quasi nosmet ipsos cognoscimus.</p>
 
     </div>
 

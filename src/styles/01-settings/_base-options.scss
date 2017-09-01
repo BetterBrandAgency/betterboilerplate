@@ -11,17 +11,14 @@
 	// Use Font Smoothing
 		$use-font-smoothing: true;
 
-	// Use Base Grid
-		$use-base-grid: true;
-
 	// Generate Colour Classes
-		$use-colour-classes: false;
+		$use-colour-classes: true;
 
 	// Generate Login Form Styles
-		$use-wordpress-styles: false;
+		$use-wordpress-styles: true;
 
 	// Turn on the HTML Validator
-		$use-html-validator: false;
+		$use-html-validator: true;
 
 /////
 //
@@ -29,14 +26,17 @@
 //
 /////
 
+	// Include Visibility Styles
+		$use-helper-visibility-styles: true;
+
 	// Include Display Styles
-		$use-helper-display-styles: false;
+		$use-helper-display-styles: true;
 
 	// Include Position Styles
 		$use-helper-position-styles: true;
 
 	// Include Text Styles
-		$use-helper-text-styles: false;
+		$use-helper-text-styles: true;
 
 	// Include Padding Styles
 		$use-helper-padding-styles: true;

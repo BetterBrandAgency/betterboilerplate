@@ -4,19 +4,31 @@
 //
 // Create responsive typography with min and max font-sizes,
 // the mixin uses CSS locking to 'lock' the font size at the
-// min and max sizes provided at certain breakpoints. The breakpoints
-// at which the locking is applied can be changed using the
-// variables at the top of this file.
+// min and max sizes provided at certain breakpoints.
 //
 // Useage:
 // @include fluid-type(16px, 24px, 650px, 1200px);
 //
-// @include fluid-type(16px, 24px, 650px, 1200px, true); // includes dynamic line-height
-//
 /////
 
-@mixin fluid-type($min-font-size, $max-font-size, $break-start, $break-end, $line-height: false) {
+@mixin fluid-text($min-font-size, $max-font-size, $break-start, $break-end) {
 
+    /////
+    // y = mx + b Calculations
+    /////
+
+    // Calculate M – m = (y2 - y1) / (x2 - x1)
+    $m: (strip-unit($max-font-size) - strip-unit($min-font-size)) / (strip-unit($break-end) - strip-unit($break-start));
+
+    // Calculate B – b = y - mx
+    $b: #{$min-font-size - $m * $break-start};
+
+    // Calculate mx – m * viewport-width
+    $mx: #{$m * 100vw};
+
+    /////
+    // Unit Calculations
+    /////
     $break-start-pixels: rem-to-px($break-start); // Convert $break-start to pixels
     $break-end-pixels: rem-to-px($break-end); // Convert $break-end to pixels
 
@@ -25,45 +37,21 @@
     $small-rem: px-to-rem($min-font-size); // Get bottom end fallback font-size
     $large-rem: px-to-rem($max-font-size); // Get top end fallback font-size
 
-    $min-line-height: $min-font-size * 1.4; // Calculate bottom end line-height
-    $max-line-height: $max-font-size * 1.4; // Calculate top end line-height
-
-    // Calculate Increase (how many pixels do we add to the font size and line height for each increase of 1px to the viewport width)
-    $m-font: (strip-unit($max-font-size) - strip-unit($min-font-size)) / (strip-unit($break-end-pixels) - strip-unit($break-start-pixels));
-    $m-line: ($max-line-height - $min-line-height) / ($break-end-pixels - $break-start-pixels);
-
-    // Calculate Base Fontsize (font-size and line height before we add any viewport-based value)
-    $b-font: unquote("#{$min-font-size} - #{$m-font} * #{$break-start}");
-    $b-line: unquote("#{$min-line-height} - #{$m-line} * #{$break-start}");
-
-    // Calculate viewport width (convert to vw)
-    $mx-font: #{$m-font * 100vw};
-    $mx-line: #{$m-line * 100vw};
+    /////
+    // Output
+    /////
 
     font-size: #{$min-font-size}; // Provide fallback for bottom end font-size
     font-size: #{$small-rem}; // Output the bottom end font-size
 
-    @if $line-height == true {
-        line-height: px-to-rem($min-line-height); // Set bottom end line-height
-    }
-
     @media (min-width: #{$break-start}) {
         font-size: #{($min-font-size + $max-font-size) / 2}; // Calculate middle font-size for fallback
-        font-size: calc(#{$mx-font} + #{$b-font}); // Generate calc() equation for the responsive font-size
-
-        @if $line-height == true {
-            line-height: #{($min-line-height + $max-line-height) / 2}; // Calculate middle line-height for fallback
-            line-height: calc(#{$mx-line} + #{$b-line}); // Generate calc() equation for the respsonive line-height
-        }
+        font-size: calc(#{$mx} + #{$b}); // Generate calc() equation for the responsive font-size
     }
 
     @media (min-width: $break-end) {
         font-size: #{$max-font-size}; // Provide fallback for top end fallback
         font-size: #{$large-rem}; // Output the top end font-size
-
-        @if $line-height == true {
-            line-height: px-to-rem($max-line-height); // Set top end line-height
-        }
     }
 
 }
