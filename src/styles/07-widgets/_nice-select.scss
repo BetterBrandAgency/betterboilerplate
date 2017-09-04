@@ -1,6 +1,8 @@
+/////
 //
 // Nice Select
 //
+/////
 
 @if $use-nice-select == true {
 
@@ -19,148 +21,148 @@
 		$arrow_color: $input_color_bravo !default;
 
 	// Style the dropdown
-	.nice-select {
-		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-		background-color: #fff;
-		border-radius: $input_border_radius;
-		border: solid 1px $input_color_charlie;
-		clear: both;
-		cursor: pointer;
-		display: inline-block;
-		font-family: inherit;
-		font-size: $font_size;
-		font-weight: normal;
-		height: $input_height;
-		line-height: ($input_height - ($half-spacing-unit / 3));
-		outline: none;
-		padding-left: $dropdown_padding;
-		padding-right: $dropdown_padding * 2;
-		position: relative;
-		text-align: left !important;
-		transition: all 0.2s ease-in-out;
-		user-select: none;
-		white-space: nowrap;
-		width: auto;
-
-		&:hover {
-			border-color: darken($input_color_charlie, 5%);
-		}
-
-		&:active, &:focus {
-			border-color: $primary_light;
-		}
-
-		// Arrow
-		&:after {
-			border-bottom: 2px solid $arrow_color;
-			border-right: 2px solid $arrow_color;
-			content: '';
-			display: block;
-			height: $half-spacing-unit / 2;
-			margin-top: -($half-spacing-unit / 2.5);
-			pointer-events: none;
-			position: absolute;
-			right: 12px;
-			top: 50%;
-			transform-origin: 66% 66%;
-			transform: rotate(45deg);
-			transition: all 0.15s ease-in-out;
-			width: $half-spacing-unit / 2;
-		}
-
-		&.open {
-			@extend :active;
-
-			&:after {
-				transform: rotate(-135deg);
-			}
-
-			.list {
-				opacity: 1;
-				pointer-events: auto;
-				transform: scale(1) translateY(0);
-			}
-
-		}
-
-		&.disabled {
-			border-color: lighten($input_color_charlie, 2%);
-			color: $input_color_bravo;
-			pointer-events: none;
-
-			&:after {
-				border-color: lighten($arrow_color, 20%);
-			}
-
-		}
-
-		// Modifiers
-		&.full-width {
-			width: 100%;
-
-			.list {
-				left: 0 !important;
-				right: 0 !important;
-			}
-
-		}
-
-		// List and options
-		.list {
+		.nice-select {
+			-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 			background-color: #fff;
 			border-radius: $input_border_radius;
-			box-shadow: 0 0 0 1px $input_color_bravo;
-			box-sizing: border-box;
-			margin-top: 4px;
-			opacity: 0;
-			overflow: hidden;
-			padding: 0;
-			pointer-events: none;
-			position: absolute;
-			top: 101%;
-			left: 0;
-			transform-origin: 50% 0;
-			transform: translateY(- $input_height / 4);
-			transition: all .2s cubic-bezier(0.5, 0, 0, 1.25), opacity .15s ease-out;
-			z-index: 9;
-			width: 100%;
-			margin: 0;
-
-			&:hover .option:not(:hover) {
-				background-color: transparent !important;
-			}
-
-		}
-
-		.option {
+			border: solid 1px $input_color_charlie;
+			clear: both;
 			cursor: pointer;
-			font-weight: 400;
+			display: inline-block;
+			font-family: inherit;
+			font-size: $font_size;
+			font-weight: normal;
+			height: $input_height;
 			line-height: ($input_height - ($half-spacing-unit / 3));
-			list-style: none;
-			min-height: $input_height;
 			outline: none;
 			padding-left: $dropdown_padding;
-			text-align: left;
-			transition: all 0.2s;
+			padding-right: $dropdown_padding * 2;
+			position: relative;
+			text-align: left !important;
+			transition: all 0.2s ease-in-out;
+			user-select: none;
+			white-space: nowrap;
+			width: auto;
 
 			&:hover {
-				background-color: $input_color_alpha;
-				color: white;
+				border-color: darken($input_color_charlie, 5%);
 			}
 
-			&.selected {
-				font-weight: bold;
+			&:active, &:focus {
+				border-color: $primary_light;
+			}
+
+			// Arrow
+			&:after {
+				border-bottom: 2px solid $arrow_color;
+				border-right: 2px solid $arrow_color;
+				content: '';
+				display: block;
+				height: $half-spacing-unit / 2;
+				margin-top: -($half-spacing-unit / 2.5);
+				pointer-events: none;
+				position: absolute;
+				right: 12px;
+				top: 50%;
+				transform-origin: 66% 66%;
+				transform: rotate(45deg);
+				transition: all 0.15s ease-in-out;
+				width: $half-spacing-unit / 2;
+			}
+
+			&.open {
+				@extend :active;
+
+				&:after {
+					transform: rotate(-135deg);
+				}
+
+				.list {
+					opacity: 1;
+					pointer-events: auto;
+					transform: scale(1) translateY(0);
+				}
+
 			}
 
 			&.disabled {
-				background-color: transparent;
+				border-color: lighten($input_color_charlie, 2%);
 				color: $input_color_bravo;
-				cursor: default;
+				pointer-events: none;
+
+				&:after {
+					border-color: lighten($arrow_color, 20%);
+				}
+
+			}
+
+			// Modifiers
+			&.full-width {
+				width: 100%;
+
+				.list {
+					left: 0 !important;
+					right: 0 !important;
+				}
+
+			}
+
+			// List and options
+			.list {
+				background-color: #fff;
+				border-radius: $input_border_radius;
+				box-shadow: 0 0 0 1px $input_color_bravo;
+				box-sizing: border-box;
+				margin-top: 4px;
+				opacity: 0;
+				overflow: hidden;
+				padding: 0;
+				pointer-events: none;
+				position: absolute;
+				top: 101%;
+				left: 0;
+				transform-origin: 50% 0;
+				transform: translateY(- $input_height / 4);
+				transition: all .2s cubic-bezier(0.5, 0, 0, 1.25), opacity .15s ease-out;
+				z-index: 9;
+				width: 100%;
+				margin: 0;
+
+				&:hover .option:not(:hover) {
+					background-color: transparent !important;
+				}
+
+			}
+
+			.option {
+				cursor: pointer;
+				font-weight: 400;
+				line-height: ($input_height - ($half-spacing-unit / 3));
+				list-style: none;
+				min-height: $input_height;
+				outline: none;
+				padding-left: $dropdown_padding;
+				text-align: left;
+				transition: all 0.2s;
+
+				&:hover {
+					background-color: $input_color_alpha;
+					color: white;
+				}
+
+				&.selected {
+					font-weight: bold;
+				}
+
+				&.disabled {
+					background-color: transparent;
+					color: $input_color_bravo;
+					cursor: default;
+				}
+
 			}
 
 		}
-
-	}
 
 	// Use display instead of opacity for IE <= 10
 		.no-csspointerevents .nice-select {

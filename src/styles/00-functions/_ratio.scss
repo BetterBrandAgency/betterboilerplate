@@ -1,6 +1,8 @@
+/////
 //
 // Ratio Generator
 //
+/////
 
 @function ratio($width, $height) {
 	@return percentage( $height / $width);

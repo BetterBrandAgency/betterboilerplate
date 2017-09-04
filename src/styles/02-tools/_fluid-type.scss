@@ -11,16 +11,16 @@
 //
 /////
 
-@mixin fluid-text($min-font-size, $max-font-size, $break-start, $break-end) {
+@mixin fluid-type($min-font-size, $max-font-size, $break-start, $break-end) {
 
     /////
     // y = mx + b Calculations
     /////
 
-    // Calculate M – m = (y2 - y1) / (x2 - x1)
+    // Calculate M: m = (y2 - y1) / (x2 - x1)
     $m: (strip-unit($max-font-size) - strip-unit($min-font-size)) / (strip-unit($break-end) - strip-unit($break-start));
 
-    // Calculate B – b = y - mx
+    // Calculate B: b = y - mx
     $b: #{$min-font-size - $m * $break-start};
 
     // Calculate mx – m * viewport-width

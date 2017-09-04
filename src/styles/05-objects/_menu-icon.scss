@@ -1,0 +1,65 @@
+/////
+//
+// Menu Icon (Animated)
+//
+/////
+
+@if $use-animated-menu-icon == true {
+
+	$menu-icon-width: 2em;
+	$menu-icon-height: $menu-icon-width * 0.75;
+	$menu-icon-color: $color-border;
+	$menu-icon-color--active: $color-alpha;
+
+	.menu-icon {
+		position: relative; /* Give the menu-icon position relative so we can absolutely position children */
+	    width: $menu-icon-width; /* Icon width */
+		height: $menu-icon-height; /* Icon height */
+		display: inline-block;
+	}
+
+	.menu-icon span {
+	    position: absolute; /* Absolutely position all children of the menu-icon */
+	    height: $menu-icon-width / 16; /* Height of each line in our menu button */
+	    width: 100%; /* With of each line */
+	    background-color: $menu-icon-color; /* Background colour of each line */
+	    transition: all 150ms ease-in-out; /* Transition added for the background colour */
+	    transform: rotate(0deg);
+	}
+
+	.menu-icon span:nth-child(1) {
+	    top: $menu-icon-width / 32; /* Position the first line roughly 1px from the top */
+	}
+
+	.menu-icon span:nth-child(2),
+	.menu-icon span:nth-child(3) {
+	    top: $menu-icon-width / 3.2; /* Position the second line roughly 10px from the top, one on top of the other */
+	}
+
+	.menu-icon span:nth-child(4) {
+	    top: $menu-icon-width * 0.625; /* Position the fourth line roughly 20px from the top */
+	}
+
+	.menu-button:hover span,
+	.menu-button:focus span,
+	.menu-button:active span {
+	    background: $menu-icon-color--active; /* On hover, change the background-color of the menu icon */
+	}
+
+	/* Turn the Menu icon into a close icon */
+
+	.menu-icon.is-active span:nth-child(1),
+	.menu-icon.is-active span:nth-child(4) {
+	    opacity: 0; /* Hide the first line */
+	}
+
+	.menu-icon.is-active span:nth-child(2) {
+	    transform: rotate(45deg); /* Rotate the second line 45 degrees */
+	}
+
+	.menu-icon.is-active span:nth-child(3) {
+		top: $menu-icon-width / 3.2; /* Position the third line over the second line */
+	    transform: rotate(-45deg); /* Rotate the third line -45 degrees */
+	}
+
+}

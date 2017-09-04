@@ -1,7 +1,9 @@
+/////
 //
 // Rhythm
 // maintain vertical rhythm
 //
+/////
 
 h1,h2,h3,h4,h5,h6,hgroup,
 ul,ol,dl,
@@ -19,5 +21,5 @@ hr {
 
 // indentation for elements which require it
 ul,ol,dd{
-    margin-left: 2 * $base-spacing-unit;
+    margin-left: $base-spacing-unit * 2;
 }

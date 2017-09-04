@@ -303,7 +303,7 @@
                     notify.emit('end');
                 }}))
 
-                .pipe(rename({prefix: 'svg-'})) // Prefix all names with 'svg-'
+                //.pipe(rename({prefix: 'svg-'})) // Prefix all names with 'svg-'
 
                 .pipe(svgmin({ // Minify SVGs
                     plugins: [{

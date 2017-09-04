@@ -26,21 +26,14 @@
 
     <div class="content--width padding--sides">
 
-        <h1 class="h2 margin-double--ends">Better <br>Boilerplate v2</h1>
+        <h1 class="h2 margin-double--ends">Better<br>Boilerplate v2</h1>
         <hr class="margin-double--bottom">
 
-        <input class="radio" id="radio-one" type="radio" name="radio" value="one" />
-        <label class="radio__label" for="radio-one">Radio Button One</label>
-
-        <input class="radio" id="radio-two" type="radio" name="radio" value="two" />
-        <label class="radio__label" for="radio-two">Radio Button Two</label>
-
-        <input class="checkbox" id="checkbox-one" type="checkbox" name="checkbox" value="one" />
-        <label class="checkbox__label" for="checkbox-one">Checkbox One</label>
-
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tecum optime, deinde etiam cum mediocri amico. Primum in nostrane potestate est, quid meminerimus? At iste non dolendi status non vocatur voluptas. Quippe: habes enim a rhetoribus; Duo Reges: constructio interrete. Quid ergo hoc loco intellegit honestum? Nam his libris eum malo quam reliquo ornatu villae delectari. Sed ea mala virtuti magnitudine obruebantur. At Zeno eum non beatum modo, sed etiam divitem dicere ausus est. Videamus animi partes, quarum est conspectus illustrior;</p>
+
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non autem hoc: igitur ne illud quidem. Quorum sine causa fieri nihil putandum est. Non laboro, inquit, de nomine. Duo Reges: constructio interrete. Gloriosa ostentatio in constituendo summo bono. Nosti, credo, illud: Nemo pius est, qui pietatem-;</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. An hoc usque quaque, aliter in vita? Duarum enim vitarum nobis erunt instituta capienda. Duo Reges: constructio interrete. Tum Quintus: Est plane, Piso, ut dicis, inquit. Dempta enim aeternitate nihilo beatior Iuppiter quam Epicurus; Nos cum te, M. Beatus autem esse in maximarum rerum timore nemo potest. Mihi enim satis est, ipsis non satis.</p>
+
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. An est aliquid per se ipsum flagitiosum, etiamsi nulla comitetur infamia? Negat esse eam, inquit, propter se expetendam. Mihi enim erit isdem istis fortasse iam utendum. Non laboro, inquit, de nomine. Nam Pyrrho, Aristo, Erillus iam diu abiecti. Nam si amitti vita beata potest, beata esse non potest. Duo Reges: constructio interrete. Progredientibus autem aetatibus sensim tardeve potius quasi nosmet ipsos cognoscimus.</p>
 
     </div>

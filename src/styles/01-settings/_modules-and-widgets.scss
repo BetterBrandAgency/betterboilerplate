@@ -8,35 +8,35 @@
     // Use the Base Grid
     //
 
-        $use-base-grid: false;
+        $use-base-grid: true;
 
 
     //
     // Use the Page Layout
     //
 
-        $use-page-layout: false;
+        $use-page-layout: true;
 
 
     //
     // Use the basic Carousel Styles (requires script(s) from options-scripts folder)
     //
 
-        $use-carousel: false;
+        $use-carousel: true;
 
 
     //
     // Use Nice Select Menus (requires script(s) from options-scripts folder)
     //
 
-        $use-nice-select: false;
+        $use-nice-select: true;
 
 
     //
     // Use Accordions
     //
 
-        $use-accordions: false;
+        $use-accordions: true;
 
 
     //
@@ -47,30 +47,44 @@
 
 
     //
+    // Use animated menu icon
+    //
+
+        $use-animated-menu-icon: true;
+
+
+    //
+    // Use Overlay (for menus and other fullscreen elements)
+    //
+
+        $use-overlay: true;
+
+
+    //
     // Use Featherlight Modals (requires script(s) from options-scripts folder)
     //
 
-        $use-featherlight: false;
-        $use-featherlight-gallery: false;
+        $use-featherlight: true;
+        $use-featherlight-gallery: true;
 
 
     //
     // Use Media Element
     //
 
-        $use-media-object: false;
+        $use-media-object: true;
 
 
     //
 	// Use Responsive Video
     //
 
-        $use-respsonsive-video: false;
+        $use-respsonsive-video: true;
 
 
     //
     // Use Responsive Maps
     //
 
-        $use-respsonsive-maps: false;
+        $use-respsonsive-maps: true;
 

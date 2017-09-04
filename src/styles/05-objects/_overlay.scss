@@ -1,0 +1,39 @@
+/////
+//
+// Overlay
+//
+/////
+
+@if $use-overlay == true {
+
+	.overlay {
+		position: fixed;
+		top: 5em;
+		left: 0;
+		width: 100%;
+		background-color: rgba($color-base-text,0.9);
+		z-index: 50;
+		opacity: 0;
+		pointer-events: none;
+		transition: opacity 150ms, top 300ms;
+		height: 0;
+		overflow: hidden;
+
+		&.is-open {
+			top: 0;
+			opacity: 1;
+			pointer-events: auto;
+			height: 100%;
+		}
+
+		&__close-button {
+			position: absolute;
+			top: $base-spacing-unit * 1.5;
+			right: $base-spacing-unit * 1.5;
+			display: inline-block;
+			z-index: 2;
+		}
+
+	}
+
+}

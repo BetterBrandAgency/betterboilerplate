@@ -1,6 +1,12 @@
+/////
 //
-// Grids
+// Base Grid
+// The base grid consists of a progressively enhanced grid utilising
+// CSS Grid where supported, falling back to flexbox where CSS Grid
+// support is missing and eventually falling back to inline-block when
+// flexbox isn't supported.
 //
+/////
 
 @if $use-base-grid == true {
 

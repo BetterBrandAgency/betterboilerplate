@@ -1,11 +1,13 @@
+/////
 //
 // Accordion
 //
+/////
 
 @if $use-accordions == true {
 
 	.accordion {
-		margin-bottom: 1.5rem;
+		margin-bottom: $base-spacing-unit;
 
 		&__title {
 			position: relative;
