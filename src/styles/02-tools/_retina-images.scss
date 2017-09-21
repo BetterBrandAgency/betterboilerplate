@@ -6,12 +6,10 @@
 // this mixin requires you to create 2 versions of each icon/image
 // but it is worth it in the end.
 //
-// The variables have default values set here but can be overwritten
-// in the settings file. The varialbes allow you to change the; image-path,
-// fallback-extension and retina-suffix.
+// The variables allow you to change the; image-path, fallback-extension and retina-suffix.
 //
 // Using the default values the following files will be required in a folder
-// named images located one folder up (../images) from the compiled css in 
+// named images located one folder up (../images) from the compiled css in
 // the file tree;
 //
 // logo.png, logo@2x.png

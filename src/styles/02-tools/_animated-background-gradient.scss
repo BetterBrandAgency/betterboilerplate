@@ -2,7 +2,7 @@
 //
 // Mixin - Animated Gradient Background
 //
-//@include background-gradient-animation(
+//@include animated-background-gradient(
 // 	rgba(255,255,255,0.4), // colour one
 // 	rgba(255,255,255,1), // colour two
 // 	rgba(255,255,255,0.4), // colour three
@@ -13,11 +13,9 @@
 //
 /////
 
-@mixin background-gradient-animation($colour-one, $colour-two, $colour-three, $angle, $length, $iteration) {
+@mixin animated-background-gradient($colour-one: rgba(255,255,255,0.2), $colour-two: rgba(255,255,255,0.8), $colour-three: rgba(255,255,255,0.2), $angle: 135deg, $length: 30s, $iteration: infinite) {
 	background: $colour-one;
-	// background: radial-gradient(center, ellipse cover, $colour-one 0%, $colour-two 52%, $colour-three 100%); // Radial
-
-	background: linear-gradient($angle, $colour-one 0%, $colour-two 52%, $colour-three 100%); // Linear
+	background: linear-gradient($angle, $colour-one 0%, $colour-two 50%, $colour-three 100%);
 	background-size: 500% 500%;
 	animation: animation-background-gradient $length linear $iteration;
 	position: absolute;

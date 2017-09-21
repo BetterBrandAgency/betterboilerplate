@@ -6,19 +6,19 @@
 /////
 
 	// Generate Styles for the Breakpoint Identifier
-		$use-breakpoint-identifier: true;
+		$use-breakpoint-identifier: false;
 
 	// Use Font Smoothing
-		$use-font-smoothing: true;
+		$use-font-smoothing: false;
 
 	// Generate Colour Classes
-		$use-colour-classes: true;
+		$use-color-classes: false;
 
 	// Generate Login Form Styles
-		$use-wordpress-styles: true;
+		$use-wordpress-login-styles: false;
 
 	// Turn on the HTML Validator
-		$use-html-validator: true;
+		$use-html-validator: false;
 
 /////
 //
@@ -27,19 +27,19 @@
 /////
 
 	// Include Visibility Styles
-		$use-helper-visibility-styles: true;
+		$use-helper-visibility-styles: false;
 
 	// Include Display Styles
-		$use-helper-display-styles: true;
+		$use-helper-display-styles: false;
 
 	// Include Position Styles
-		$use-helper-position-styles: true;
+		$use-helper-position-styles: false;
 
 	// Include Text Styles
-		$use-helper-text-styles: true;
+		$use-helper-text-styles: false;
 
 	// Include Padding Styles
-		$use-helper-padding-styles: true;
+		$use-helper-padding-styles: false;
 
 	// Include Margin Styles
-		$use-helper-margin-styles: true;
+		$use-helper-margin-styles: false;

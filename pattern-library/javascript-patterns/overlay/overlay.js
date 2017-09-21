@@ -6,20 +6,20 @@ function closeOverlay() {
 	$('.js-overlay').removeClass('is-open'); // Find element with the class 'js-menu-container' and remove the class 'is-open'
 }
 
-function updateButton() {
-	$('.js-menu-button').find('.menu-icon').toggleClass('is-active');
+function updateOverlayButton() {
+	$('.js-overlay-button').find('.menu-icon').toggleClass('is-active');
 }
 
 $(document).ready(function() {
 
 	$('.js-overlay-open').click(function(){
 		openOverlay();
-		updateButton();
+		updateOverlayButton();
 	});
 
 	$('.js-overlay-close').click(function(){
 		closeOverlay();
-		updateButton();
+		updateOverlayButton();
 	});
 
 });
@@ -30,7 +30,7 @@ $(document).keyup(function(e) { // Listen for keyboard presses
 
 		if ($('.js-overlay').hasClass('is-open')) { // If the menu is open close it
 			closeOverlay(); // Run the closeMenu function
-			updateButton();
+			updateOverlayButton();
 		}
 
 	}

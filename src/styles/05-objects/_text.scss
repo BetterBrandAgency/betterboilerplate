@@ -19,11 +19,3 @@
 	}
 
 }
-
-// Small Caps - Example Useage
-// <p>This sentence has <span class="small-caps">small caps</span></p>
-
-.small-caps {
-	font-variant-caps: small-caps;
-	font-feature-settings: "smcp";
-}

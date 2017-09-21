@@ -6,6 +6,12 @@
 
 @if $use-accordions == true {
 
+	$accordion-text-color: $color-base-text;
+	$accordion-background-color: $color-border;
+
+	$accordion-text-color--active: white;
+	$accordion-background-color--active: $color-alpha;
+
 	.accordion {
 		margin-bottom: $base-spacing-unit;
 
@@ -13,7 +19,8 @@
 			position: relative;
 			padding: $base-spacing-unit * 0.75;
 			padding-right: $base-spacing-unit * 2;
-			background-color: $color-border;
+			color: $accordion-text-color;
+			background-color: $accordion-background-color;
 			cursor: pointer;
 			transition: all 150ms;
 
@@ -22,18 +29,19 @@
 				right: $base-spacing-unit * 0.75;
 				top: 50%;
 				transform: translateY(-50%) rotate(-90deg);
-				fill: $color-base-text;
+				fill: $accordion-text-color;
 				transition: transform 250ms;
 				max-width: $base-spacing-unit;
+				max-height: $base-spacing-unit;
 			}
 
 			&.is-active {
-				background-color: $color-alpha;
-				color: white;
+				background-color: $accordion-background-color--active;
+				color: $accordion-text-color--active;
 
 				.svg {
 					transform: translateY(-50%) rotate(90deg);
-					fill: white;
+					fill: $accordion-text-color--active;
 				}
 
 			}
@@ -41,7 +49,7 @@
 		}
 
 		&__content {
-			border: 1px solid $color-border;
+			border: 1px solid $accordion-background-color;
 			padding: $base-spacing-unit * 0.75;
 
 			p:last-of-type {

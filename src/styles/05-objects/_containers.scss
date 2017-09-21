@@ -4,34 +4,40 @@
 //
 /////
 
-// Container Max Width's (Center Main Content)
+$container-width-largest:         modular-scale($base-font-size, $modular-scale, 10);
+$container-width-large:           modular-scale($base-font-size, $modular-scale, 9);
+$container-width:                 modular-scale($base-font-size, $modular-scale, 8);
+$container-width-small:           modular-scale($base-font-size, $modular-scale, 7);
+$container-width-smallest:        modular-scale($base-font-size, $modular-scale, 6);
 
-.content--width {
-    max-width: $content-width;
+// @error $container-width-largest, $container-width-large, $container-width, $container-width-small, $container-width-smallest;
+
+.content-container {
+    max-width: $container-width;
     margin-left: auto;
     margin-right: auto;
 }
 
-.content--width-small {
-    max-width: $content-width-small;
+.content-container--small {
+    max-width: $container-width-small;
     margin-left: auto;
     margin-right: auto;
 }
 
-.content--width-smallest {
-    max-width: $content-width-smallest;
+.content-container--smallest {
+    max-width: $container-width-smallest;
     margin-left: auto;
     margin-right: auto;
 }
 
-.content--width-large {
-    max-width: $content-width-large;
+.content-container--large {
+    max-width: $container-width-large;
     margin-left: auto;
     margin-right: auto;
 }
 
-.content--width-largest {
-    max-width: $content-width-large;
+.content-container--largest {
+    max-width: $container-width-large;
     margin-left: auto;
     margin-right: auto;
 }

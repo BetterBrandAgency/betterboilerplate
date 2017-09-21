@@ -138,7 +138,7 @@
 
                 .pipe(cleanCSS()) // Minify CSS
 
-                .pipe(rename('main.purified.css')) // Rename to '.min.css'
+                .pipe(rename('main.purified.css')) // Rename to '.purified.css'
 
                 .pipe(gulp.dest('dist/css')) // Spit out in 'dist/css'
 
@@ -179,7 +179,7 @@
 
                 .pipe(babel({
                     presets: ['env'],
-                    ignore: 'siema.min.js'
+                    ignore: ['siema.min.js', 'svg4everybody.min.js']
                 }))
 
                 .pipe(concat('main.js')) // Concatenate JS files
@@ -279,6 +279,21 @@
         gulp.task('svg-images', function() {
 
             return gulp.src('src/images/**/*.svg') // Read from this directory
+
+                .pipe(svgmin({ // Minify SVGs
+                    plugins: [{
+                        removeDoctype: true // Remove DocType
+                    }, {
+                        removeComments: true // Remove Comments
+                    }, {
+                        cleanupNumericValues: {
+                            floatPrecision: 2 // Reduces file size
+                        }
+                    }, {
+                        removeStyleElement: false // Removes inline styles from SVGs
+                    }]
+                }))
+
                 .pipe(gulp.dest('dist/images')) // Spit out in 'dist/images'
 
         });
@@ -290,7 +305,7 @@
 /////
 
     // Create SVG Sprite
-        gulp.task('svg', function () {
+        gulp.task('svg-sprite', function () {
             return gulp.src('src/svgs/**/*') // Read from this directory
 
                 .pipe(plumber({errorHandler: function(err){ // Pipe in error message
@@ -321,7 +336,7 @@
 
                 .pipe(svgstore({ inlineSvg: true })) // Inline SVG into one file
 
-                .pipe(rename('all.svg')) // Create 'all.svg' from files
+                .pipe(rename('sprite.svg')) // Create 'sprite.svg' from files
 
                 .pipe(gulp.dest('dist/images')) // Spit out in 'dist/images'
 
@@ -387,7 +402,7 @@
 
     // Remove all Dist Directories
         gulp.task('clean-all', function() {
-            return gulp.src('dist', {read: false}) // Find these folders
+            return gulp.src(['dist/css', 'dist/js', 'dist/images', 'dist/fonts', 'dist/favicons'], {read: false}) // Find these folders
                 .pipe(clean()); // Delete them
         });
 
@@ -416,7 +431,7 @@
             gulp.watch('src/images/**/*', ['images', 'svg-images']);
 
             // Watch SVGs
-            gulp.watch('src/svg/**/*', ['svg']);
+            gulp.watch('src/svg/**/*', ['svg-sprite']);
 
         });
 
@@ -432,7 +447,7 @@
             gulp.start('favicons');
             gulp.start('images');
             gulp.start('svg-images');
-            gulp.start('svg');
+            gulp.start('svg-sprite');
         });
 
     // Rebuild Task - Delete entire dist folder and rebuild
@@ -447,5 +462,5 @@
             gulp.start('favicons');
             gulp.start('images');
             gulp.start('svg-images');
-            gulp.start('svg');
+            gulp.start('svg-sprite');
         });

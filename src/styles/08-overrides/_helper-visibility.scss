@@ -1,0 +1,21 @@
+/////
+//
+// Visibility Helper Classes
+//
+/////
+
+@if $use-helper-visibility-styles == true {
+
+    .is-hidden {
+        display: none;
+    }
+
+    .is-visible {
+        display: block;
+    }
+
+    .is-visuallyhidden {
+        @include visually-hidden;
+    }
+
+}

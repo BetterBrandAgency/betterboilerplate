@@ -1,90 +1,99 @@
+/////
 //
 // Modules and Widgets - Settings
 // Turn different widets on and off using the boolean variables below.
-// Although some of the widgets may contain some default styles it's up to you to rewrite this should you want/require a different style.
+// Although some of the widgets may contain some default styles it's up to you to rewrite this should you require a different style.
 //
+/////
 
     //
     // Use the Base Grid
     //
 
-        $use-base-grid: true;
+        $use-base-grid: false;
 
 
     //
     // Use the Page Layout
     //
 
-        $use-page-layout: true;
+        $use-page-layout: false;
 
 
     //
     // Use the basic Carousel Styles (requires script(s) from options-scripts folder)
     //
 
-        $use-carousel: true;
+        $use-carousel: false;
 
 
     //
     // Use Nice Select Menus (requires script(s) from options-scripts folder)
     //
 
-        $use-nice-select: true;
+        $use-nice-select: false;
 
 
     //
     // Use Accordions
     //
 
-        $use-accordions: true;
+        $use-accordions: false;
 
 
     //
     // Use Custom Checkbox and Radio Buttons
     //
 
-        $use-custom-radio-and-checkboxes: true;
+        $use-custom-radio-and-checkboxes: false;
 
 
     //
     // Use animated menu icon
     //
 
-        $use-animated-menu-icon: true;
+        $use-animated-menu-icon: false;
+
+
+    //
+    // Use Notice
+    //
+
+        $use-notice: false;
 
 
     //
     // Use Overlay (for menus and other fullscreen elements)
     //
 
-        $use-overlay: true;
+        $use-overlay: false;
 
 
     //
     // Use Featherlight Modals (requires script(s) from options-scripts folder)
     //
 
-        $use-featherlight: true;
-        $use-featherlight-gallery: true;
+        $use-featherlight: false;
+        $use-featherlight-gallery: false;
 
 
     //
-    // Use Media Element
+    // Use Media Object
     //
 
-        $use-media-object: true;
+        $use-media-object: false;
 
 
     //
 	// Use Responsive Video
     //
 
-        $use-respsonsive-video: true;
+        $use-respsonsive-video: false;
 
 
     //
     // Use Responsive Maps
     //
 
-        $use-respsonsive-maps: true;
+        $use-respsonsive-maps: false;
 

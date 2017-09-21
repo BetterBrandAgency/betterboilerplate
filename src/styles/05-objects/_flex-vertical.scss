@@ -7,14 +7,13 @@
 .flex-vertical {
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-end;
 	height: 100%;
 
 	@include ie {
 		display: block;
 	}
 
-	&__header {
+	&__content {
 		flex: 1 0 auto;
 	}
 

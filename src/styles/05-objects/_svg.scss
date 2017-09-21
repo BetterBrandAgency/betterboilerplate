@@ -4,23 +4,11 @@
 //
 /////
 
-.svgs-container {
-	width: 0;
-	height: 0;
-	overflow: hidden;
-}
-
 .svg {
     width: 100%;
     height: auto;
 	stroke-linecap: round;
 	stroke-linejoin: round;
-
-	&--social {
-		margin: 0 ($base-spacing-unit / 2) ($base-spacing-unit / 4);
-		max-width: 3rem;
-		max-height: 3rem;
-	}
 
 	&--twitter {
 		fill: $color-twitter;

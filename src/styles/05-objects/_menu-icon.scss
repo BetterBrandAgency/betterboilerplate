@@ -8,8 +8,8 @@
 
 	$menu-icon-width: 2em;
 	$menu-icon-height: $menu-icon-width * 0.75;
-	$menu-icon-color: $color-border;
-	$menu-icon-color--active: $color-alpha;
+	$menu-icon-color: $color-base-text;
+	$menu-icon-color--active: white;
 
 	.menu-icon {
 		position: relative; /* Give the menu-icon position relative so we can absolutely position children */

@@ -1,0 +1,39 @@
+/////
+//
+// Webiste Notice
+//
+/////
+
+@if $use-notice == true {
+
+	.notice {
+		background-color: $color-base-text;
+		width: 100%;
+		padding: $base-spacing-unit;
+		color: #fff;
+		text-align: center;
+		z-index: 50;
+
+		p {
+			margin: 0;
+		}
+
+		a {
+			color: white;
+		}
+
+		&--error {
+			background-color: $color-error;
+		}
+
+		&--success {
+			background-color: $color-success;
+		}
+
+		&--warning {
+			background-color: $color-warning;
+		}
+
+	}
+
+}

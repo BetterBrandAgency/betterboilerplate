@@ -3,15 +3,14 @@
     Basic Skeleton HTML for creating an image carousel
     - Requires the accompanying Javascript Pattern
     - Requires the optional script siema.min.js to be put into bundled scripts
+    - Requires the $use-carousel setting to be set to true inside of src/styles/01-settings/_modules-and-widgets.scss
 
 -->
-
 
 <div class="carousel__container">
 
     <div class="carousel [ js-carousel ]">
 
-        <div><img src="" alt=""></div>
         <div><img src="" alt=""></div>
         <div><img src="" alt=""></div>
         <div><img src="" alt=""></div>
@@ -22,13 +21,13 @@
     <div class="carousel__navigation">
         <button class="carousel__nav carousel__nav--prev [ js-carousel__prev ]">
             <svg class="svg svg--carousel-arrow">
-                <use xlink:href="#svg-boilerplate-arrow"></use>
+                <use xlink:href="/dist/images/sprite.svg#boilerplate-arrow" href="/dist/images/sprite.svg#boilerplate-arrow"></use>
             </svg>
         </button>
 
         <button class="carousel__nav carousel__nav--next [ js-carousel__next ]">
             <svg class="svg svg--carousel-arrow">
-                <use xlink:href="#svg-boilerplate-arrow"></use>
+                <use xlink:href="/dist/images/sprite.svg#boilerplate-arrow" href="/dist/images/sprite.svg#boilerplate-arrow"></use>
             </svg>
         </button>
     </div>

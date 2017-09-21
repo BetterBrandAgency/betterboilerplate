@@ -1,0 +1,24 @@
+/////
+//
+// Maps Container - Theme
+//
+/////
+
+@if $use-respsonsive-maps == true {
+
+    .map-container {
+        position: relative;
+        padding-bottom: 35%; // This is the aspect ratio (width % of height)
+        height: 0;
+        overflow: hidden;
+    }
+
+    .map-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+}

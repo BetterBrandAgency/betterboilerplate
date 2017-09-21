@@ -4,38 +4,40 @@
 //
 /////
 
+$responsive-start: 		(rem-to-px($base-spacing-unit * 22));
+$responsive-end: 		(rem-to-px($base-spacing-unit * 60));
+
 @include headings(1, 6) {
-	line-height: $modular-scale;
-	margin-bottom: $base-spacing-unit;
+	line-height: ($modular-scale + $modular-scale-two) / 2;
 	font-family: $font-family-bravo;
 }
 
 h1,
 .h1 {
-	@include fluid-type(modular-scale($base-font-size, $modular-scale, 3), modular-scale($base-font-size, $modular-scale, 4), $responsive-start, $responsive-end);
+	@include fluid-type(modular-scale($base-font-size, $modular-scale-two, 7), modular-scale($base-font-size, $modular-scale-two, 9), $responsive-start, $responsive-end);
 }
 
 h2,
 .h2 {
-	@include fluid-type(modular-scale($base-font-size, $modular-scale, 2), modular-scale($base-font-size, $modular-scale, 3), $responsive-start, $responsive-end);
+	@include fluid-type(modular-scale($base-font-size, $modular-scale-two, 6), modular-scale($base-font-size, $modular-scale-two, 8), $responsive-start, $responsive-end);
 }
 
 h3,
 .h3 {
-	@include fluid-type(modular-scale($base-font-size, $modular-scale, 1), modular-scale($base-font-size, $modular-scale, 2), $responsive-start, $responsive-end);
+	@include fluid-type(modular-scale($base-font-size, $modular-scale-two, 5), modular-scale($base-font-size, $modular-scale-two, 7), $responsive-start, $responsive-end);
 }
 
 h4,
 .h4 {
-	@include font-size(modular-scale($base-font-size, $modular-scale, 1));
+	@include fluid-type(modular-scale($base-font-size, $modular-scale-two, 4), modular-scale($base-font-size, $modular-scale-two, 6), $responsive-start, $responsive-end);
 }
 
 h5,
 .h5 {
-	@include font-size(modular-scale($base-font-size, $modular-scale, 0));
+	@include fluid-type(modular-scale($base-font-size, $modular-scale-two, 3), modular-scale($base-font-size, $modular-scale-two, 5), $responsive-start, $responsive-end);
 }
 
 h6,
 .h6 {
-	@include font-size(modular-scale($base-font-size, $modular-scale, -1));
+	@include fluid-type(modular-scale($base-font-size, $modular-scale-two, 2), modular-scale($base-font-size, $modular-scale-two, 3), $responsive-start, $responsive-end);
 }

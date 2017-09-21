@@ -6,10 +6,8 @@
 // single value, e.g.:
 //
 // @include font-size(10px);
-//
-// Can specify false in the decloration to not include a line-height:
-//
-// @include font-size(24px, false);
+// @include font-size(24px, false); // exclude line-height
+// @include font-size(24px, true, true) // apply the !important flag
 //
 /////
 

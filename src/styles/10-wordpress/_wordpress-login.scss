@@ -4,37 +4,32 @@
 //
 /////
 
-@if $use-wordpress-styles == true {
+@if $use-wordpress-login-styles == true {
 
-    //
-    // Normal Theme
-    //
+    $wp-login-company-logo: '../images/better/better-logo.svg' !default;
+    $wp-login-company-logo-width: 250px !default;
+    $wp-login-company-logo-height: 53px !default;
 
-        $wp-login-company-logo: '../images/better/better-logo.svg' !default;
-        $wp-login-company-logo-width: 250px !default;
-        $wp-login-company-logo-height: 53px !default;
+    $wp-login-background-color: #eee !default;
+    $wp-login-background-image: '../images/better/better-logo.svg' !default;
+    $wp-login-background-position: bottom $base-spacing-unit right $base-spacing-unit !default;
+    $wp-login-background-size: 75px auto !default;
+    $wp-login-background-link-color: $color-bravo !default;
 
-        $wp-login-background-color: #eee !default;
-        $wp-login-background-image: '../images/better/better-logo.svg' !default;
-        $wp-login-background-position: bottom $base-spacing-unit right $base-spacing-unit !default;
-        $wp-login-background-size: 75px auto !default;
-        $wp-login-background-link-color: $color-bravo !default;
+    $wp-login-form-background-color: white !default;
+    $wp-login-form-text-color: $color-bravo !default;
+    $wp-login-form-border-color: $color-bravo !default;
+    $wp-login-form-button-color: $color-bravo !default;
+    $wp-login-form-button-text-color: white !default;
+    $wp-login-form-absolute-center: true !default;
 
-        $wp-login-form-background-color: white !default;
-        $wp-login-form-text-color: $color-bravo !default;
-        $wp-login-form-border-color: $color-bravo !default;
-        $wp-login-form-button-color: $color-bravo !default;
-        $wp-login-form-button-text-color: white !default;
-        $wp-login-form-absolute-center: true !default;
+    $wp-login-message-background-color: $color-bravo !default;
+    $wp-login-message-text-color: white !default;
+    $wp-login-message-is-fixed: true !default;
+    $wp-login-message-is-fixed--top: true !default;
+    $wp-login-message-is-fixed--bottom: false !default;
 
-        $wp-login-message-background-color: $color-bravo !default;
-        $wp-login-message-text-color: white !default;
-        $wp-login-message-is-fixed: true !default;
-        $wp-login-message-is-fixed--top: true !default;
-        $wp-login-message-is-fixed--bottom: false !default;
-
-        $wp-login-form-height: 44em !default; // height is for vertical centering
-
+    $wp-login-form-height: 44em !default; // height is for vertical centering
 
     .login form {
         margin-top:0;

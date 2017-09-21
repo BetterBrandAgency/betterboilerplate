@@ -20,7 +20,8 @@
 // Modular scale calculator - http://srt.lt/S9rR.
 //
 
-	$modular-scale: 			1.618;								// Default modular scale
+	$modular-scale: 			1.618;								// Golden Ratio
+	$modular-scale-two:			1.125;								// Major Second 8:9
 
 
 //
@@ -36,5 +37,6 @@
 //
 
 	$base-spacing-unit: 			px-to-rem(modular-scale($base-font-size, $modular-scale, 1)) !default;
+	//@error $base-spacing-unit;
 	$half-spacing-unit: 			$base-spacing-unit / 2 !default;
 

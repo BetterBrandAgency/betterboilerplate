@@ -12,7 +12,7 @@
 // <div class="background--bravo padding">Box using the main site colour as a background</div>
 //
 
-@if $use-colour-classes == true {
+@if $use-color-classes == true {
 
 	$color-list: (
 		alpha $color-alpha,

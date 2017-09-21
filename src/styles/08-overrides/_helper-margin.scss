@@ -1,0 +1,102 @@
+/////
+//
+// Margin Helper Classes
+//
+/////
+
+@if $use-helper-margin-styles == true {
+
+    .no-margin {
+        margin: 0;
+
+        &--top {
+            margin-top: 0;
+        }
+
+        &--right {
+            margin-right: 0;
+        }
+
+        &--bottom {
+            margin-bottom: 0;
+        }
+
+        &--left {
+            margin-left: 0;
+        }
+
+        &--sides {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        &--ends {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+    }
+
+    .margin {
+        margin: $base-spacing-unit;
+
+        &--top {
+            margin-top: $base-spacing-unit;
+        }
+
+        &--right {
+            margin-right: $base-spacing-unit;
+        }
+
+        &--bottom {
+            margin-bottom: $base-spacing-unit;
+        }
+
+        &--left {
+            margin-left: $base-spacing-unit;
+        }
+
+        &--sides {
+            margin-left: $base-spacing-unit;
+            margin-right: $base-spacing-unit;
+        }
+
+        &--ends {
+            margin-top: $base-spacing-unit;
+            margin-bottom: $base-spacing-unit;
+        }
+
+    }
+
+    .margin-double {
+        margin: $base-spacing-unit * 2;
+
+        &--top {
+            margin-top: ($base-spacing-unit * 2);
+        }
+
+        &--right {
+            margin-right: ($base-spacing-unit * 2);
+        }
+
+        &--bottom {
+            margin-bottom: ($base-spacing-unit * 2);
+        }
+
+        &--left {
+            margin-left: ($base-spacing-unit * 2);
+        }
+
+        &--sides {
+            margin-left: $base-spacing-unit * 2;
+            margin-right: $base-spacing-unit * 2;
+        }
+
+        &--ends {
+            margin-top: $base-spacing-unit * 2;
+            margin-bottom: $base-spacing-unit * 2;
+        }
+
+    }
+
+}

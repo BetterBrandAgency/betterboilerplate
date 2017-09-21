@@ -6,24 +6,38 @@
 
 @if $use-overlay == true {
 
+	$overlay-background-color: rgba(0,0,0,0.9);
+	$overlay-is-animated: true;
+
 	.overlay {
 		position: fixed;
-		top: 5em;
+		top: 0;
 		left: 0;
 		width: 100%;
-		background-color: rgba($color-base-text,0.9);
+		background-color: $overlay-background-color;
 		z-index: 50;
 		opacity: 0;
 		pointer-events: none;
-		transition: opacity 150ms, top 300ms;
 		height: 0;
 		overflow: hidden;
+		color: white;
+		padding-top: ($base-spacing-unit * 4);
+
+		@if $overlay-is-animated == true {
+			top: 5em;
+			transition: none;
+		}
 
 		&.is-open {
-			top: 0;
 			opacity: 1;
 			pointer-events: auto;
 			height: 100%;
+
+			@if $overlay-is-animated == true {
+				top: 0;
+				transition: opacity 150ms, top 300ms;
+			}
+
 		}
 
 		&__close-button {
@@ -32,6 +46,11 @@
 			right: $base-spacing-unit * 1.5;
 			display: inline-block;
 			z-index: 2;
+
+			.menu-icon span {
+				background-color: white;
+			}
+
 		}
 
 	}

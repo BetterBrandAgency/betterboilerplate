@@ -1,0 +1,50 @@
+/////
+//
+// Text Helper Classes
+//
+/////
+
+@if $use-helper-text-styles == true {
+
+    .text {
+
+        &--left {
+            text-align:left;
+        }
+
+        &--center {
+            text-align:center;
+        }
+
+        &--right {
+            text-align:right;
+        }
+
+        &--capitalized {
+            text-transform: capitalize;
+        }
+
+        &--small-caps {
+            font-variant-caps: small-caps;
+            font-feature-settings: "smcp";
+        }
+
+        &--uppercase {
+            text-transform: uppercase;
+        }
+
+        &--regular {
+            font-weight: 400;
+        }
+
+        &--semi-bold {
+            font-weight: 600;
+        }
+
+        &--bold {
+            font-weight: bold;
+        }
+
+    }
+
+}

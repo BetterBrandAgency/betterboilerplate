@@ -1,0 +1,102 @@
+/////
+//
+// Padding Helper Classes
+//
+/////
+
+@if $use-helper-padding-styles == true {
+
+    .no-padding {
+        padding: 0;
+
+        &--top {
+            padding-top: 0;
+        }
+
+        &--right {
+            padding-right: 0;
+        }
+
+        &--bottom {
+            padding-bottom: 0;
+        }
+
+        &--left {
+            padding-left: 0;
+        }
+
+        &--sides {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        &--ends {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+    }
+
+    .padding {
+        padding: $base-spacing-unit;
+
+        &--top {
+            padding-top: $base-spacing-unit;
+        }
+
+        &--right {
+            padding-right: $base-spacing-unit;
+        }
+
+        &--bottom {
+            padding-bottom: $base-spacing-unit;
+        }
+
+        &--left {
+            padding-left: $base-spacing-unit;
+        }
+
+        &--sides {
+            padding-left: $base-spacing-unit;
+            padding-right: $base-spacing-unit;
+        }
+
+        &--ends {
+            padding-top: $base-spacing-unit;
+            padding-bottom: $base-spacing-unit;
+        }
+
+    }
+
+    .padding-double {
+        padding: $base-spacing-unit * 2;
+
+        &--top {
+            padding-top: ($base-spacing-unit * 2);
+        }
+
+        &--right {
+            padding-right: ($base-spacing-unit * 2);
+        }
+
+        &--bottom {
+            padding-bottom: ($base-spacing-unit * 2);
+        }
+
+        &--left {
+            padding-left: ($base-spacing-unit * 2);
+        }
+
+        &--sides {
+            padding-left: $base-spacing-unit * 2;
+            padding-right: $base-spacing-unit * 2;
+        }
+
+        &--ends {
+            padding-top: $base-spacing-unit * 2;
+            padding-bottom: $base-spacing-unit * 2;
+        }
+
+    }
+
+}

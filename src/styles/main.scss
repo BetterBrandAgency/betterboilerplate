@@ -10,9 +10,6 @@
 @import "01-settings/colours";
 @import "01-settings/modules-and-widgets";
 @import "01-settings/global-properties";
-@import "01-settings/global-breakpoints";
-@import "01-settings/content-widths";
-@import "01-settings/wordpress";
 
 // Import Tools - Mixins
 @import "02-tools/clearfix";
@@ -21,14 +18,13 @@
 @import "02-tools/retina-images";
 @import "02-tools/visually-hidden";
 @import "02-tools/word-wrap";
-@import "02-tools/responsive-iframe";
-@import "02-tools/animated-gradient-background";
+@import "02-tools/animated-background-gradient";
 @import "02-tools/fluid-type";
 @import "02-tools/flex-fallback";
 @import "02-tools/min-width-media";
 @import "02-tools/ie-media-query";
 
-// Import Generic - Low Specificity, far reaching styles inc. resets
+// Import Generic - Low Specificity, far reaching styles eg. resets
 @import "03-generic/sanitize";
 
 // Base - Unclassed elements and default styles (e.g. blockquote, img, etc.)
@@ -42,7 +38,6 @@
 @import "04-base/definition-list";
 @import "04-base/blockquote";
 @import "04-base/horizontal-rule";
-@import "04-base/generic";
 
 // Objects - Objects and Design Patterns
 @import "05-objects/generic";
@@ -55,22 +50,22 @@
 @import "05-objects/horizontal-rule";
 @import "05-objects/buttons";
 @import "05-objects/svg";
-@import "05-objects/responsive-maps";
+@import "05-objects/responsive-map";
 @import "05-objects/responsive-video";
 @import "05-objects/flex-vertical";
 @import "05-objects/menu-icon";
-@import "05-objects/overlay";
+
+// Animations
+@import "09-animations/background-gradient";
 
 // Components - Complete Chunks of UI
-@import "06-components/header";
-@import "06-components/hero";
-@import "06-components/footer";
 @import "06-components/carousel";
 @import "06-components/accordion";
 @import "06-components/page-layout";
 @import "06-components/grid";
-@import "06-components/website-notice";
+@import "06-components/notice";
 @import "06-components/custom-radio-and-checkboxes";
+@import "06-components/overlay";
 
 // Widgets - 3rd Party Libraries
 @import "07-widgets/nice-select";
@@ -78,11 +73,12 @@
 @import "07-widgets/featherlight-gallery";
 
 // Overrides - High specificity classes, overrides and helper classes
-@import "08-overrides/helper";
+@import "08-overrides/helper-visibility";
+@import "08-overrides/helper-position";
+@import "08-overrides/helper-text";
+@import "08-overrides/helper-padding";
+@import "08-overrides/helper-margin";
 @import "08-overrides/shame";
-
-// Animations
-@import "09-animations/background-gradient";
 
 // Wordpress Specific
 @import "10-wordpress/wordpress-login";
