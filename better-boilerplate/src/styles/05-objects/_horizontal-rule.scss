@@ -5,6 +5,7 @@
 /////
 
 .hr {
+	text-align: left;
 
 	&--alpha {
 		border-bottom-color: $color-alpha;
@@ -21,6 +22,7 @@
 	&--center {
 		margin-left: auto;
 		margin-right: auto;
+		text-align: center;
 	}
 
 }

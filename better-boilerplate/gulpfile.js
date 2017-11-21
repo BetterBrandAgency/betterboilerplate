@@ -73,7 +73,7 @@
                     sourceRoot: 'source'
                 }))
 
-                .pipe(gulp.dest('dist/css')) // Spit out in 'dist/css'
+                .pipe(gulp.dest('../dist/css')) // Spit out in '../dist/css'
 
                 .pipe(notify({ // Pipe in success messages
                     "title": projectName,
@@ -110,7 +110,7 @@
                     sourceRoot: 'source'
                 }))
 
-                .pipe(gulp.dest('dist/css')) // Spit out in 'dist/css'
+                .pipe(gulp.dest('../dist/css')) // Spit out in '../dist/css'
 
                 .pipe(notify({ // Pipe in success messages
                     "title": projectName,
@@ -122,7 +122,7 @@
 
     // Purify CSS ---EXPERIMENTAL---
         gulp.task('purify-styles', function() {
-            return gulp.src('dist/css/main.min.css') // Read from this file
+            return gulp.src('../dist/css/main.min.css') // Read from this file
 
                 .pipe(plumber({errorHandler: function(err){ // Pipe in error messages
                     notify.onError({
@@ -134,13 +134,13 @@
                     notify.emit('end');
                 }}))
 
-                .pipe(purify(['dist/**/*.js', 'dist/**/*.html', 'dist/**/*.php', '*.php'])) // Read from these files and folders and remove unused CSS
+                .pipe(purify(['../dist/**/*.js', '../dist/**/*.html', '../dist/**/*.php', '*.php'])) // Read from these files and folders and remove unused CSS
 
                 .pipe(cleanCSS()) // Minify CSS
 
                 .pipe(rename('main.purified.css')) // Rename to '.purified.css'
 
-                .pipe(gulp.dest('dist/css')) // Spit out in 'dist/css'
+                .pipe(gulp.dest('../dist/css')) // Spit out in '../dist/css'
 
                 .pipe(notify({ // Pipe in success messages
                     "title": projectName,
@@ -184,7 +184,7 @@
 
                 .pipe(concat('main.js')) // Concatenate JS files
 
-                .pipe(gulp.dest('dist/js')) // Spit out in 'dist/js'
+                .pipe(gulp.dest('../dist/js')) // Spit out in '../dist/js'
 
                 .pipe(notify({ // Pipe in success messages
                     "title": projectName,
@@ -210,7 +210,7 @@
 
             .pipe(babel({
                 presets: ['env'],
-                ignore: 'siema.min.js'
+                ignore: ['siema.min.js', 'svg4everybody.min.js']
             }))
 
             .pipe(concat('main.js')) // Concatenate JS files
@@ -218,7 +218,7 @@
             .pipe(rename({ suffix: '.min' })) // Rename to add '.min'
             .pipe(uglify()) // Minify JS
 
-            .pipe(gulp.dest('dist/js')) // Spit out in 'dist/js'
+            .pipe(gulp.dest('../dist/js')) // Spit out in '../dist/js'
 
             .pipe(notify({ // Pipe in success messages
                 "title": projectName,
@@ -232,7 +232,7 @@
         gulp.task('single-scripts', function() {
             return gulp.src(['src/scripts/single-scripts/*']) // Read from this directory
                 .pipe(uglify()) // Minify JS
-                .pipe(gulp.dest('dist/js')) // Spit out in 'dist/js'
+                .pipe(gulp.dest('../dist/js')) // Spit out in '../dist/js'
         });
 
 /////
@@ -261,11 +261,11 @@
 
                 .pipe(gulpIgnore.exclude([imageThumbs, svgs])) // Ignore image thumbs and svgs
 
-                .pipe(newer('dist/images')) // Check file is newer
+                .pipe(newer('../dist/images')) // Check file is newer
 
                 .pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true })) // Optimise images
 
-                .pipe(gulp.dest('dist/images')) // Spit out in 'dist/images'
+                .pipe(gulp.dest('../dist/images')) // Spit out in '../dist/images'
 
                 .pipe(notify({ // Pipe in success messages
                     "title": projectName,
@@ -294,7 +294,7 @@
                     }]
                 }))
 
-                .pipe(gulp.dest('dist/images')) // Spit out in 'dist/images'
+                .pipe(gulp.dest('../dist/images')) // Spit out in '../dist/images'
 
         });
 
@@ -338,7 +338,7 @@
 
                 .pipe(rename('sprite.svg')) // Create 'sprite.svg' from files
 
-                .pipe(gulp.dest('dist/images')) // Spit out in 'dist/images'
+                .pipe(gulp.dest('../dist/images')) // Spit out in '../dist/images'
 
                 .pipe(notify({ // Pipe in success message
                     "title": projectName,
@@ -369,7 +369,7 @@
                     notify.emit('end');
                 }}))
 
-                .pipe(gulp.dest('dist/fonts')) // Spit out in 'dist/fonts'
+                .pipe(gulp.dest('../dist/fonts')) // Spit out in '../dist/fonts'
 
                 .pipe(notify({ // Pipe in success messages
                     "title": projectName,
@@ -384,7 +384,7 @@
 
             return gulp.src('src/favicons/**/*') // Read from this directory
 
-                .pipe(gulp.dest('dist/favicons')) // Spit out in 'dist/favicons'
+                .pipe(gulp.dest('../dist/favicons')) // Spit out in '../dist/favicons'
 
         });
 
@@ -396,14 +396,14 @@
 
     // Remove CSS and JS Directories
         gulp.task('clean', function() {
-            return gulp.src(['dist/css', 'dist/js'], {read: false}) // Find these folders
-                .pipe(clean()); // Delete them
+            return gulp.src(['../dist/css', '../dist/js'], {read: false}) // Find these folders
+                .pipe(clean({force: true})); // Delete them
         });
 
     // Remove all Dist Directories
         gulp.task('clean-all', function() {
-            return gulp.src(['dist/css', 'dist/js', 'dist/images', 'dist/fonts', 'dist/favicons'], {read: false}) // Find these folders
-                .pipe(clean()); // Delete them
+            return gulp.src(['../dist/css', '../dist/js', '../dist/images', '../dist/fonts', '../dist/favicons'], {read: false}) // Find these folders
+                .pipe(clean({force: true})); // Delete them
         });
 
 /////
