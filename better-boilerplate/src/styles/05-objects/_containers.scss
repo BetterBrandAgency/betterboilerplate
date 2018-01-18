@@ -37,7 +37,7 @@ $container-width-smallest:        modular-scale($base-font-size, $modular-scale,
 }
 
 .content-container--largest {
-    max-width: $container-width-large;
+    max-width: $container-width-largest;
     margin-left: auto;
     margin-right: auto;
 }
