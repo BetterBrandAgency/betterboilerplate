@@ -211,4 +211,4 @@ Officially the Better Boilerplate supports IE10+ and all of the other modern bro
 - - - -
 
 ## License
-MIT
+[MIT](https://github.com/BetterBrandAgency/betterboilerplate/blob/master/license.txt)
