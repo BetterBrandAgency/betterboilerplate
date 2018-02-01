@@ -1,8 +1,8 @@
 # Better Boilerplate
 A frontend framework geared towards agencies using WordPress.
 
-For indepth documentation see the Better Boilerplate website;
-http://developers.betterbrandagency.com/boilerplate-documentation/
+For indepth documentation see the [Better Boilerplate Documentation Git Hub Page](https://matchboxhero.github.io/better-boilerplate-documentation/).
+
 
 ## Introduction
 The boilerplate is made up of many different modules and will manage much of the frontend build process; containing the entire directory structure for your project. 
