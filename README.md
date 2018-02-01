@@ -5,13 +5,15 @@ For indepth documentation see the [Better Boilerplate Documentation Git Hub Page
 
 
 ## Introduction
-The boilerplate is made up of many different modules and will manage much of the frontend build process; containing the entire directory structure for your project. 
+The boilerplate is made up of many different modules and will manage much of the frontend build process; containing the entire directory structure for your project.
 
 The Better Boilerplate carries very little "style" and consists mainly of file and directory structure and theme-able objects, components and widgets. This allows us to create the styles needed based on each design individually.
 
-The boilerplate also includes an HTML pattern library for referencing, copying and pasting commonly used elements and optional modules, this helps speed up our workflow as everything you need is included in the files contained in the boilerplate. 
+The boilerplate also includes an HTML pattern library for referencing, copying and pasting commonly used elements and optional modules, this helps speed up our workflow as everything you need is included in the files contained in the boilerplate.
 
-We build a lot of websites at Better, most of them in WordPress, this boilerplate allows us to jump start the frontend build of projects and build websites quickly while still assuring code quality and complete control over the file sizes of the files in our projects. We hope you can use this framework for the same purpose, if you find it useful hit the star button and feel free to fork the project and use what you need.
+We build a lot of websites at Better, most of them in WordPress, this boilerplate allows us to jump start the frontend build of projects and build websites quickly while still assuring code quality and complete control over the file sizes of the files in our projects. 
+
+We hope you can use this framework for the same purpose, if you find it useful hit the star button and feel free to fork the project and use what you need. Any issues/questions or feedback should be reported in the repo.
 
 
 - - - -
