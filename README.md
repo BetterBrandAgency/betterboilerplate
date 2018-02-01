@@ -1,7 +1,7 @@
 # Better Boilerplate
 A frontend framework geared towards agencies using WordPress.
 
-For indepth documentation see the [Better Boilerplate Documentation Git Hub Page](https://matchboxhero.github.io/better-boilerplate-documentation/). The Better Boilerplate has been a labour of love for [Steven Roberts](https://twitter.com/matchboxhero10) the lead developer and author on the project.
+For in-depth documentation see the [Better Boilerplate Documentation Git Hub Page](https://matchboxhero.github.io/better-boilerplate-documentation/). The Better Boilerplate has been a labour of love for [Steven Roberts](https://twitter.com/matchboxhero10) the lead developer and author on the project.
 
 
 ## Introduction
