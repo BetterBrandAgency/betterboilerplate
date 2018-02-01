@@ -206,3 +206,9 @@ The Better Boilerplate makes use of HTML5 elements and some of the newer CSS3 el
 
 ## Browser Support
 Officially the Better Boilerplate supports IE10+ and all of the other modern browsers. Support for IE8+ could be provided with some work providing fallbacks for SVG's. There are some tools included in the CSS framework for providing flexbox and grid fallbacks to earlier versions of IE and for the modern browsers yet to support CSS Grid (soon to be none, yey!).
+
+
+- - - -
+
+## License
+MIT
