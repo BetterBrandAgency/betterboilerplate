@@ -1,13 +1,13 @@
-# Better Boilerplate
+# BetterBoilerplate
 A frontend framework geared towards agencies using WordPress.
 
-For in-depth documentation see the [Better Boilerplate Documentation Git Hub Page](https://betterbrandagency.github.io/better-boilerplate-documentation/). The Better Boilerplate has been a labour of love for [Steven Roberts](https://twitter.com/matchboxhero10) the lead developer and author on the project.
+For in-depth documentation see the [BetterBoilerplate Documentation Git Hub Page](https://betterbrandagency.github.io/better-boilerplate-documentation/). The BetterBoilerplate has been a labour of love for [Better Brand Agency](https://www.betterbrandagency.com/), and in particular [Steven Roberts](https://twitter.com/matchboxhero10), the lead developer and author on the project.
 
 
 ## Introduction
 The boilerplate is made up of many different modules and will manage much of the frontend build process; containing the entire directory structure for your project.
 
-The Better Boilerplate carries very little "style" and consists mainly of file and directory structure and theme-able objects, components and widgets. This allows us to create the styles needed based on each design individually.
+The BetterBoilerplate carries very little "style" and consists mainly of file and directory structure and theme-able objects, components and widgets. This allows us to create the styles needed based on each design individually.
 
 The boilerplate also includes an HTML pattern library for referencing, copying and pasting commonly used elements and optional modules, this helps speed up our workflow as everything you need is included in the files contained in the boilerplate.
 
@@ -19,8 +19,8 @@ We hope you can use this framework for the same purpose, if you find it useful h
 - - - -
 
 
-## How to use the Better Boilerplate
-The Better Boilerplate can be used in anyway you would like, it has been designed to be edited, changed, updated and bastardised to fit the project at hand. 
+## How to use the BetterBoilerplate
+The BetterBoilerplate can be used in anyway you would like, it has been designed to be edited, changed, updated and bastardised to fit the project at hand. 
 
 This is not a going to create a "pretty" website out of the box, we work with awesomely talented designers, and it seems a shame for so many websites to look and feel the same.
 
@@ -31,27 +31,27 @@ This is not a going to create a "pretty" website out of the box, we work with aw
 
 
 ## Getting Started
-Using the Better Boilerplate has a few prerequisites and assumes a working knowledge of HTML, CSS, SCSS/SASS, BEM (Block, Element, Modifier) and Javascript.
+Using the BetterBoilerplate has a few prerequisites and assumes a working knowledge of HTML, CSS, SCSS/SASS, BEM (Block, Element, Modifier) and Javascript.
 
 
 ### Prerequisites
-The Better Boilerplate includes a build process powered by gulp and so requires some software to be installed.
+The BetterBoilerplate includes a build process powered by gulp and so requires some software to be installed.
 
 #### NPM
 NPM (Node Package Manager) is required to be able to run gulp tasks and compile the SCSS. Install: 
 [npm](https://www.npmjs.com/)
 
 #### SASS/SCSS
-The Better Boilerplate is written in SCSS which is part of SASS (Syntactically Awesome Style Sheets) – SASS gives us access to features which are not readily available in vanilla CSS. Install: 
+The BetterBoilerplate is written in SCSS which is part of SASS (Syntactically Awesome Style Sheets) – SASS gives us access to features which are not readily available in vanilla CSS. Install: 
 [Sass: Install Sass](http://sass-lang.com/install)
 
 #### Gulp
-The Better Boilerplate makes use of Gulp as a task runner to help streamline some of the build process. Install: 
+The BetterBoilerplate makes use of Gulp as a task runner to help streamline some of the build process. Install: 
 [gulp/getting-started.md at master · gulpjs/gulp · GitHub](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md)
 
 
 ### Installing
-Once you have downloaded the Better Boilerplate and included it in your project files you will need to install the required npm modules, to do this; navigate to the root directory of you project and run the following commands in terminal;
+Once you have downloaded the BetterBoilerplate and included it in your project files you will need to install the required npm modules, to do this; navigate to the root directory of you project and run the following commands in terminal;
 
 ```
 npm install
@@ -112,7 +112,7 @@ This layer contains all of the variables needed to turn settings on and off as w
 
 
 ### 02-tools
-The tools directory contains all of the mixins and other tools included in the Better Boilerplate. New mixins and tools can be added by creating new files inside the `src/styles/02-tools` directory. Since mixins don't output any code until they're used there is no harm in them being there and not being utilised, the other tools included are turned on and off using boolean variables in the settings directory.
+The tools directory contains all of the mixins and other tools included in the BetterBoilerplate. New mixins and tools can be added by creating new files inside the `src/styles/02-tools` directory. Since mixins don't output any code until they're used there is no harm in them being there and not being utilised, the other tools included are turned on and off using boolean variables in the settings directory.
 
 The tools layer contains a number of mixins and other tools to help with a multitude of CSS requirements on any given project. 
 
@@ -121,7 +121,7 @@ The tools layer contains a number of mixins and other tools to help with a multi
 
 
 ### 03-generic
-The generic layer of the framework contains a CSS reset used to normalise the default CSS in all browsers. The Better Boilerplate uses `sanitize.css` (https://jonathantneal.github.io/sanitize.css/) for this reset layer.
+The generic layer of the framework contains a CSS reset used to normalise the default CSS in all browsers. The BetterBoilerplate uses `sanitize.css` (https://jonathantneal.github.io/sanitize.css/) for this reset layer.
 
 
 - - - -
@@ -200,14 +200,14 @@ The file size of the CSS framework when compiled, minified and gzipped is ~`3kb`
 
 
 ## Browser Polyfills
-The Better Boilerplate makes use of HTML5 elements and some of the newer CSS3 elements available to designers and developers, to offer the best support we can for older browsers. The following files are included in the `src/scripts/single-scripts/` directory and will need including in the header of your website.
+The BetterBoilerplate makes use of HTML5 elements and some of the newer CSS3 elements available to designers and developers, to offer the best support we can for older browsers. The following files are included in the `src/scripts/single-scripts/` directory and will need including in the header of your website.
 
 
 - - - -
 
 
 ## Browser Support
-Officially the Better Boilerplate supports IE10+ and all of the other modern browsers. Support for IE8+ could be provided with some work providing fallbacks for SVG's. There are some tools included in the CSS framework for providing flexbox and grid fallbacks to earlier versions of IE and for the modern browsers yet to support CSS Grid (soon to be none, yey!).
+Officially the BetterBoilerplate supports IE10+ and all of the other modern browsers. Support for IE8+ could be provided with some work providing fallbacks for SVG's. There are some tools included in the CSS framework for providing flexbox and grid fallbacks to earlier versions of IE and for the modern browsers yet to support CSS Grid (soon to be none, yey!).
 
 
 - - - -
