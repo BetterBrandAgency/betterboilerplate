@@ -431,7 +431,7 @@
             gulp.watch('src/images/**/*', ['images', 'svg-images']);
 
             // Watch SVGs
-            gulp.watch('src/svg/**/*', ['svg-sprite']);
+            gulp.watch('src/svgs/**/*', ['svg-sprite']);
 
         });
 
