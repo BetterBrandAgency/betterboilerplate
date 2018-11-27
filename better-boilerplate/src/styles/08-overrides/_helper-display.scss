@@ -1,0 +1,51 @@
+/////
+//
+// Display Helper Classes
+//
+/////
+
+@if $use-helper-display-styles == true {
+
+    .display {
+
+        &--block {
+            display: block !important;
+        }
+
+        &--flex {
+            display: flex !important;
+            flex-wrap: wrap !important;
+        }
+
+        &--flex-vertical {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            flex-direction: column;
+
+            >*:last-child {
+                margin-top: auto !important;
+            }
+
+        }
+
+        &--flex-no-wrap {
+            display: flex !important;
+            flex-wrap: nowrap !important;
+        }
+
+        &--inline-flex {
+            display: inline-flex !important;
+            flex-wrap: wrap !important;
+        }
+
+        &--flex-justify-center {
+            justify-content: center !important;
+        }
+
+        &--flex-center {
+            align-items: center !important;
+        }
+
+    }
+
+}
