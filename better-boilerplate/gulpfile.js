@@ -9,7 +9,7 @@
     // Require all plugins and dependencies
         const
             gulp           =    require('gulp'),
-            sass           =    require('gulp-ruby-sass'),          // Compiles Sass
+            sass           =    require('gulp-sass'),               // Compiles Sass
             postcss        =    require('gulp-postcss'),            // Use PostCSS Plugins
             notify         =    require('gulp-notify'),             // Notifier
             plumber        =    require('gulp-plumber'),            // Required for Notifications
@@ -23,7 +23,7 @@
             gulpIgnore     =    require('gulp-ignore'),             // Ignore Files and Folders
             newer          =    require('gulp-newer'),              // Check to see if file has changed
             imagemin       =    require('gulp-imagemin'),           // Image Minification
-            uglify         =    require('gulp-uglify'),             // Minify JS
+            uglify         =    require('gulp-uglify-es').default,  // Minify JS
             svgmin         =    require('gulp-svgmin'),             // Minify SVG
             svgstore       =    require('gulp-svgstore'),           // SVG Sprite
             concat         =    require('gulp-concat'),             // Concatenate files
@@ -50,9 +50,11 @@
         ];
 
     // Compile Styles Task
-        gulp.task('styles', () =>
+        gulp.task('styles', function () {
 
-            sass('src/styles/main.scss', {sourcemap: true}) // Read from this directory
+            return gulp.src('src/styles/main.scss', {
+                sourcemap: true
+            }) // Read from this directory
 
                 .pipe(plumber({errorHandler: function(err){ // Pipe in error messages
                     notify.onError({
@@ -63,6 +65,8 @@
                     })(err);
                     notify.emit('end');
                 }}))
+
+                .pipe(sass().on('error', sass.logError))
 
                 .pipe(sourcemaps.init()) // Init Sourcemaps
 
@@ -81,11 +85,13 @@
                     "icon": path.join(__dirname + "/gulp-images/sass.png")
                 }))
 
-        );
+        });
 
     // Minify Styles
-        gulp.task('minify-styles', () =>
-            sass('src/styles/main.scss', {sourcemap: true}) // Read from this directory
+        gulp.task('minify-styles', function () {
+            return gulp.src('src/styles/main.scss', {
+                sourcemap: true
+            }) // Read from this directory
 
                 .pipe(plumber({errorHandler: function(err){ // Pipe in error messages
                     notify.onError({
@@ -96,6 +102,8 @@
                     })(err);
                     notify.emit('end');
                 }}))
+
+                .pipe(sass().on('error', sass.logError))
 
                 .pipe(sourcemaps.init()) // Init Sourcemaps
 
@@ -118,7 +126,7 @@
                     "icon": path.join(__dirname + "/gulp-images/sass.png")
                 }))
 
-        );
+        });
 
     // Purify CSS ---EXPERIMENTAL---
         gulp.task('purify-styles', function() {
@@ -160,7 +168,7 @@
         gulp.task('scripts-linter', function() {
             return gulp.src('src/scripts/*.js') // Read from this directory
                 .pipe(jshint()) // Lint JS
-                .pipe(jshint.reporter('default'))
+                .pipe(jshint.reporter('default'));
         });
 
     // Compile and Concatenate All Scripts into dist Directory
@@ -191,6 +199,7 @@
                     "subtitle": "Scripts passed",
                     "icon": path.join(__dirname + "/gulp-images/js.png")
                 }));
+
         });
 
     // Compile and Concatenate All Scripts into dist Directory
@@ -263,7 +272,17 @@
 
                 .pipe(newer('../dist/images')) // Check file is newer
 
-                .pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true })) // Optimise images
+                .pipe(imagemin([
+                    imagemin.gifsicle({
+                        interlaced: true
+                    }),
+                    imagemin.jpegtran({
+                        progressive: true
+                    }),
+                    imagemin.optipng({
+                        optimizationLevel: 5
+                    }),
+                ])) // Optimise images
 
                 .pipe(gulp.dest('../dist/images')) // Spit out in '../dist/images'
 
@@ -322,19 +341,89 @@
 
                 .pipe(svgmin({ // Minify SVGs
                     plugins: [{
-                        removeDoctype: true // Remove DocType
+                        cleanupAttrs: true
                     }, {
-                        removeComments: true // Remove Comments
+                        removeDoctype: true
+                    }, {
+                        removeXMLProcInst: true
+                    }, {
+                        removeComments: true
+                    }, {
+                        removeMetadata: true
+                    }, {
+                        removeTitle: false
+                    }, {
+                        removeDesc: true
+                    }, {
+                        removeUselessDefs: true
+                    }, {
+                        removeXMLNS: false
+                    }, {
+                        removeEditorsNSData: true
+                    }, {
+                        removeEmptyAttrs: true
+                    }, {
+                        removeHiddenElems: true
+                    }, {
+                        removeEmptyText: true
+                    }, {
+                        removeEmptyContainers: true
+                    }, {
+                        removeViewBox: false
+                    }, {
+                        cleanupEnableBackground: true
+                    }, {
+                        minifyStyles: true
+                    }, {
+                        convertStyleToAttrs: true
+                    }, {
+                        convertPathData: true
+                    }, {
+                        convertTransform: true
+                    }, {
+                        removeUnknownsAndDefaults: true
+                    }, {
+                        removeNonInheritableGroupAttrs: true
+                    }, {
+                        removeUselessStrokeAndFill: true
+                    }, {
+                        removeUnusedNS: true
+                    }, {
+                        cleanupIDs: false
                     }, {
                         cleanupNumericValues: {
                             floatPrecision: 2 // Reduces file size
                         }
                     }, {
-                        removeStyleElement: true // Removes inline styles from SVGs
+                        cleanupListOfValues: false
+                    }, {
+                        moveElemsAttrsToGroup: false
+                    }, {
+                        moveGroupAttrsToElems: true
+                    }, {
+                        collapseGroups: true
+                    }, {
+                        removeRasterImages: true
+                    }, {
+                        mergePaths: true
+                    }, {
+                        convertShapeToPath: true
+                    }, {
+                        sortAttrs: true
+                    }, {
+                        removeDimensions: true
+                    }, {
+                        removeAttrs: false
+                    }, {
+                        removeElementsByAttr: true
+                    }, {
+                        removeStyleElement: true
+                    }, {
+                        removeScriptElement: true
                     }]
                 }))
 
-                .pipe(svgstore({ inlineSvg: true })) // Inline SVG into one file
+                .pipe(svgstore()) // Inline SVG into one file
 
                 .pipe(rename('sprite.svg')) // Create 'sprite.svg' from files
 
@@ -345,6 +434,120 @@
                     "subtitle": "SVGs passed",
                     "icon": path.join(__dirname + "/gulp-images/svg.png")
                 }));
+
+        });
+
+        // Rename All Icons - removes 'icon_' prefix
+
+        gulp.task('icons', function () {
+
+            return gulp.src('src/icons/**/*.svg') // Read from this directory
+
+                .pipe(rename(function(icon) {
+                    icon.basename = icon.basename.replace(/^icon_/, '');
+                    return icon;
+                }))
+
+                .pipe(gulp.dest('../better-boilerplate/src/svgs')) // Spit out in '../dist/images'
+
+        });
+
+        gulp.task('kill-new-icons', function() {
+
+            return gulp.src(['src/icons/optimised'], { read: false }) // Find these folders
+                .pipe(clean({ force: true })); // Delete them
+
+        });
+
+        gulp.task('optimise-icons', function() {
+
+            return gulp.src('src/svgs/**/*.svg') // Read from this directory
+
+            .pipe(svgmin({ // Minify SVGs
+                plugins: [{
+                    cleanupAttrs: true
+                }, {
+                    removeDoctype: true
+                }, {
+                    removeXMLProcInst: true
+                }, {
+                    removeComments: true
+                }, {
+                    removeMetadata: true
+                }, {
+                    removeTitle: true
+                }, {
+                    removeDesc: true
+                }, {
+                    removeUselessDefs: true
+                }, {
+                    removeXMLNS: false
+                }, {
+                    removeEditorsNSData: true
+                }, {
+                    removeEmptyAttrs: true
+                }, {
+                    removeHiddenElems: true
+                }, {
+                    removeEmptyText: true
+                }, {
+                    removeEmptyContainers: true
+                }, {
+                    removeViewBox: false
+                }, {
+                    cleanupEnableBackground: true
+                }, {
+                    minifyStyles: true
+                }, {
+                    convertStyleToAttrs: true
+                }, {
+                    convertPathData: true
+                }, {
+                    convertTransform: true
+                }, {
+                    removeUnknownsAndDefaults: true
+                }, {
+                    removeNonInheritableGroupAttrs: true
+                }, {
+                    removeUselessStrokeAndFill: true
+                }, {
+                    removeUnusedNS: true
+                }, {
+                    cleanupIDs: true
+                }, {
+                    cleanupNumericValues: {
+                        floatPrecision: 2 // Reduces file size
+                    }
+                }, {
+                    cleanupListOfValues: false
+                }, {
+                    moveElemsAttrsToGroup: false
+                }, {
+                    moveGroupAttrsToElems: true
+                }, {
+                    collapseGroups: true
+                }, {
+                    removeRasterImages: true
+                }, {
+                    mergePaths: true
+                }, {
+                    convertShapeToPath: true
+                }, {
+                    sortAttrs: true
+                }, {
+                    removeDimensions: true
+                }, {
+                    removeAttrs: false
+                }, {
+                    removeElementsByAttr: true
+                }, {
+                    removeStyleElement: true
+                }, {
+                    removeScriptElement: true
+                }]
+            }))
+
+            .pipe(gulp.dest('../better-boilerplate/src/icons/'))
 
         });
 
@@ -396,13 +599,16 @@
 
     // Remove CSS and JS Directories
         gulp.task('clean', function() {
-            return gulp.src(['../dist/css', '../dist/js'], {read: false}) // Find these folders
+            return gulp.src(['../dist/css', '../dist/js'], {read: false, allowEmpty: true}) // Find these folders
                 .pipe(clean({force: true})); // Delete them
         });
 
     // Remove all Dist Directories
         gulp.task('clean-all', function() {
-            return gulp.src(['../dist/css', '../dist/js', '../dist/images', '../dist/fonts', '../dist/favicons'], {read: false}) // Find these folders
+            return gulp.src(['../dist/css', '../dist/js', '../dist/images', '../dist/fonts', '../dist/favicons', '../dist/downloads'], {
+                read: false,
+                allowEmpty: true
+            }) // Find these folders
                 .pipe(clean({force: true})); // Delete them
         });
 
@@ -416,51 +622,54 @@
         gulp.task('watch', function() {
 
             // Watch .scss Files
-            gulp.watch('src/styles/**/*', ['styles', 'minify-styles']);
+            gulp.watch('src/styles/**/*', gulp.series(gulp.parallel('styles', 'minify-styles')));
 
             // Watch .scss Files
-            gulp.watch('src/scripts/**/*', ['scripts-linter', 'scripts', 'minify-scripts', 'single-scripts']);
+            gulp.watch('src/scripts/**/*', gulp.series(gulp.parallel('scripts-linter', 'scripts', 'minify-scripts', 'single-scripts')));
 
             // Watch fonts
-            gulp.watch('src/fonts/**/*', ['fonts']);
+            gulp.watch('src/fonts/**/*', gulp.series('fonts'));
 
             // Watch favicons
-            gulp.watch('src/favicons/**/*', ['favicons']);
+            gulp.watch('src/favicons/**/*', gulp.series('favicons'));
 
             // Watch images
-            gulp.watch('src/images/**/*', ['images', 'svg-images']);
+            gulp.watch('src/images/**/*', gulp.series(gulp.parallel('images', 'svg-images')));
 
             // Watch SVGs
-            gulp.watch('src/svgs/**/*', ['svg-sprite']);
+            gulp.watch('src/svgs/**/*', gulp.series('svg-sprite'));
 
         });
 
     // Create Default Task
-        gulp.task('default', ['clean', 'watch'], function() {
-            gulp.start('styles');
-            gulp.start('minify-styles');
-            gulp.start('scripts-linter');
-            gulp.start('scripts');
-            gulp.start('minify-scripts');
-            gulp.start('single-scripts');
-            gulp.start('fonts');
-            gulp.start('favicons');
-            gulp.start('images');
-            gulp.start('svg-images');
-            gulp.start('svg-sprite');
-        });
+        gulp.task('default', gulp.series('clean', gulp.parallel(
+            'watch',
+            'styles',
+            'minify-styles',
+            'scripts-linter',
+            'scripts',
+            'minify-scripts',
+            'single-scripts',
+            'fonts',
+            'favicons',
+            'images',
+            'svg-images',
+            'svg-sprite'
+        )));
 
     // Rebuild Task - Delete entire dist folder and rebuild
-        gulp.task('rebuild', ['clean-all'], function() {
-            gulp.start('styles');
-            gulp.start('minify-styles');
-            gulp.start('scripts-linter');
-            gulp.start('scripts');
-            gulp.start('minify-scripts');
-            gulp.start('single-scripts');
-            gulp.start('fonts');
-            gulp.start('favicons');
-            gulp.start('images');
-            gulp.start('svg-images');
-            gulp.start('svg-sprite');
-        });
+        gulp.task('rebuild', gulp.series('clean-all',
+            gulp.parallel(
+                'styles',
+                'minify-styles',
+                'scripts-linter',
+                'scripts',
+                'minify-scripts',
+                'single-scripts',
+                'fonts',
+                'favicons',
+                'images',
+                'svg-images',
+                'svg-sprite'
+            )
+        ));
