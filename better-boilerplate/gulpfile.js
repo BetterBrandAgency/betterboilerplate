@@ -270,15 +270,15 @@
 
             gulp.src('src/images/**/*') // Read from this directory
 
-            .pipe(plumber({errorHandler: function(err){ // Pipe in error message
-                notify.onError({
-                    title:    projectName,
-                    subtitle: "Images Failed",
-                    message:  "Error: <%= error.message %>",
-                    "icon": path.join(__dirname + "/gulp-images/images--failed.png")
-                })(err);
-                notify.emit('end');
-            }}))
+            // .pipe(plumber({errorHandler: function(err){ // Pipe in error message
+            //     notify.onError({
+            //         title:    projectName,
+            //         subtitle: "Images Failed",
+            //         message:  "Error: <%= error.message %>",
+            //         "icon": path.join(__dirname + "/gulp-images/images--failed.png")
+            //     })(err);
+            //     notify.emit('end');
+            // }}))
 
             .pipe(gulpIgnore.exclude([imageThumbs, svgs])) // Ignore image thumbs and svgs
 
@@ -298,11 +298,11 @@
 
             .pipe(gulp.dest('../dist/images')) // Spit out in '../dist/images'
 
-            .pipe(notify({ // Pipe in success messages
-                "title": projectName,
-                "subtitle": "Images passed",
-                "icon": path.join(__dirname + "/gulp-images/images.png")
-            }));
+            // .pipe(notify({ // Pipe in success messages
+            //     "title": projectName,
+            //     "subtitle": "Images passed",
+            //     "icon": path.join(__dirname + "/gulp-images/images.png")
+            // }));
 
             done();
 
