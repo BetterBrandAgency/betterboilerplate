@@ -6,36 +6,35 @@
 //
 /////
 
-    // Require all plugins and dependencies
-        const
-            gulp           =    require('gulp'),
-            sass           =    require('gulp-sass'),               // Compiles Sass
-            postcss        =    require('gulp-postcss'),            // Use PostCSS Plugins
-            notify         =    require('gulp-notify'),             // Notifier
-            plumber        =    require('gulp-plumber'),            // Required for Notifications
-            path           =    require('path'),                    // Required for Notifications
-            sourcemaps     =    require('gulp-sourcemaps'),         // Generate Sourcemaps
-            cleanCSS       =    require('gulp-clean-css'),          // Minify CSS
-            rename         =    require("gulp-rename"),             // Rename Files
-            autoprefixer   =    require('autoprefixer'),            // Autoprefixer
-            purify         =    require('gulp-purifycss'),          // Purify CSS
-            clean          =    require('gulp-clean'),              // Clean Directories
-            gulpIgnore     =    require('gulp-ignore'),             // Ignore Files and Folders
-            newer          =    require('gulp-newer'),              // Check to see if file has changed
-            imagemin       =    require('gulp-imagemin'),           // Image Minification
-            uglify         =    require('gulp-uglify-es').default,  // Minify JS
-            svgmin         =    require('gulp-svgmin'),             // Minify SVG
-            svgstore       =    require('gulp-svgstore'),           // SVG Sprite
-            concat         =    require('gulp-concat'),             // Concatenate files
-            jshint         =    require('gulp-jshint'),             // Javascript linter
-            pixrem         =    require('pixrem')                   // Convert new units to px for older browsers
-            babel          =    require('gulp-babel')               // Include bable to compile ES6
-        ;
+// Require all plugins and dependencies
+const
+    gulp = require('gulp'),
+    sass = require('gulp-sass'),               // Compiles Sass
+    postcss = require('gulp-postcss'),            // Use PostCSS Plugins
+    notify = require('gulp-notify'),             // Notifier
+    plumber = require('gulp-plumber'),            // Required for Notifications
+    path = require('path'),                    // Required for Notifications
+    sourcemaps = require('gulp-sourcemaps'),         // Generate Sourcemaps
+    cleanCSS = require('gulp-clean-css'),          // Minify CSS
+    rename = require("gulp-rename"),             // Rename Files
+    autoprefixer = require('autoprefixer'),            // Autoprefixer
+    purify = require('gulp-purifycss'),          // Purify CSS
+    clean = require('gulp-clean'),              // Clean Directories
+    gulpIgnore = require('gulp-ignore'),             // Ignore Files and Folders
+    newer = require('gulp-newer'),              // Check to see if file has changed
+    imagemin = require('gulp-imagemin'),           // Image Minification
+    uglify = require('gulp-uglify-es').default,  // Minify JS
+    svgmin = require('gulp-svgmin'),             // Minify SVG
+    svgstore = require('gulp-svgstore'),           // SVG Sprite
+    concat = require('gulp-concat'),             // Concatenate files
+    jshint = require('gulp-jshint'),             // Javascript linter
+    babel = require('gulp-babel')               // Include bable to compile ES6
+    ;
 
-    // Get project name from folder for notifications
-        var projectName = /([^/]+$)/.exec(process.cwd())[0].toLowerCase().replace(/\b[a-z]/g, function(letter) {
-            return letter.toUpperCase();
-        }).replace(/-/g, ' ');
+// Get project name from folder for notifications
+var projectName = /([^/]+$)/.exec(process.cwd())[0].toLowerCase().replace(/\b[a-z]/g, function (letter) {
+    return letter.toUpperCase();
+}).replace(/-/g, ' ');
 
 /////
 //
@@ -43,120 +42,131 @@
 //
 /////
 
-    // Define Post CSS Plugins
-        var post_css_plugins = [
-            autoprefixer({browsers: 'last 2 versions', supports: false}),
-            //pixrem // Provide pixel fallbacks for older browsers
-        ];
+// Define Post CSS Plugins
+var post_css_plugins = [
+    autoprefixer({ browsers: 'last 2 versions', supports: false })
+];
 
-    // Compile Styles Task
-        gulp.task('styles', function () {
+// Compile Styles Task
+function styles(done) {
 
-            return gulp.src('src/styles/main.scss', {
-                sourcemap: true
-            }) // Read from this directory
+    gulp.src('src/styles/main.scss', {
+        sourcemap: true
+    }) // Read from this directory
 
-                .pipe(plumber({errorHandler: function(err){ // Pipe in error messages
-                    notify.onError({
-                        title:    projectName,
-                        subtitle: "Styles Failed",
-                        message:  "Error: <%= error.message %>",
-                        "icon": path.join(__dirname + "/gulp-images/sass--failed.png")
-                    })(err);
-                    notify.emit('end');
-                }}))
+    .pipe(plumber({
+        errorHandler: function (err) { // Pipe in error messages
+            notify.onError({
+                title: projectName,
+                subtitle: "Styles Failed",
+                message: "Error: <%= error.message %>",
+                "icon": path.join(__dirname + "/gulp-images/sass--failed.png")
+            })(err);
+            notify.emit('end');
+        }
+    }))
 
-                .pipe(sass().on('error', sass.logError))
+    .pipe(sass().on('error', sass.logError))
 
-                .pipe(sourcemaps.init()) // Init Sourcemaps
+    .pipe(sourcemaps.init()) // Init Sourcemaps
 
-                .pipe(postcss(post_css_plugins)) // Run Post CSS Plugins
+    .pipe(postcss(post_css_plugins)) // Run Post CSS Plugins
 
-                .pipe(sourcemaps.write('maps', { // Create Sourcemaps
-                    includeContent: false,
-                    sourceRoot: 'source'
-                }))
+    .pipe(sourcemaps.write('maps', { // Create Sourcemaps
+        includeContent: false,
+        sourceRoot: 'source'
+    }))
 
-                .pipe(gulp.dest('../dist/css')) // Spit out in '../dist/css'
+    .pipe(gulp.dest('../dist/css')) // Spit out in '../dist/css'
 
-                .pipe(notify({ // Pipe in success messages
-                    "title": projectName,
-                    "subtitle": "Styles Passed",
-                    "icon": path.join(__dirname + "/gulp-images/sass.png")
-                }))
+    .pipe(notify({ // Pipe in success messages
+        "title": projectName,
+        "subtitle": "Styles Passed",
+        "icon": path.join(__dirname + "/gulp-images/sass.png")
+    }));
 
-        });
+    done();
 
-    // Minify Styles
-        gulp.task('minify-styles', function () {
-            return gulp.src('src/styles/main.scss', {
-                sourcemap: true
-            }) // Read from this directory
+}
 
-                .pipe(plumber({errorHandler: function(err){ // Pipe in error messages
-                    notify.onError({
-                        title:    projectName,
-                        subtitle: "Styles Failed",
-                        message:  "Error: <%= error.message %>",
-                        "icon": path.join(__dirname + "/gulp-images/sass--failed.png")
-                    })(err);
-                    notify.emit('end');
-                }}))
+// Minify Styles
+function minifyStyles(done) {
+    gulp.src('src/styles/main.scss', {
+        sourcemap: true
+    }) // Read from this directory
 
-                .pipe(sass().on('error', sass.logError))
+    .pipe(plumber({
+        errorHandler: function (err) { // Pipe in error messages
+            notify.onError({
+                title: projectName,
+                subtitle: "Styles Failed",
+                message: "Error: <%= error.message %>",
+                "icon": path.join(__dirname + "/gulp-images/sass--failed.png")
+            })(err);
+            notify.emit('end');
+        }
+    }))
 
-                .pipe(sourcemaps.init()) // Init Sourcemaps
+    .pipe(sass().on('error', sass.logError))
 
-                .pipe(postcss(post_css_plugins)) // Run Post CSS Plugins
+    .pipe(sourcemaps.init()) // Init Sourcemaps
 
-                .pipe(cleanCSS()) // Minify CSS
+    .pipe(postcss(post_css_plugins)) // Run Post CSS Plugins
 
-                .pipe(rename('main.min.css')) // Rename to '.min.css'
+    .pipe(cleanCSS()) // Minify CSS
 
-                .pipe(sourcemaps.write('maps', { // Create Sourcemaps
-                    includeContent: false,
-                    sourceRoot: 'source'
-                }))
+    .pipe(rename('main.min.css')) // Rename to '.min.css'
 
-                .pipe(gulp.dest('../dist/css')) // Spit out in '../dist/css'
+    .pipe(sourcemaps.write('maps', { // Create Sourcemaps
+        includeContent: false,
+        sourceRoot: 'source'
+    }))
 
-                .pipe(notify({ // Pipe in success messages
-                    "title": projectName,
-                    "subtitle": "Styles Passed",
-                    "icon": path.join(__dirname + "/gulp-images/sass.png")
-                }))
+    .pipe(gulp.dest('../dist/css')) // Spit out in '../dist/css'
 
-        });
+    .pipe(notify({ // Pipe in success messages
+        "title": projectName,
+        "subtitle": "Styles Passed",
+        "icon": path.join(__dirname + "/gulp-images/sass.png")
+    }));
 
-    // Purify CSS ---EXPERIMENTAL---
-        gulp.task('purify-styles', function() {
-            return gulp.src('../dist/css/main.min.css') // Read from this file
+    done();
 
-                .pipe(plumber({errorHandler: function(err){ // Pipe in error messages
-                    notify.onError({
-                        title:    projectName,
-                        subtitle: "Purify Failed",
-                        message:  "Error: <%= error.message %>",
-                        "icon": path.join(__dirname + "/gulp-images/sass--failed.png")
-                    })(err);
-                    notify.emit('end');
-                }}))
+}
 
-                .pipe(purify(['../dist/**/*.js', '../dist/**/*.html', '../dist/**/*.php', '*.php'])) // Read from these files and folders and remove unused CSS
+// Purify CSS ---EXPERIMENTAL---
+function purifyStyles(done) {
+    gulp.src('../dist/css/main.min.css') // Read from this file
 
-                .pipe(cleanCSS()) // Minify CSS
+    .pipe(plumber({
+        errorHandler: function (err) { // Pipe in error messages
+            notify.onError({
+                title: projectName,
+                subtitle: "Purify Failed",
+                message: "Error: <%= error.message %>",
+                "icon": path.join(__dirname + "/gulp-images/sass--failed.png")
+            })(err);
+            notify.emit('end');
+        }
+    }))
 
-                .pipe(rename('main.purified.css')) // Rename to '.purified.css'
+    .pipe(purify(['../dist/**/*.js', '../dist/**/*.html', '../dist/**/*.php', '*.php'])) // Read from these files and folders and remove unused CSS
 
-                .pipe(gulp.dest('../dist/css')) // Spit out in '../dist/css'
+    .pipe(cleanCSS()) // Minify CSS
 
-                .pipe(notify({ // Pipe in success messages
-                    "title": projectName,
-                    "subtitle": "Purify Passed",
-                    "icon": path.join(__dirname + "/gulp-images/sass.png")
-                }));
+    .pipe(rename('main.purified.css')) // Rename to '.purified.css'
 
-        });
+    .pipe(gulp.dest('../dist/css')) // Spit out in '../dist/css'
+
+    .pipe(notify({ // Pipe in success messages
+        "title": projectName,
+        "subtitle": "Purify Passed",
+        "icon": path.join(__dirname + "/gulp-images/sass.png")
+    }));
+
+    done();
+
+}
 
 /////
 //
@@ -164,85 +174,97 @@
 //
 /////
 
-    // Lint Javascript
-        gulp.task('scripts-linter', function() {
-            return gulp.src('src/scripts/*.js') // Read from this directory
-                .pipe(jshint()) // Lint JS
-                .pipe(jshint.reporter('default'));
-        });
+// Lint Javascript
+function scriptsLinter(done) {
+    gulp.src('src/scripts/*.js') // Read from this directory
+        .pipe(jshint()) // Lint JS
+        .pipe(jshint.reporter('default'));
 
-    // Compile and Concatenate All Scripts into dist Directory
-        gulp.task('scripts', function() {
-            gulp.src(['src/scripts/bundled-scripts/*', 'src/scripts/*']) // Read from these directories
+    done();
+}
 
-                .pipe(plumber({errorHandler: function(err){ // Pipe in error messages
-                    notify.onError({
-                        title:    projectName,
-                        subtitle: "Scripts Failed",
-                        message:  "Error: <%= error.message %>",
-                        "icon": path.join(__dirname + "/gulp-images/js--failed.png")
-                    })(err);
-                    notify.emit('end');
-                }}))
+// Compile and Concatenate All Scripts into dist Directory
+function scripts(done) {
+    gulp.src(['src/scripts/bundled-scripts/*', 'src/scripts/*']) // Read from these directories
 
-                .pipe(babel({
-                    presets: ['env'],
-                    ignore: ['siema.min.js', 'svg4everybody.min.js']
-                }))
+    .pipe(plumber({
+        errorHandler: function (err) { // Pipe in error messages
+            notify.onError({
+                title: projectName,
+                subtitle: "Scripts Failed",
+                message: "Error: <%= error.message %>",
+                "icon": path.join(__dirname + "/gulp-images/js--failed.png")
+            })(err);
+            notify.emit('end');
+        }
+    }))
 
-                .pipe(concat('main.js')) // Concatenate JS files
+    .pipe(babel({
+        presets: ['env'],
+        ignore: ['siema.min.js', 'svg4everybody.min.js']
+    }))
 
-                .pipe(gulp.dest('../dist/js')) // Spit out in '../dist/js'
+    .pipe(concat('main.js')) // Concatenate JS files
 
-                .pipe(notify({ // Pipe in success messages
-                    "title": projectName,
-                    "subtitle": "Scripts passed",
-                    "icon": path.join(__dirname + "/gulp-images/js.png")
-                }));
+    .pipe(gulp.dest('../dist/js')) // Spit out in '../dist/js'
 
-        });
+    .pipe(notify({ // Pipe in success messages
+        "title": projectName,
+        "subtitle": "Scripts passed",
+        "icon": path.join(__dirname + "/gulp-images/js.png")
+    }));
 
-    // Compile and Concatenate All Scripts into dist Directory
-        gulp.task('minify-scripts', function() {
+    done();
 
-            gulp.src(['src/scripts/bundled-scripts/*', 'src/scripts/*']) // Read from these directories
+}
 
-            .pipe(plumber({errorHandler: function(err){ // Pipe in error messages
-                notify.onError({
-                    title:    projectName,
-                    subtitle: "Scripts Failed",
-                    message:  "Error: <%= error.message %>",
-                    "icon": path.join(__dirname + "/gulp-images/js--failed.png")
-                })(err);
-                notify.emit('end');
-            }}))
+// Compile and Concatenate All Scripts into dist Directory
+function minifyScripts(done) {
 
-            .pipe(babel({
-                presets: ['env'],
-                ignore: ['siema.min.js', 'svg4everybody.min.js']
-            }))
+    gulp.src(['src/scripts/bundled-scripts/*', 'src/scripts/*']) // Read from these directories
 
-            .pipe(concat('main.js')) // Concatenate JS files
+    .pipe(plumber({
+        errorHandler: function (err) { // Pipe in error messages
+            notify.onError({
+                title: projectName,
+                subtitle: "Scripts Failed",
+                message: "Error: <%= error.message %>",
+                "icon": path.join(__dirname + "/gulp-images/js--failed.png")
+            })(err);
+            notify.emit('end');
+        }
+    }))
 
-            .pipe(rename({ suffix: '.min' })) // Rename to add '.min'
-            .pipe(uglify()) // Minify JS
+    .pipe(babel({
+        presets: ['env'],
+        ignore: ['siema.min.js', 'svg4everybody.min.js']
+    }))
 
-            .pipe(gulp.dest('../dist/js')) // Spit out in '../dist/js'
+    .pipe(concat('main.js')) // Concatenate JS files
 
-            .pipe(notify({ // Pipe in success messages
-                "title": projectName,
-                "subtitle": "Scripts passed",
-                "icon": path.join(__dirname + "/gulp-images/js.png")
-            }));
+    .pipe(rename({ suffix: '.min' })) // Rename to add '.min'
+    .pipe(uglify()) // Minify JS
 
-        });
+    .pipe(gulp.dest('../dist/js')) // Spit out in '../dist/js'
 
-    // Move and Minify Other Scripts
-        gulp.task('single-scripts', function() {
-            return gulp.src(['src/scripts/single-scripts/*']) // Read from this directory
-                .pipe(uglify()) // Minify JS
-                .pipe(gulp.dest('../dist/js')) // Spit out in '../dist/js'
-        });
+    .pipe(notify({ // Pipe in success messages
+        "title": projectName,
+        "subtitle": "Scripts passed",
+        "icon": path.join(__dirname + "/gulp-images/js.png")
+    }));
+
+    done();
+
+}
+
+// Move and Minify Other Scripts
+function singleScripts(done) {
+    gulp.src(['src/scripts/single-scripts/*']) // Read from this directory
+    .pipe(uglify()) // Minify JS
+    .pipe(gulp.dest('../dist/js')); // Spit out in '../dist/js'
+
+    done();
+}
 
 /////
 //
@@ -250,72 +272,78 @@
 //
 /////
 
-    // Compress and move images
-        gulp.task('images', function() {
+// Compress and move images
+function images(done) {
 
-            var imageThumbs = '**/images/**/Thumbs.db'; // Image thumbnails to be ignored
-            var svgs = '**/*.svg'; // SVGs to be ignored (causes an error with imagemin)
+    var imageThumbs = '**/images/**/Thumbs.db'; // Image thumbnails to be ignored
+    var svgs = '**/*.svg'; // SVGs to be ignored (causes an error with imagemin)
 
-            return gulp.src('src/images/**/*') // Read from this directory
+    gulp.src('src/images/**/*') // Read from this directory
 
-                .pipe(plumber({errorHandler: function(err){ // Pipe in error message
-                    notify.onError({
-                        title:    projectName,
-                        subtitle: "Images Failed",
-                        message:  "Error: <%= error.message %>",
-                        "icon": path.join(__dirname + "/gulp-images/images--failed.png")
-                    })(err);
-                    notify.emit('end');
-                }}))
+    .pipe(plumber({
+        errorHandler: function (err) { // Pipe in error message
+            notify.onError({
+                title: projectName,
+                subtitle: "Images Failed",
+                message: "Error: <%= error.message %>",
+                "icon": path.join(__dirname + "/gulp-images/images--failed.png")
+            })(err);
+            notify.emit('end');
+        }
+    }))
 
-                .pipe(gulpIgnore.exclude([imageThumbs, svgs])) // Ignore image thumbs and svgs
+    .pipe(gulpIgnore.exclude([imageThumbs, svgs])) // Ignore image thumbs and svgs
 
-                .pipe(newer('../dist/images')) // Check file is newer
+    .pipe(newer('../dist/images')) // Check file is newer
 
-                .pipe(imagemin([
-                    imagemin.gifsicle({
-                        interlaced: true
-                    }),
-                    imagemin.jpegtran({
-                        progressive: true
-                    }),
-                    imagemin.optipng({
-                        optimizationLevel: 5
-                    }),
-                ])) // Optimise images
+    .pipe(imagemin([
+        imagemin.gifsicle({
+            interlaced: true
+        }),
+        imagemin.jpegtran({
+            progressive: true
+        }),
+        imagemin.optipng({
+            optimizationLevel: 5
+        }),
+    ])) // Optimise images
 
-                .pipe(gulp.dest('../dist/images')) // Spit out in '../dist/images'
+    .pipe(gulp.dest('../dist/images')) // Spit out in '../dist/images'
 
-                .pipe(notify({ // Pipe in success messages
-                    "title": projectName,
-                    "subtitle": "Images passed",
-                    "icon": path.join(__dirname + "/gulp-images/images.png")
-                }));
+    .pipe(notify({ // Pipe in success messages
+        "title": projectName,
+        "subtitle": "Images passed",
+        "icon": path.join(__dirname + "/gulp-images/images.png")
+    }));
 
-        });
+    done();
 
-    // Move SVGs inside the images folder
-        gulp.task('svg-images', function() {
+}
 
-            return gulp.src('src/images/**/*.svg') // Read from this directory
+// Move SVGs inside the images folder
+function svgImages(done) {
 
-                .pipe(svgmin({ // Minify SVGs
-                    plugins: [{
-                        removeDoctype: true // Remove DocType
-                    }, {
-                        removeComments: true // Remove Comments
-                    }, {
-                        cleanupNumericValues: {
-                            floatPrecision: 2 // Reduces file size
-                        }
-                    }, {
-                        removeStyleElement: false // Removes inline styles from SVGs
-                    }]
-                }))
+    gulp.src('src/images/**/*.svg') // Read from this directory
 
-                .pipe(gulp.dest('../dist/images')) // Spit out in '../dist/images'
+    // .pipe(svgmin({ // Minify SVGs
+    //     plugins: [{
+    //         removeDoctype: true // Remove DocType
+    //     }, {
+    //         removeComments: true // Remove Comments
+    //     }, {
+    //         cleanupNumericValues: {
+    //             floatPrecision: 2 // Reduces file size
+    //         }
+    //     }, {
+    //         removeStyleElement: false // Removes inline styles from SVGs
+    //     }]
+    // }))
 
-        });
+    .pipe(gulp.dest('../dist/images')); // Spit out in '../dist/images'
+
+    done();
+
+}
 
 /////
 //
@@ -323,233 +351,123 @@
 //
 /////
 
-    // Create SVG Sprite
-        gulp.task('svg-sprite', function () {
-            return gulp.src('src/svgs/**/*') // Read from this directory
+// Create SVG Sprite
+function svgSprite(done) {
+    gulp.src('src/svgs/**/*') // Read from this directory
 
-                .pipe(plumber({errorHandler: function(err){ // Pipe in error message
-                    notify.onError({
-                        title:    projectName,
-                        subtitle: "SVG Failed",
-                        message:  "Error: <%= error.message %>",
-                        "icon": path.join(__dirname + "/gulp-images/svg--failed.png")
-                    })(err);
-                    notify.emit('end');
-                }}))
+    .pipe(plumber({
+        errorHandler: function (err) { // Pipe in error message
+            notify.onError({
+                title: projectName,
+                subtitle: "SVG Failed",
+                message: "Error: <%= error.message %>",
+                "icon": path.join(__dirname + "/gulp-images/svg--failed.png")
+            })(err);
+            notify.emit('end');
+        }
+    }))
 
-                //.pipe(rename({prefix: 'svg-'})) // Prefix all names with 'svg-'
+    //.pipe(rename({prefix: 'svg-'})) // Prefix all names with 'svg-'
 
-                .pipe(svgmin({ // Minify SVGs
-                    plugins: [{
-                        cleanupAttrs: true
-                    }, {
-                        removeDoctype: true
-                    }, {
-                        removeXMLProcInst: true
-                    }, {
-                        removeComments: true
-                    }, {
-                        removeMetadata: true
-                    }, {
-                        removeTitle: false
-                    }, {
-                        removeDesc: true
-                    }, {
-                        removeUselessDefs: true
-                    }, {
-                        removeXMLNS: false
-                    }, {
-                        removeEditorsNSData: true
-                    }, {
-                        removeEmptyAttrs: true
-                    }, {
-                        removeHiddenElems: true
-                    }, {
-                        removeEmptyText: true
-                    }, {
-                        removeEmptyContainers: true
-                    }, {
-                        removeViewBox: false
-                    }, {
-                        cleanupEnableBackground: true
-                    }, {
-                        minifyStyles: true
-                    }, {
-                        convertStyleToAttrs: true
-                    }, {
-                        convertPathData: true
-                    }, {
-                        convertTransform: true
-                    }, {
-                        removeUnknownsAndDefaults: true
-                    }, {
-                        removeNonInheritableGroupAttrs: true
-                    }, {
-                        removeUselessStrokeAndFill: true
-                    }, {
-                        removeUnusedNS: true
-                    }, {
-                        cleanupIDs: false
-                    }, {
-                        cleanupNumericValues: {
-                            floatPrecision: 2 // Reduces file size
-                        }
-                    }, {
-                        cleanupListOfValues: false
-                    }, {
-                        moveElemsAttrsToGroup: false
-                    }, {
-                        moveGroupAttrsToElems: true
-                    }, {
-                        collapseGroups: true
-                    }, {
-                        removeRasterImages: true
-                    }, {
-                        mergePaths: true
-                    }, {
-                        convertShapeToPath: true
-                    }, {
-                        sortAttrs: true
-                    }, {
-                        removeDimensions: true
-                    }, {
-                        removeAttrs: false
-                    }, {
-                        removeElementsByAttr: true
-                    }, {
-                        removeStyleElement: true
-                    }, {
-                        removeScriptElement: true
-                    }]
-                }))
+    .pipe(svgmin({ // Minify SVGs
+        plugins: [{
+            cleanupAttrs: true
+        }, {
+            removeDoctype: true
+        }, {
+            removeXMLProcInst: true
+        }, {
+            removeComments: true
+        }, {
+            removeMetadata: true
+        }, {
+            removeTitle: false
+        }, {
+            removeDesc: true
+        }, {
+            removeUselessDefs: true
+        }, {
+            removeXMLNS: false
+        }, {
+            removeEditorsNSData: true
+        }, {
+            removeEmptyAttrs: true
+        }, {
+            removeHiddenElems: true
+        }, {
+            removeEmptyText: true
+        }, {
+            removeEmptyContainers: true
+        }, {
+            removeViewBox: false
+        }, {
+            cleanupEnableBackground: true
+        }, {
+            minifyStyles: true
+        }, {
+            convertStyleToAttrs: true
+        }, {
+            convertPathData: true
+        }, {
+            convertTransform: true
+        }, {
+            removeUnknownsAndDefaults: true
+        }, {
+            removeNonInheritableGroupAttrs: true
+        }, {
+            removeUselessStrokeAndFill: true
+        }, {
+            removeUnusedNS: true
+        }, {
+            cleanupIDs: false
+        }, {
+            cleanupNumericValues: {
+                floatPrecision: 2 // Reduces file size
+            }
+        }, {
+            cleanupListOfValues: false
+        }, {
+            moveElemsAttrsToGroup: false
+        }, {
+            moveGroupAttrsToElems: true
+        }, {
+            collapseGroups: true
+        }, {
+            removeRasterImages: true
+        }, {
+            mergePaths: true
+        }, {
+            convertShapeToPath: true
+        }, {
+            sortAttrs: true
+        }, {
+            removeDimensions: true
+        }, {
+            removeAttrs: false
+        }, {
+            removeElementsByAttr: true
+        }, {
+            removeStyleElement: true
+        }, {
+            removeScriptElement: true
+        }]
+    }))
 
-                .pipe(svgstore()) // Inline SVG into one file
+    .pipe(svgstore()) // Inline SVG into one file
 
-                .pipe(rename('sprite.svg')) // Create 'sprite.svg' from files
+    .pipe(rename('sprite.svg')) // Create 'sprite.svg' from files
 
-                .pipe(gulp.dest('../dist/images')) // Spit out in '../dist/images'
+    .pipe(gulp.dest('../dist/images')) // Spit out in '../dist/images'
 
-                .pipe(notify({ // Pipe in success message
-                    "title": projectName,
-                    "subtitle": "SVGs passed",
-                    "icon": path.join(__dirname + "/gulp-images/svg.png")
-                }));
+    .pipe(notify({ // Pipe in success message
+        "title": projectName,
+        "subtitle": "SVGs passed",
+        "icon": path.join(__dirname + "/gulp-images/svg.png")
+    }));
 
-        });
+    done();
 
-        // Rename All Icons - removes 'icon_' prefix
-
-        gulp.task('icons', function () {
-
-            return gulp.src('src/icons/**/*.svg') // Read from this directory
-
-                .pipe(rename(function(icon) {
-                    icon.basename = icon.basename.replace(/^icon_/, '');
-                    return icon;
-                }))
-
-                .pipe(gulp.dest('../better-boilerplate/src/svgs')) // Spit out in '../dist/images'
-
-        });
-
-        gulp.task('kill-new-icons', function() {
-
-            return gulp.src(['src/icons/optimised'], { read: false }) // Find these folders
-                .pipe(clean({ force: true })); // Delete them
-
-        });
-
-        gulp.task('optimise-icons', function() {
-
-            return gulp.src('src/svgs/**/*.svg') // Read from this directory
-
-            .pipe(svgmin({ // Minify SVGs
-                plugins: [{
-                    cleanupAttrs: true
-                }, {
-                    removeDoctype: true
-                }, {
-                    removeXMLProcInst: true
-                }, {
-                    removeComments: true
-                }, {
-                    removeMetadata: true
-                }, {
-                    removeTitle: true
-                }, {
-                    removeDesc: true
-                }, {
-                    removeUselessDefs: true
-                }, {
-                    removeXMLNS: false
-                }, {
-                    removeEditorsNSData: true
-                }, {
-                    removeEmptyAttrs: true
-                }, {
-                    removeHiddenElems: true
-                }, {
-                    removeEmptyText: true
-                }, {
-                    removeEmptyContainers: true
-                }, {
-                    removeViewBox: false
-                }, {
-                    cleanupEnableBackground: true
-                }, {
-                    minifyStyles: true
-                }, {
-                    convertStyleToAttrs: true
-                }, {
-                    convertPathData: true
-                }, {
-                    convertTransform: true
-                }, {
-                    removeUnknownsAndDefaults: true
-                }, {
-                    removeNonInheritableGroupAttrs: true
-                }, {
-                    removeUselessStrokeAndFill: true
-                }, {
-                    removeUnusedNS: true
-                }, {
-                    cleanupIDs: true
-                }, {
-                    cleanupNumericValues: {
-                        floatPrecision: 2 // Reduces file size
-                    }
-                }, {
-                    cleanupListOfValues: false
-                }, {
-                    moveElemsAttrsToGroup: false
-                }, {
-                    moveGroupAttrsToElems: true
-                }, {
-                    collapseGroups: true
-                }, {
-                    removeRasterImages: true
-                }, {
-                    mergePaths: true
-                }, {
-                    convertShapeToPath: true
-                }, {
-                    sortAttrs: true
-                }, {
-                    removeDimensions: true
-                }, {
-                    removeAttrs: false
-                }, {
-                    removeElementsByAttr: true
-                }, {
-                    removeStyleElement: true
-                }, {
-                    removeScriptElement: true
-                }]
-            }))
-
-            .pipe(gulp.dest('../better-boilerplate/src/icons/'))
-
-        });
+}
 
 /////
 //
@@ -557,39 +475,45 @@
 //
 /////
 
-    // Copy Fonts to Dist
-        gulp.task('fonts', function() {
+// Copy Fonts to Dist
+function fonts(done) {
 
-            return gulp.src('src/fonts/**/*') // Read from this directory
+    gulp.src('src/fonts/**/*') // Read from this directory
 
-                .pipe(plumber({errorHandler: function(err){ // Pipe in error message
-                    notify.onError({
-                        title:    projectName,
-                        subtitle: "Fonts Failed",
-                        message:  "Error: <%= error.message %>",
-                        "icon": path.join(__dirname + "/gulp-images/fonts--failed.png")
-                    })(err);
-                    notify.emit('end');
-                }}))
+    .pipe(plumber({
+        errorHandler: function (err) { // Pipe in error message
+            notify.onError({
+                title: projectName,
+                subtitle: "Fonts Failed",
+                message: "Error: <%= error.message %>",
+                "icon": path.join(__dirname + "/gulp-images/fonts--failed.png")
+            })(err);
+            notify.emit('end');
+        }
+    }))
 
-                .pipe(gulp.dest('../dist/fonts')) // Spit out in '../dist/fonts'
+    .pipe(gulp.dest('../dist/fonts')) // Spit out in '../dist/fonts'
 
-                .pipe(notify({ // Pipe in success messages
-                    "title": projectName,
-                    "subtitle": "Fonts Passed",
-                    "icon": path.join(__dirname + "/gulp-images/fonts.png")
-                }));
+    .pipe(notify({ // Pipe in success messages
+        "title": projectName,
+        "subtitle": "Fonts Passed",
+        "icon": path.join(__dirname + "/gulp-images/fonts.png")
+    }));
 
-        });
+    done();
 
-    // Copy Favicons to Dist
-        gulp.task('favicons', function() {
+}
 
-            return gulp.src('src/favicons/**/*') // Read from this directory
+// Copy Favicons to Dist
+function favicons(done) {
 
-                .pipe(gulp.dest('../dist/favicons')) // Spit out in '../dist/favicons'
+    gulp.src('src/favicons/**/*') // Read from this directory
 
-        });
+    .pipe(gulp.dest('../dist/favicons')) // Spit out in '../dist/favicons'
+
+    done();
+
+}
 
 /////
 //
@@ -597,20 +521,22 @@
 //
 /////
 
-    // Remove CSS and JS Directories
-        gulp.task('clean', function() {
-            return gulp.src(['../dist/css', '../dist/js'], {read: false, allowEmpty: true}) // Find these folders
-                .pipe(clean({force: true})); // Delete them
-        });
+// Remove CSS and JS Directories
+gulp.task('cleanFiles', function (done) {
+    gulp.src(['../dist/css', '../dist/js'], { read: false, allowEmpty: true }) // Find these folders
+    .pipe(clean({ force: true })); // Delete them
+    done();
+});
 
-    // Remove all Dist Directories
-        gulp.task('clean-all', function() {
-            return gulp.src(['../dist/css', '../dist/js', '../dist/images', '../dist/fonts', '../dist/favicons', '../dist/downloads'], {
-                read: false,
-                allowEmpty: true
-            }) // Find these folders
-                .pipe(clean({force: true})); // Delete them
-        });
+// Remove all Dist Directories
+gulp.task('cleanAllFiles', function (done) {
+    gulp.src(['../dist/css', '../dist/js', '../dist/images', '../dist/fonts', '../dist/favicons', '../dist/downloads'], {
+        read: false,
+        allowEmpty: true
+    }) // Find these folders
+    .pipe(clean({ force: true })); // Delete them
+    done();
+});
 
 /////
 //
@@ -618,58 +544,45 @@
 //
 /////
 
-    // Watch Tasks
-        gulp.task('watch', function() {
+// Watch Tasks
+function watchFiles() {
 
-            // Watch .scss Files
-            gulp.watch('src/styles/**/*', gulp.series(gulp.parallel('styles', 'minify-styles')));
+    // Watch .scss Files
+    gulp.watch('src/styles/**/*', gulp.series(styles, minifyStyles));
 
-            // Watch .scss Files
-            gulp.watch('src/scripts/**/*', gulp.series(gulp.parallel('scripts-linter', 'scripts', 'minify-scripts', 'single-scripts')));
+    // Watch .js Files
+    gulp.watch('src/scripts/**/*', gulp.series(scriptsLinter, scripts, minifyScripts, singleScripts));
 
-            // Watch fonts
-            gulp.watch('src/fonts/**/*', gulp.series('fonts'));
+    // Watch fonts
+    gulp.watch('src/fonts/**/*', fonts);
 
-            // Watch favicons
-            gulp.watch('src/favicons/**/*', gulp.series('favicons'));
+    // Watch favicons
+    gulp.watch('src/favicons/**/*', favicons);
 
-            // Watch images
-            gulp.watch('src/images/**/*', gulp.series(gulp.parallel('images', 'svg-images')));
+    // Watch images
+    gulp.watch('src/images/**/*', gulp.series(images, svgImages));
 
-            // Watch SVGs
-            gulp.watch('src/svgs/**/*', gulp.series('svg-sprite'));
+    // Watch SVGs
+    gulp.watch('src/svgs/**/*', svgSprite);
 
-        });
+}
 
-    // Create Default Task
-        gulp.task('default', gulp.series('clean', gulp.parallel(
-            'watch',
-            'styles',
-            'minify-styles',
-            'scripts-linter',
-            'scripts',
-            'minify-scripts',
-            'single-scripts',
-            'fonts',
-            'favicons',
-            'images',
-            'svg-images',
-            'svg-sprite'
-        )));
+// Create Default Task
+gulp.task('default', gulp.series('cleanFiles', watchFiles));
 
-    // Rebuild Task - Delete entire dist folder and rebuild
-        gulp.task('rebuild', gulp.series('clean-all',
-            gulp.parallel(
-                'styles',
-                'minify-styles',
-                'scripts-linter',
-                'scripts',
-                'minify-scripts',
-                'single-scripts',
-                'fonts',
-                'favicons',
-                'images',
-                'svg-images',
-                'svg-sprite'
-            )
-        ));
+// Rebuild Task - Delete entire dist folder and rebuild
+gulp.task('rebuild', gulp.series('cleanAllFiles',
+    gulp.parallel(
+        styles,
+        minifyStyles,
+        scriptsLinter,
+        scripts,
+        minifyScripts,
+        singleScripts,
+        fonts,
+        favicons,
+        images,
+        svgImages,
+        svgSprite
+    )
+));
