@@ -552,7 +552,19 @@
         }
 
     // Create Default Task
-        gulp.task('default', gulp.series('cleanFiles', watchFiles));
+        gulp.task('default', gulp.series('cleanFiles', gulp.parallel(
+            'styles',
+            'minifyStyles',
+            'scriptsLinter',
+            'scripts',
+            'minifyScripts',
+            'singleScripts',
+            'fonts',
+            'favicons',
+            'images',
+            'svgImages',
+            'svgSprite'
+        ), watchFiles));
 
     // Rebuild Task - Delete entire dist folder and rebuild
         gulp.task('rebuild', gulp.series('cleanAllFiles',
