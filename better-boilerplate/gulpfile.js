@@ -504,13 +504,13 @@
 // CLEAN TASKS
 //
 /////
-       
+
     // Remove CSS and JS Directories
         gulp.task('cleanFiles', function() {
 
             return del([
-                '../wwwroot/css',
-                '../wwwroot/js'
+                '../dist/css',
+                '../dist/js'
             ], {
                 force: true
             });
@@ -521,7 +521,7 @@
         gulp.task('cleanAllFiles', function(){
 
             return del([
-                '../wwwroot/**/*'
+                '../dist/**/*'
             ], {
                 force: true
             });
