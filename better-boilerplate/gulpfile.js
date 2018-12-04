@@ -19,7 +19,7 @@
             rename         =    require("gulp-rename"),             // Rename Files
             autoprefixer   =    require('autoprefixer'),            // Autoprefixer
             purify         =    require('gulp-purifycss'),          // Purify CSS
-            clean          =    require('gulp-clean'),              // Clean Directories
+            del            =    require('del'),                     // Clean Directories
             gulpIgnore     =    require('gulp-ignore'),             // Ignore Files and Folders
             newer          =    require('gulp-newer'),              // Check to see if file has changed
             imagemin       =    require('gulp-imagemin'),           // Image Minification
@@ -504,22 +504,28 @@
 // CLEAN TASKS
 //
 /////
-
+       
     // Remove CSS and JS Directories
-        gulp.task('cleanFiles', function(done) {
-            gulp.src(['../dist/css', '../dist/js'], {read: false, allowEmpty: true}) // Find these folders
-            .pipe(clean({force: true})); // Delete them
-            done();
+        gulp.task('cleanFiles', function() {
+
+            return del([
+                '../wwwroot/css',
+                '../wwwroot/js'
+            ], {
+                force: true
+            });
+
         });
 
     // Remove all Dist Directories
-        gulp.task('cleanAllFiles', function(done){
-            gulp.src(['../dist/css', '../dist/js', '../dist/images', '../dist/fonts', '../dist/favicons', '../dist/downloads'], {
-                read: false,
-                allowEmpty: true
-            }) // Find these folders
-            .pipe(clean({force: true})); // Delete them
-            done();
+        gulp.task('cleanAllFiles', function(){
+
+            return del([
+                '../wwwroot/**/*'
+            ], {
+                force: true
+            });
+
         });
 
 /////
