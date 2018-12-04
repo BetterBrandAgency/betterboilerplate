@@ -27,7 +27,6 @@
         "gulp-svgstore": "^6.1.1",
         "gulp-uglify-es": "^1.0.4",
         "jshint": "^2.9.6",
-        "path": "^0.12.7",
-        "pixrem": "^3.0.2"
+        "path": "^0.12.7"
     }
 }
